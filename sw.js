@@ -1,7 +1,7 @@
 // Service Worker per Smorfia Tombola PWA
 const CACHE_NAME = 'tombola-v2';
 const urlsToCache = [
-  './index041125old.html',
+  './index.html',
   './tombola.png',
   './audio_door.mp3',
   './manifest.json'
