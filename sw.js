@@ -6,6 +6,13 @@ const urlsToCache = [
   './audio_door.mp3',
   './manifest.json'
 ];
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    fetch(event.request).catch(function() {
+      return caches.match('index.html');
+    })
+  );
+});
 
 // Installazione del service worker
 self.addEventListener('install', event => {
