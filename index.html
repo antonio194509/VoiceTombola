@@ -810,6 +810,7 @@
           stoppedByUser = true;
           recognition.stop();
 
+
   // Mostra solo il messaggio di chiusura e svuota la pagina
   document.body.innerHTML = "<h2 style='text-align:center;margin-top:40vh;'>Chiusura VoiceTombola</h2>";
   return;  
@@ -826,9 +827,14 @@
       }
 
       aggiorna(numero || 0, frase);
-      parla(frase);
-    };
+   
+     
 
+  // Parla solo se la frase non è vuota o composta solo da spazi
+  if (frase.trim() !== "") {
+    parla(frase);
+  }
+};
     recognition.onerror = (ev) => {
       console.warn("recognition.onerror", ev.error);
       listening = false;
