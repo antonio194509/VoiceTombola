@@ -419,7 +419,7 @@
     11: "e surice", 
     12: "o surdato",
     13: "Sant'Antonio",
-    14: "o briaco",
+    14: "o imbrìaco",
     15: "o guaglione",
     16: "o culo", 
     17: "a disgrazia",
@@ -487,7 +487,7 @@
     79: "o mariuolo", 
     80: "a vocca", 
     81: "e sciure",
-    82: "a tavula bandita", 
+    82: "a tavula mbandita", 
     83: "o malotiempo",
     84: "a chiesa", 
     85: "anime ro priatorio",
@@ -804,20 +804,15 @@
 
       if (!isNaN(numero)) {
         if (numero === 99) {
-          frase = "Grazie per aver giocato! Arrivederci.";
+         frase = "Grazie per aver giocato! Arrivederci.";
           aggiorna(numero, frase);
           parla(frase);
           stoppedByUser = true;
           recognition.stop();
-          
-          // Mostra messaggio di chiusura
-          if (authStatusEl) authStatusEl.textContent = "Partita terminata. Premi Reset per riavviare o chiudi la finestra.";
-          
-          // Disabilita i pulsanti tranne Reset
-          if (btnItaliano) btnItaliano.disabled = true;
-          if (btnNapoletano) btnNapoletano.disabled = true;
-          
-          return;
+
+  // Mostra solo il messaggio di chiusura e svuota la pagina
+  document.body.innerHTML = "<h2 style='text-align:center;margin-top:40vh;'>Chiusura VoiceTombola</h2>";
+  return;  
         }
         if (numero > 90) {
           frase = " ";
@@ -994,5 +989,4 @@
   <audio id="bell" src="audio_door.mp3" preload="auto"></audio>
 
 </body>
-
 </html>
