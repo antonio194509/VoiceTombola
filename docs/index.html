@@ -744,33 +744,37 @@
       });
     }
   }, 100);
+  // ...existing code...
+function parla(testo) {
+  if (!testo) return;
+  const u = new SpeechSynthesisUtterance(testo);
+  u.lang = "it-IT";
 
-  function parla(testo) {
-    if (!testo) return;
-    const u = new SpeechSynthesisUtterance(testo);
-    u.lang = "it-IT";
-
-    const trySpeak = () => {
-      const v = selectFemaleVoice();
-      if (v) {
-        u.voice = v;
-        console.log("Voce selezionata per speak:", v.name, v.lang, "default:", v.default);
-      } else {
-        console.log("Nessuna voce selezionata; verrà usata la voce di default del browser.");
-      }
-      synth.speak(u);
-    };
-
-    if (!synth.getVoices || synth.getVoices().length === 0) {
-      const onVoices = () => {
-        synth.removeEventListener('voiceschanged', onVoices);
-        trySpeak();
-      };
-      synth.addEventListener('voiceschanged', onVoices);
+  const trySpeak = () => {
+    const v = selectFemaleVoice();
+    if (v) {
+      u.voice = v;
+      console.log("Voce selezionata per speak:", v.name, v.lang, "default:", v.default);
     } else {
-      trySpeak();
+      console.log("Nessuna voce selezionata; verrà usata la voce di default del browser.");
     }
+    synth.cancel(); // <--- aggiungi questa riga per evitare ripetizioni
+    synth.speak(u);
+  };
+
+  if (!synth.getVoices || synth.getVoices().length === 0) {
+    const onVoices = () => {
+      synth.removeEventListener('voiceschanged', onVoices);
+      trySpeak();
+    };
+    synth.addEventListener('voiceschanged', onVoices);
+  } else {
+    trySpeak();
   }
+}
+// ...existing code...
+
+
 
   // Speech Recognition setup
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
