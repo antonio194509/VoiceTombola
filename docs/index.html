@@ -18,11 +18,11 @@
   <link rel="apple-touch-icon" href="tombola.png">
   <document>
     <script>
-    document.getElementById("demo").innerHTML =
-    "Screen Width: " + screen.width; 
+    //document.getElementById("demo").innerHTML =
+    //"Screen Width: " + screen.width; 
     
-    document.getElementById("demo").innerHTML +=
-    "Screen Height: " + screen.height;
+    //document.getElementById("demo").innerHTML +=
+    //"Screen Height: " + screen.height;
     
     </script>
     </document>
@@ -745,33 +745,25 @@
     }
   }, 100);
   // ...existing code...
+
+  // ...existing code...
+let parlando = false; // variabile globale
+
+// ...existing code...
 function parla(testo) {
-  if (!testo) return;
+  if (!testo || testo.trim() === "" || testo.trim() === "0") return;
+  synth.cancel();
   const u = new SpeechSynthesisUtterance(testo);
   u.lang = "it-IT";
-
-  const trySpeak = () => {
-    const v = selectFemaleVoice();
-    if (v) {
-      u.voice = v;
-      console.log("Voce selezionata per speak:", v.name, v.lang, "default:", v.default);
-    } else {
-      console.log("Nessuna voce selezionata; verrà usata la voce di default del browser.");
-    }
-    synth.cancel(); // <--- aggiungi questa riga per evitare ripetizioni
-    synth.speak(u);
-  };
-
-  if (!synth.getVoices || synth.getVoices().length === 0) {
-    const onVoices = () => {
-      synth.removeEventListener('voiceschanged', onVoices);
-      trySpeak();
-    };
-    synth.addEventListener('voiceschanged', onVoices);
-  } else {
-    trySpeak();
-  }
+  const v = selectFemaleVoice();
+  if (v) u.voice = v;
+  synth.speak(u);
 }
+  
+
+// ...existing code...
+
+// ...existing code...
 // ...existing code...
 
 
@@ -794,51 +786,51 @@ function parla(testo) {
     recognition.continuous = true;
     recognition.maxAlternatives = 1;
 
-    function aggiorna(numero, frase) {
-      if (numeroEl) numeroEl.textContent = numero ?? 0;
-      if (fraseEl) fraseEl.textContent = frase || "";
+function aggiorna(numero, frase) {
+  // Mostra il numero solo se valido (1-90)
+  if (numeroEl) numeroEl.textContent = (numero >= 1 && numero <= 90) ? numero : "";
+  if (fraseEl) fraseEl.textContent = frase || "";
+}
+
+recognition.onresult = (e) => {
+  const detto = e.results[e.results.length - 1][0].transcript.trim();
+  console.log("Hai detto:", detto);
+
+  let numero = parseInt(detto.replace(/[^\d]/g, ''), 10);
+  let frase = "";
+
+  if (!isNaN(numero)) {
+    if (numero === 99) {
+      frase = "Grazie per aver giocato! Arrivederci.";
+      aggiorna(numero, frase);
+      parla(frase);
+      stoppedByUser = true;
+      recognition.stop();
+
+      // Mostra solo il messaggio di chiusura e svuota la pagina
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:40vh;'>Chiusura VoiceTombola</h2>";
+      return;
     }
+    if (numero > 90 || numero < 1) {
+      frase = ""; // Non pronunciare nulla se fuori range
+    } else {
+      const smorfiaAttuale = getSmorfia();
+      frase = smorfiaAttuale[numero] || `Numero ${numero}`;
+      console.log(`Usando smorfia ${smorfiaType === 0 ? 'Napoletana' : 'Generica'}: ${frase}`);
+    }
+  } else {
+    frase = ""; // Non pronunciare nulla se non è un numero
+  }
 
-    recognition.onresult = (e) => {
-      const detto = e.results[e.results.length - 1][0].transcript.trim();
-      console.log("Hai detto:", detto);
+  aggiorna(numero, frase);
 
-      let numero = parseInt(detto.replace(/[^\d]/g, ''), 10);
-      let frase = "";
-
-      if (!isNaN(numero)) {
-        if (numero === 99) {
-         frase = "Grazie per aver giocato! Arrivederci.";
-          aggiorna(numero, frase);
-          parla(frase);
-          stoppedByUser = true;
-          recognition.stop();
-
-
-  // Mostra solo il messaggio di chiusura e svuota la pagina
-  document.body.innerHTML = "<h2 style='text-align:center;margin-top:40vh;'>Chiusura VoiceTombola</h2>";
-  return;  
-        }
-        if (numero > 90) {
-          frase = " ";
-        } else {
-          const smorfiaAttuale = getSmorfia();
-          frase = smorfiaAttuale[numero] || `Numero ${numero}`;
-          console.log(`Usando smorfia ${smorfiaType === 0 ? 'Napoletana' : 'Generica'}: ${frase}`);
-        }
-      } else {
-        frase = " ";
-      }
-
-      aggiorna(numero || 0, frase);
-   
-     
-
-  // Parla solo se la frase non è vuota o composta solo da spazi
-  if (frase.trim() !== "") {
+  // Parla solo se la frase è valida e non vuota e non è "0"
+  if (frase.trim() !== "" && frase.trim() !== "0") {
     parla(frase);
   }
 };
+    
+   
     recognition.onerror = (ev) => {
       console.warn("recognition.onerror", ev.error);
       listening = false;
