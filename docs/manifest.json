@@ -2,7 +2,7 @@
   "name": "VoiceTombola",
   "short_name": "VoiceTombola",
   "description": "App per tombola con riconoscimento vocale e smorfia napoletana/generica",
-  "start_url": "./index041125old.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#007bff",
@@ -20,3 +20,6 @@
     }
   ]
 }
+
+
+   
