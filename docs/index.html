@@ -284,7 +284,77 @@
     }, 100);
 
     // ------- PATCH parla: risolvi la ripetizione su Chrome -------
-    function parla(testo) {
+    <!-- Sostituisci la funzione parla(testo) con questa versione (dedup + logging + onend) -->
+<script>
+  function parla(testo) {
+    try {
+      if (!testo) return;
+      const now = Date.now();
+
+      // Protezione: non ripetere lo stesso testo a breve
+      if (testo === _lastSpokenText && (now - _lastSpokenTime) < SPEAK_DEDUPE_MS) {
+        console.log(`parla: dedup SKIP (stesso testo entro ${SPEAK_DEDUPE_MS}ms):`, testo);
+        return;
+      }
+
+      _lastSpokenText = testo;
+      _lastSpokenTime = now;
+
+      const u = new SpeechSynthesisUtterance(testo);
+      u.lang = "it-IT";
+
+      // Opzionale: log degli eventi della utterance per debug
+      u.onstart = () => console.log("utterance onstart:", testo);
+      u.onend = () => console.log("utterance onend:", testo);
+      u.onerror = (e) => console.warn("utterance onerror:", e, testo);
+
+      const trySpeak = () => {
+        const v = selectFemaleVoice();
+        if (v) {
+          u.voice = v;
+          console.log("Voce selezionata per speak:", v.name, v.lang, "default:", v.default);
+        } else {
+          console.log("Voce di default usata per speak");
+        }
+
+        // Evita di mettere in coda più ripetizioni: cancella e poi parla
+        try {
+          window.speechSynthesis.cancel();
+        } catch (e) {
+          console.warn("speechSynthesis.cancel() fallito:", e);
+        }
+        try {
+          window.speechSynthesis.speak(u);
+          console.log("synth.speak chiamato:", testo);
+        } catch (e) {
+          console.warn("synth.speak error:", e, testo);
+        }
+      };
+
+      // Se voci non ancora caricate, attendi voiceschanged (una sola volta)
+      if (!window.speechSynthesis.getVoices || window.speechSynthesis.getVoices().length === 0) {
+        if (!voicesLoaded) {
+          voicesLoaded = true;
+          window.speechSynthesis.addEventListener('voiceschanged', () => {
+            try {
+              trySpeak();
+            } catch (e) {
+              console.warn("trySpeak dopo voiceschanged fallito:", e);
+            }
+          }, { once: true });
+        } else {
+          // voiceschanged già registrato, evita doppioni: prova comunque
+          setTimeout(trySpeak, 50);
+        }
+      } else {
+        trySpeak();
+      }
+    } catch (err) {
+      console.error("Errore in parla():", err, testo);
+    }
+  }
+</script>
+    /*function parla(testo) {
       if (!testo) return;
       const u = new SpeechSynthesisUtterance(testo);
       u.lang = "it-IT";
@@ -304,7 +374,7 @@
       } else {
         trySpeak();
       }
-    }
+    }*/
 
     // ------- Speech Recognition + Controllo permessi -------
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
