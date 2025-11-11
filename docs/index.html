@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>VoiceTombola</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-  <!-- ======= Inizio META PWA ======= -->
+  <!-- PWA Meta Tags -->
   <meta name="screen-size" content="width=device-width,initial-scale=1,user-scalable=no">
   <meta name="screen-size" content="width=device-height,initial-scale=1,user-scalable=no">
   <meta name="description" content="App tombola con riconoscimento vocale e smorfia napoletana/generica">
@@ -15,277 +15,728 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" href="tombola.png">
   <link rel="apple-touch-icon" href="tombola.png">
-  <!-- ======= Fine META PWA ======= -->
 
   <style>
-    /* ======= STILI MOBILI E APP ======= */
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #000; color: #fff;
-      min-height: 100vh; min-height: -webkit-fill-available; display: flex; flex-direction: column; position: fixed; width: 100%; overflow: hidden; }
-    .app-header { position: fixed; top: 0; left: 0; right: 0; height: 60px; background-color: #1a1a1a; display: flex; align-items: center; justify-content: center; z-index: 100;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-    .app-header h1 { font-size: 20px; font-weight: 600; color: #fff; }
-    .app-content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 1px 1px 60px; position: relative; width: 100%; }
-    .status-bar { background-color: #007bff; color: white; padding: 1px 16px; font-size: 12px; text-align: center; position: relative; }
-    .number-card { background-color: #1a1a1a; border-radius: 16px; padding: 1px; margin: 16px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    #numero { font-size: 24px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 16px; line-height: 1.4; text-shadow: 0 0 20px rgba(0,123,255,0.6); }
-    #frase { font-size: 24px; color: #fff; text-align: center; margin-top: 12px; line-height: 1.4; padding: 0 10px; }
-    .app-description { text-align: center; margin: 12px 16px; font-size: 16px; line-height: 1.4; color: #fff; font-weight: 280; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-      padding: 1px; background-color: rgba(0,0,0,0.2); border-radius: 8px; }
-    .bottom-toolbar { position: fixed; text-align: center; bottom: 0; left: 0; right: 0; width: 100%; background-color: #1a1a1a; padding: 8px 16px; box-shadow: 0 -2px 4px rgba(0,0,0,0.1); z-index: 100; }
-    .controls-container { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 8px; width: 100%; max-width: 600px; margin: 0 auto;}
-    button { font-size: 14px; font-weight: 600; padding: 12px 8px; width: 25%; background-color: #007bff; color: white; border: none; border-radius: 12px; margin: 0; touch-action: manipulation;
-      -webkit-appearance: none; appearance: none; transition: background-color 0.2s; }
-    button:active { background-color: #0056b3; }
-    button.selected { background-color: #28a745; box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); }
-    button.selected:active { background-color: #218838; }
-    #btnStart { background-color: #007bff; font-size: 18px; font-weight: 600; display: none; }
-    #btnItaliano, #btnNapoletano { font-size: 18px; width: 32%; margin: 0; padding: 12px 4px; }
-    #btnReset { background-color: #dc3545; font-size: 18px; width: 32%; margin: 0; padding: 12px 4px; }
-    #btnReset:active { background-color: #c82333; }
-    .action-buttons { display: none; }
-    #btnStart { display: none !important; }
-    select { font-size: 17px; padding: 12px 36px 12px 16px; background-color: #2c2c2e; color: white; border: 1px solid #3a3a3c; border-radius: 12px; width: 100%; -webkit-appearance: none;
-      appearance: none; background-repeat: no-repeat; background-position: right 12px center; background-size: 12px; padding-right: 30px; }
-    select:focus { outline: none; border-color: #0056b3; box-shadow: 0 0 0 2px rgba(0,123,255,0.25); }
-    label { color: #fff; font-size: clamp(16px, 4vw, 18px); margin-bottom: 5px; display: block; }
-    img { max-width: min(300px, 80vw); height: auto; margin: 10px auto; display: block; }
-    @media (min-width: 768px) {
-      .controls-container { flex-direction: row; justify-content: center; flex-wrap: wrap; }
-      button, select { margin: 5px 10px; }
+    /* Reset e stili base per app mobile */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none; /* previene selezione testo involontaria */
     }
-    @supports (-webkit-touch-callout: none) { body { min-height: -webkit-fill-available; } }
-    .voice-controls { display: none !important; }
-    /* ======= FINE STILI ======= */
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Header stile mobile */
+    .app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .app-header h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    /* Contenuto principale scrollabile */
+    .app-content {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 1px 1px 60px; /* spazio per header e banner bottoni ridotto */
+      position: relative;
+      width: 100%;
+    }
+
+    /* Status bar style */
+    .status-bar {
+      background-color: #007bff;
+      color: white;
+      padding: 1px 16px;
+      font-size: 12px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Card per numero e frase */
+    .number-card {
+      background-color: #1a1a1a;
+      border-radius: 16px;
+      padding: 1px;
+      margin: 16px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    #numero {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      text-shadow: 0 0 20px rgba(0,123,255,0.6);
+    }
+
+    #frase {
+      font-size: 24px;
+      color: #ffffff;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.4;
+      padding: 0 10px;
+    }
+
+    /* Stile per il testo descrittivo */
+    .app-description {
+      text-align: center;
+      margin: 12px 16px;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #ffffff;
+      font-weight: 280;
+      opacity: 0.9;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      padding: 1px;
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+
+    /* Bottom toolbar stile mobile */
+    .bottom-toolbar {
+      position: fixed;
+      text-align: center;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width:  100%;
+      background-color: #1a1a1a;
+      padding: 8px 16px;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    /* Contenitore per i controlli */
+    .controls-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Bottoni stile mobile */
+    button {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 8px;
+      width: 25%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      margin: 0;
+      touch-action: manipulation;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: background-color 0.2s;
+    }
+
+    button:active {
+      background-color: #0056b3;
+    }
+
+    /* Stile per bottoni selezionati */
+    button.selected {
+      background-color: #28a745;
+      box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+    }
+
+    button.selected:active {
+      background-color: #218838;
+    }
+
+    /* Bottone primario */
+    #btnStart {
+      background-color: #007bff;
+      font-size: 18px;
+      font-weight: 600;
+      display: none; /* Nascosto inizialmente */
+    }
+
+    /* Bottoni smorfia */
+    #btnItaliano, #btnNapoletano {
+      font-size: 18px;
+      width: 32%;
+      margin: 0;
+      padding: 12px 4px;
+    }
+
+    /* Bottone reset */
+    #btnReset {
+      background-color: #dc3545;
+      font-size: 18px;
+      width: 32%;
+      margin: 0;
+      padding: 12px 4px;
+    }
+
+    #btnReset:active {
+      background-color: #c82333;
+    }
+
+    /* Container per bottoni Avvia e Reset - nascosto per default */
+    .action-buttons {
+      display: none;
+    }
+
+    /* Bottone Avvia nascosto */
+    #btnStart {
+      display: none !important;
+    }
+
+    /* Select stile iOS/Android */
+    select {
+      font-size: 17px;
+      padding: 12px 36px 12px 16px;
+      background-color: #2c2c2e;
+      color: white;
+      border: 1px solid #3a3a3c;
+      border-radius: 12px;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFF[...]" );
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 12px;
+      padding-right: 30px;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #0056b3;
+      box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    }
+
+    label {
+      color: #ffffff;
+      font-size: clamp(16px, 4vw, 18px);
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    /* Ottimizza immagine per mobile */
+    img {
+      max-width: min(300px, 80vw);
+      height: auto;
+      margin: 10px auto;
+      display: block;
+    }
+
+    /* Media query per tablet */
+    @media (min-width: 768px) {
+      .controls-container {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      button, select {
+        margin: 5px 10px;
+      }
+    }
+
+    /* Fix per iOS */
+    @supports (-webkit-touch-callout: none) {
+      body {
+        min-height: -webkit-fill-available;
+      }
+    }
+
+    /* Nascondi banner/selettore voci (Elsa) quando si vuole rimuoverlo dallo schermo.
+       Regola reversibile: rimuovere questa regola per mostrare di nuovo i controlli. */
+    .voice-controls {
+      display: none !important;
+    }
   </style>
 </head>
-<body>
-  <!-- ======= HEADER ======= -->
-  <header class="app-header">
-    <h1>VoiceTombola</h1>
-  </header>
-  
-  <!-- ======= CONTENUTO PRINCIPALE ======= -->
-  <main class="app-content">
-    <div class="status-bar" id="authStatus">Premi Avvia per autorizzare microfono e audio</div>
-    <div style="background-color: #007bff; padding: 0; border-radius: 16px; margin: 0px 16px; box-shadow: 0 4px 12px rgba(0,123,255,0.3); color:white; font-size: 20px; text-align: center; line-height: 2;">
-       <br>   L'app restituisce la smorfia (Gen/Nap)<br>del numero estratto e la riproduce<br>vocalmente. Per terminare dire "99"<br> per reset premere R; 
-    </div>
-    <img decoding="async" src="tombola.png" width="280" height="280" alt="Tombola" style="padding:1px;display:block; margin:24px auto; width:280px; height:auto; max-width:90%;">
-    <div class="number-card"><div id="numero">0</div><div id="frase">VIA!</div></div>
-  </main>
-  <div class="bottom-toolbar">
-    <div class="controls-container">
-      <button id="btnItaliano" onclick="selectMode('generico')">Generica</button>
-      <button id="btnNapoletano" onclick="selectMode('napoletano')">Napoletana</button>
-      <button id="btnReset" onclick="resetApp()">R</button>
-    </div>
-  </div>
-  <audio id="bell" src="audio_door.mp3" preload="auto"></audio>
 
-  <!-- ======= SCRIPT PRINCIPALE ======= -->
-  <script>
-    // ------- Patch per Chrome Desktop: impedir ripetizione voce -------
-    let voicesLoaded = false; // patch: serve come flag anti-multiplo
-
-    // ------- Service Worker per PWA -------
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(registration => { console.log('Service Worker registrato:', registration.scope); })
-          .catch(error => { console.log('Registrazione Service Worker fallita:', error); });
-      });
-    }
-
-    // ------- Variabili globali -------
-    let smorfiaType = 0; // 0 = napoletano, 1 = generico
-    let authStatusEl, numeroEl, fraseEl, btnStart, btnItaliano, btnNapoletano, voiceSelect, testVoiceBtn, bell;
-    let listening = false;
-    let stoppedByUser = false;
-    let micStream = null;
-
-    // ------- Seleziona la modalità smorfia e avvia la partita -------
-    function selectMode(mode) {
-      smorfiaType = mode === 'napoletano' ? 0 : 1;
-      if (mode === 'napoletano') {
-        btnNapoletano.classList.add('selected');
-        btnItaliano.classList.remove('selected');
-      } else {
-        btnItaliano.classList.add('selected');
-        btnNapoletano.classList.remove('selected');
-      }
-      authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Generica' : 'Napoletana'} - Avvio in corso...`;
-      setTimeout(() => {
-        if (window.startListening) { window.startListening(); }
-        else { console.error('startListening non disponibile'); if (authStatusEl) authStatusEl.textContent = 'Errore: funzione di ascolto non disponibile'; }
-      }, 300);
-    }
-
-    function startGame() {
-      if (window.startListening) { window.startListening(); }
-      else { console.error('startListening non disponibile'); if (authStatusEl) authStatusEl.textContent = 'Errore: funzione di ascolto non disponibile'; }
-    }
-
-    function resetApp() {
-      if (window.stopListening) { window.stopListening(); }
-      stoppedByUser = true;
-      listening = false;
-      if (numeroEl) numeroEl.textContent = "0";
-      if (fraseEl) fraseEl.textContent = "VIA!";
-      if (btnItaliano) { btnItaliano.disabled = false; btnItaliano.classList.remove('selected'); }
-      if (btnNapoletano) { btnNapoletano.disabled = false; btnNapoletano.classList.remove('selected'); }
-      if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
-      console.log("App resettata");
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      authStatusEl = document.getElementById('authStatus');
-      numeroEl = document.getElementById("numero");
-      fraseEl = document.getElementById("frase");
-      btnItaliano = document.getElementById('btnItaliano');
-      btnNapoletano = document.getElementById('btnNapoletano');
-      voiceSelect = document.getElementById('voiceSelect');
-      testVoiceBtn = document.getElementById('testVoice');
-      bell = document.getElementById("bell");
-      authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
-
-      if (window.requestMicPermission) {
-        window.requestMicPermission().then(granted => {
-          if (window.updateAuthStatus) { window.updateAuthStatus(granted); }
-        });
-      }
-    });
-
-    // ------- Smorfia Napoletana -------
-    const smorfiaNapoletana = {
-      1: "Italia", 2: "a criatura", 3: "a jatta", 4: "o puorco", 5: "a mano", 6: "chella che guarda en terra", 7: "a scupetta", 8: "a Maronna", 9: "a figliata",
-      10: "e fasule", 11: "e surice", 12: "o surdato", 13: "Sant'Antonio", 14: "o imbriàco", 15: "o guaglione", 16: "o culo", 17: "a disgrazia", 18: "o sanghe",
-      19: "a resata", 20: "a festa", 21: "a femmena annura", 22: "o pazzo", 23: "o scemo", 24: "e gguardie", 25: "Natale", 26: "Nanninella", 27: "o cantaro",
-      28: "e zizze", 29: "o pate de criature", 30: "e palle do tenente", 31: "o padrone e casa", 32: "o capitone", 33: "lanne e Cristo", 34: "a capa",
-      35: "laucielluzzo", 36: "e castagnelle", 37: "o monaco", 38: "e mazzate", 39: "a funa nganna", 40: "a paposcia", 41: "o curtiello", 42: "o café",
-      43: "a femmena ncopp’o balcone", 44: "e cancelle", 45: "o vino", 46: "e denare", 47: "o muorto", 48: "o muorto che parla", 49: "o piezzo e carne",
-      50: "o pane", 51: "o ciardino", 52: "a mamma", 53: "o viecchio", 54: "o cappiello", 55: "a museca", 56: "a caruta", 57: "o scartellato", 58: "o paccotto",
-      59: "e pile", 60: "o lamento", 61: "o cacciatore", 62: "o muorto acciso", 63: "a sposa", 64: "a sciammeria", 65: "o chianto", 66: "e doie zitelle",
-      67: "o totano inta chitarra", 68: "a zuppa cotta", 69: "sottencoppa", 70: "o palazzo", 71: "l’ommo e niente", 72: "a meraviglia", 73: "o spitale",
-      74: "a rotta", 75: "Pullecenella", 76: "a Funtana", 77: "e diavole", 78: "a bella figliola", 79: "o mariuolo", 80: "a vocca", 81: "e sciure",
-      82: "a tavula imbandita", 83: "o malotiempo", 84: "a chiesa", 85: "anime ro priatorio", 86: "a puteca", 87: "e perucchie", 88: "e casecavalle",
-      89: "a vecchia", 90: "a paura"
-    };
-
-    // ------- Smorfia Generica -------
-    const smorfiaGenerica = {
-      1: "Italia", 2: "la bambina", 3: "il gatto", 4: "il maiale", 5: "la mano", 6: "guarda sempre a terra", 7: "il Vaso", 8: "la Madonna", 9: "la figliolanza",
-      10: "i fagioli", 11: "i topolini", 12: "il militare", 13: "Sant'Antonio", 14: "l'ubriaco", 15: "il ragazzo", 16: "il deretano", 17: "la sfortuna", 18: "il sangue",
-      19: "la risata", 20: "la festa", 21: "la femmina nuda", 22: "il pazzo", 23: "lo scemo", 24: "la polizia", 25: "Natale", 26: "Sant'Anna", 27: "il vaso da notte",
-      28: "il seno", 29: "il padre di tutti i bambini", 30: "le palle del capitano", 31: "l'uomo ricco", 32: "il capitone", 33: "gli anni di Cristo", 34: "la testa",
-      35: "gli uccellini", 36: "le Nacchere", 37: "il Monaco", 38: "le bastonate", 39: "l'impiccato", 40: "la noia", 41: "il coltello", 42: "il Caffè",
-      43: "la donna pettegola", 44: "il carcere", 45: "il vino buono", 46: "i denari", 47: "il morto", 48: "il morto che parla", 49: "un pezzo di carne",
-      50: "il pane", 51: "il giardino", 52: "la mamma", 53: "il vecchio", 54: "il cappello", 55: "la musica", 56: "la Caduta", 57: "il Gobbo", 58: "l'imbroglio",
-      59: "i peli", 60: "il lamento", 61: "il cacciatore", 62: "il morto ammazzato", 63: "la sposa", 64: "la Marsina", 65: "il pianto", 66: "le due sorelle",
-      67: "il polpo nella chitarra", 68: "la zuppa cotta", 69: "sottosopra", 70: "il palazzo", 71: "un uomo malvagio", 72: "la meraviglia", 73: "l'ospedale",
-      74: "la Grotta di Gesù", 75: "Pulcinella", 76: "la Fontana", 77: "i diavoli", 78: "la prostituta", 79: "il ladro", 80: "la bocca", 81: "i fiori",
-      82: "la tavola imbandita", 83: "il temporale", 84: "la Chiesa", 85: "le Anime del Purgatorio", 86: "la bottega", 87: "i pidocchi", 88: "cacio cavalli",
-      89: "la vecchia", 90: "la paura"
-    };
-
-    // ------- Smorfia usata dinamicamente -------
-    function getSmorfia() { return smorfiaType === 0 ? smorfiaNapoletana : smorfiaGenerica; }
-
-    // ------- Sintesi vocale (VoiceSelect e preferenze Elsa) -------
-    const synth = window.speechSynthesis;
-
-    synth.addEventListener && synth.addEventListener('voiceschanged', () => {
-      try {
-        const v = synth.getVoices() || [];
-        console.log('Voices disponibili:', v.map(x => `${x.name} (${x.lang}) default:${x.default}`));
-      } catch (e) { console.warn('Errore nel logging delle voci:', e); }
-    });
-
-    function selectFemaleVoice() {
-      const voices = synth.getVoices() || [];
-      if (!voices.length) return null;
-      try {
-        const preferredFromUI = localStorage.getItem('preferredVoiceName');
-        if (preferredFromUI) {
-          const byName = voices.find(v => v.name === preferredFromUI);
-          if (byName) { return byName; }
-        }
-      } catch (e) { }
-      const preferredNames = ["Microsoft Elsa Online (Natural)", "Microsoft Elsa", "Elsa", "Microsoft Elsa Online"];
-      for (const name of preferredNames) {
-        const v = voices.find(voice => voice.name === name);
-        if (v) { return v; }
-      }
-      const elsaLoose = voices.find(v => /Elsa/i.test(v.name));
-      if (elsaLoose) { return elsaLoose; }
-      const italianNamed = voices.find(v => /isabella|anna|silvia|giorgia|maria/i.test(v.name));
-      if (italianNamed) return italianNamed;
-      const italian = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('it'));
-      if (italian.length) {
-        const femaleCandidate = italian.find(v => /female|femmina|donna|soprano|voce|voice/i.test(v.name));
-        return femaleCandidate || italian[0];
-      }
-      const globalFemale = voices.find(v => /female|femmina|donna|woman|girl/i.test(v.name));
-      return globalFemale || voices[0] || null;
-    }
-
-    function populateVoiceList() {
-      try {
-        const voices = synth.getVoices() || [];
-        if (!voiceSelect) return;
-        voiceSelect.innerHTML = '';
-        voices.forEach(v => {
-          const opt = document.createElement('option');
-          opt.value = v.name;
-          opt.textContent = `${v.name} (${v.lang})${v.default ? ' — default' : ''}`;
-          voiceSelect.appendChild(opt);
-        });
-        const saved = localStorage.getItem('preferredVoiceName');
-        if (saved) {
-          const match = Array.from(voiceSelect.options).find(o => o.value === saved);
-          if (match) match.selected = true;
-        }
-      } catch (e) { }
-    }
-
-    if (synth.onvoiceschanged !== undefined) {
-      synth.addEventListener('voiceschanged', () => {
-        populateVoiceList();
-        if (!localStorage.getItem('preferredVoiceName')) {
-          const voices = synth.getVoices() || [];
-          const elsa = voices.find(v => /Elsa/i.test(v.name));
-          if (elsa && voiceSelect) {
-            voiceSelect.value = elsa.name;
-            localStorage.setItem('preferredVoiceName', elsa.name);
-          }
-        }
-      });
-    }
-    setTimeout(populateVoiceList, 0);
-
-    setTimeout(() => {
-      if (voiceSelect) {
-        voiceSelect.addEventListener('change', () => {
-          try { localStorage.setItem('preferredVoiceName', voiceSelect.value); } catch (e) { }
-          const voiceControls = document.querySelector('.voice-controls');
-          if (voiceControls) { voiceControls.style.display = 'none'; }
-        });
-      }
-      if (testVoiceBtn) {
-        testVoiceBtn.addEventListener('click', () => {
-          const testo = 'Questa è una prova della voce selezionata.';
-          const u = new SpeechSynthesisUtterance(testo);
-          u.lang = 'it-IT';
-          const v = (synth.getVoices() || []).find(x => x.name === (voiceSelect ? voiceSelect.value : ''));
-          if (v) u.voice = v;
-          synth.speak(u);
-        });
-      }
-    }, 100);
-
-    // ------- PATCH parla: risolvi la ripetizione su Chrome -------
-    <!-- Sostituisci la funzione parla(testo) con questa versione (dedup + logging + onend) -->
 <script>
+  // Registra Service Worker per PWA
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(registration => {
+          console.log('Service Worker registrato:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Registrazione Service Worker fallita:', error);
+        });
+    });
+  }
+
+  // Variabili globali
+  let smorfiaType = 0; // 0 = napoletano, 1 = generico
+  let authStatusEl, numeroEl, fraseEl, btnStart, btnItaliano, btnNapoletano, voiceSelect, testVoiceBtn, bell;
+  let listening = false;
+  let stoppedByUser = false;
+  let micStream = null;
+
+  // Protezioni contro ripetizioni / debug (hardening per Chrome)
+  let voicesLoaded = false;          // flag per evitare di aggiungere più volte listener voiceschanged
+  let _lastTranscript = "";          // ultimo transcript processato
+  let _lastTranscriptTime = 0;       // timestamp (ms) ultimo transcript
+  let _lastSpokenText = "";          // ultimo testo effettivamente parlato
+  let _lastSpokenTime = 0;           // timestamp (ms) ultimo speak
+  const TRANSCRIPT_DEDUPE_MS = 1000; // se stesso transcript entro 1s => ignora
+  const SPEAK_DEDUPE_MS = 1500;      // se stesso speak entro 1.5s => ignora
+
+  // Funzioni di gestione modalità e avvio
+  function selectMode(mode) {
+    smorfiaType = mode === 'napoletano' ? 0 : 1;
+
+    if (mode === 'napoletano') {
+      btnNapoletano.classList.add('selected');
+      btnItaliano.classList.remove('selected');
+    } else {
+      btnItaliano.classList.add('selected');
+      btnNapoletano.classList.remove('selected');
+    }
+
+    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Generica' : 'Napoletana'} - Avvio in corso...`;
+
+    // Avvia automaticamente l'ascolto
+    setTimeout(() => {
+      if (window.startListening) {
+        window.startListening();
+      } else {
+        console.error('startListening non disponibile');
+        if (authStatusEl) authStatusEl.textContent = 'Errore: funzione di ascolto non disponibile';
+      }
+    }, 300);
+  }
+
+  function startGame() {
+    if (window.startListening) {
+      window.startListening();
+    } else {
+      console.error('startListening non disponibile');
+      if (authStatusEl) authStatusEl.textContent = 'Errore: funzione di ascolto non disponibile';
+    }
+  }
+
+  function resetApp() {
+    // Ferma il riconoscimento vocale se attivo
+    if (window.stopListening) {
+      window.stopListening();
+    }
+    // Reset dello stato
+    stoppedByUser = true;
+    listening = false;
+    // Reset UI
+    if (numeroEl) numeroEl.textContent = "0";
+    if (fraseEl) fraseEl.textContent = "VIA!";
+    if (btnItaliano) {
+      btnItaliano.disabled = false;
+      btnItaliano.classList.remove('selected');
+    }
+    if (btnNapoletano) {
+      btnNapoletano.disabled = false;
+      btnNapoletano.classList.remove('selected');
+    }
+    if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+    console.log("App resettata");
+  }
+
+  // Inizializza gli elementi DOM quando il documento è pronto
+  document.addEventListener('DOMContentLoaded', () => {
+    authStatusEl = document.getElementById('authStatus');
+    numeroEl = document.getElementById("numero");
+    fraseEl = document.getElementById("frase");
+    btnItaliano = document.getElementById('btnItaliano');
+    btnNapoletano = document.getElementById('btnNapoletano');
+    voiceSelect = document.getElementById('voiceSelect');
+    testVoiceBtn = document.getElementById('testVoice');
+    bell = document.getElementById("bell");
+
+    // Imposta stato iniziale
+    authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+
+    // Avvia verifica permesso microfono
+    if (window.requestMicPermission) {
+      window.requestMicPermission().then(granted => {
+        if (window.updateAuthStatus) {
+          window.updateAuthStatus(granted);
+        }
+      });
+    }
+  });
+
+  // Smorfia Napoletana
+  const smorfiaNapoletana = {
+    1: "Italia",
+    2: "a criatura",
+    3: "a jatta",
+    4: "o puorco",
+    5: "a mano",
+    6: "chella che guarda en terra",
+    7: "a scupetta",
+    8: "a Maronna",
+    9: "a figliata",
+    10: "e fasule",
+    11: "e surice",
+    12: "o surdato",
+    13: "Sant'Antonio",
+    14: "o imbriàco",
+    15: "o guaglione",
+    16: "o culo",
+    17: "a disgrazia",
+    18: "o sanghe",
+    19: "a resata",
+    20: "a festa",
+    21: "a femmena annura",
+    22: "o pazzo",
+    23: "o scemo",
+    24: "e gguardie",
+    25: "Natale",
+    26: "Nanninella",
+    27: "o cantaro",
+    28: "e zizze",
+    29: "o pate de criature",
+    30: "e palle do tenente",
+    31: "o padrone e casa",
+    32: "o capitone",
+    33: "lanne e Cristo",
+    34: "a capa",
+    35: "laucielluzzo",
+    36: "e castagnelle",
+    37: "o monaco",
+    38: "e mazzate",
+    39: "a funa nganna",
+    40: "a paposcia",
+    41: "o curtiello",
+    42: "o café",
+    43: "a femmena ncopp’o balcone",
+    44: "e cancelle",
+    45: "o vino",
+    46: "e denare",
+    47: "o muorto",
+    48: "o muorto che parla",
+    49: "o piezzo e carne",
+    50: "o pane",
+    51: "o ciardino",
+    52: "a mamma",
+    53: "o viecchio",
+    54: "o cappiello",
+    55: "a museca",
+    56: "a caruta",
+    57: "o scartellato",
+    58: "o paccotto",
+    59: "e pile",
+    60: "o lamento",
+    61: "o cacciatore",
+    62: "o muorto acciso",
+    63: "a sposa",
+    64: "a sciammeria",
+    65: "o chianto",
+    66: "e doie zitelle",
+    67: "o totano inta chitarra",
+    68: "a zuppa cotta",
+    69: "sottencoppa",
+    70: "o palazzo",
+    71: "l’ommo e niente",
+    72: "a meraviglia",
+    73: "o spitale",
+    74: "a rotta",
+    75: "Pullecenella",
+    76: "a Funtana",
+    77: "e diavole",
+    78: "a bella figliola",
+    79: "o mariuolo",
+    80: "a vocca",
+    81: "e sciure",
+    82: "a tavula imbandita",
+    83: "o malotiempo",
+    84: "a chiesa",
+    85: "anime ro priatorio",
+    86: "a puteca",
+    87: "e perucchie",
+    88: "e casecavalle",
+    89: "a vecchia",
+    90: "a paura"
+  };
+
+  // Smorfia Generica
+  const smorfiaGenerica = {
+    1: "Italia" ,
+    2: "la bambina",
+    3: "il gatto",
+    4: "il maiale",
+    5: "la mano",
+    6: "guarda sempre a terra",
+    7: "il Vaso",
+    8: "la Madonna",
+    9: "la figliolanza",
+    10: "i fagioli",
+    11: "i topolini",
+    12: "il militare",
+    13: "Sant'Antonio",
+    14: "l'ubriaco",
+    15: "il ragazzo",
+    16: "il deretano",
+    17: "la sfortuna",
+    18: "il sangue",
+    19: "la risata",
+    20: "la festa",
+    21: "la femmina nuda",
+    22: "il pazzo",
+    23: "lo scemo",
+    24: "la polizia",
+    25: "Natale",
+    26: "Sant'Anna",
+    27: "il vaso da notte",
+    28: "il seno",
+    29: "il padre di tutti i bambini",
+    30: "le palle del capitano",
+    31: "l'uomo ricco",
+    32: "il capitone",
+    33: "gli anni di Cristo",
+    34: "la testa",
+    35: "gli uccellini",
+    36: "le Nacchere",
+    37: "il Monaco",
+    38: "le bastonate",
+    39: "l'impiccato",
+    40: "la noia",
+    41: "il coltello",
+    42: "il Caffè",
+    43: "la donna pettegola",
+    44: "il carcere",
+    45: "il vino buono",
+    46: "i denari",
+    47: "il morto",
+    48: "il morto che parla",
+    49: "un pezzo di carne",
+    50: "il pane",
+    51: "il giardino",
+    52: "la mamma",
+    53: "il vecchio",
+    54: "il cappello",
+    55: "la musica",
+    56: "la Caduta",
+    57: "il Gobbo",
+    58: "l'imbroglio",
+    59: "i peli",
+    60: "il lamento",
+    61: "il cacciatore",
+    62: "il morto ammazzato",
+    63: "la sposa",
+    64: "la Marsina",
+    65: "il pianto",
+    66: "le due sorelle",
+    67: "il polpo nella chitarra",
+    68: "la zuppa cotta",
+    69: "sottosopra",
+    70: "il palazzo",
+    71: "un uomo malvagio",
+    72: "la meraviglia",
+    73: "l'ospedale",
+    74: "la Grotta di Gesù",
+    75: "Pulcinella",
+    76: "la Fontana",
+    77: "i diavoli",
+    78: "la prostituta",
+    79: "il ladro",
+    80: "la bocca",
+    81: "i fiori",
+    82: "la tavola imbandita",
+    83: "il temporale",
+    84: "la Chiesa",
+    85: "le Anime del Purgatorio",
+    86: "la bottega",
+    87: "i pidocchi",
+    88: "cacio cavalli",
+    89: "la vecchia",
+    90: "la paura"
+  };
+
+  // Funzione per ottenere la smorfia corretta
+  function getSmorfia() {
+    return smorfiaType === 0 ? smorfiaNapoletana : smorfiaGenerica;
+  }
+
+  const synth = window.speechSynthesis;
+
+  // Debug: log iniziale delle voci quando caricate
+  synth.addEventListener && synth.addEventListener('voiceschanged', () => {
+    try {
+      const v = synth.getVoices() || [];
+      console.log('Voices disponibili:', v.map(x => `${x.name} (${x.lang}) default:${x.default}`));
+    } catch (e) {
+      console.warn('Errore nel logging delle voci:', e);
+    }
+  });
+
+  // Preferenze voci: preferisci esplicitamente "Elsa" (Microsoft Elsa), poi altri fallback italiani femminili
+  function selectFemaleVoice() {
+    const voices = synth.getVoices() || [];
+    if (!voices.length) return null;
+
+    // If user previously chose a voice in the UI, prefer it
+    try {
+      const preferredFromUI = localStorage.getItem('preferredVoiceName');
+      if (preferredFromUI) {
+        const byName = voices.find(v => v.name === preferredFromUI);
+        if (byName) {
+          console.log("Uso voce scelta dall'utente:", byName.name, byName.lang, 'default:', byName.default);
+          return byName;
+        } else {
+          console.log("Voce scelta dall'utente non trovata nelle voci correnti:", preferredFromUI);
+        }
+      }
+    } catch (e) {
+      console.warn('Errore accesso localStorage:', e);
+    }
+
+    // Elenco di nomi esatti preferiti
+    const preferredNames = [
+      "Microsoft Elsa Online (Natural)",
+      "Microsoft Elsa",
+      "Elsa",
+      "Microsoft Elsa Online",
+    ];
+
+    // 1) Match esatto su nome
+    for (const name of preferredNames) {
+      const v = voices.find(voice => voice.name === name);
+      if (v) {
+        console.log('Trovata voce preferita (match esatto):', v.name, v.lang);
+        return v;
+      }
+    }
+
+    // 2) Loose-match su "Elsa"
+    const elsaLoose = voices.find(v => /Elsa/i.test(v.name));
+    if (elsaLoose) {
+      console.log('Trovata voce preferita (match loose):', elsaLoose.name, elsaLoose.lang);
+      return elsaLoose;
+    }
+
+    // 3) Cerca altri nomi italiani femminili noti
+    const italianNamed = voices.find(v => /isabella|anna|silvia|giorgia|maria/i.test(v.name));
+    if (italianNamed) return italianNamed;
+
+    // 4) Filtra per lingua italiana e preferisci quelle con indizi femminili nel nome
+    const italian = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('it'));
+    if (italian.length) {
+      const femaleCandidate = italian.find(v => /female|femmina|donna|soprano|voce|voice/i.test(v.name));
+      return femaleCandidate || italian[0];
+    }
+
+    // 5) Fallback globale
+    const globalFemale = voices.find(v => /female|femmina|donna|woman|girl/i.test(v.name));
+    return globalFemale || voices[0] || null;
+  }
+
+  // Populate voice select UI
+  function populateVoiceList() {
+    try {
+      const voices = synth.getVoices() || [];
+      if (!voiceSelect) return;
+      voiceSelect.innerHTML = '';
+      voices.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.name;
+        opt.textContent = `${v.name} (${v.lang})${v.default ? ' — default' : ''}`;
+        voiceSelect.appendChild(opt);
+      });
+
+      // Restore selection from localStorage if present
+      const saved = localStorage.getItem('preferredVoiceName');
+      if (saved) {
+        const match = Array.from(voiceSelect.options).find(o => o.value === saved);
+        if (match) match.selected = true;
+      }
+    } catch (e) {
+      console.warn('Errore popolamento lista voci:', e);
+    }
+  }
+
+  // Ensure we populate on load and when voices change
+  if (synth.onvoiceschanged !== undefined) {
+    synth.addEventListener('voiceschanged', () => {
+      populateVoiceList();
+      // Auto-seleziona Elsa se disponibile e non c'è già una preferenza salvata
+      if (!localStorage.getItem('preferredVoiceName')) {
+        const voices = synth.getVoices() || [];
+        const elsa = voices.find(v => /Elsa/i.test(v.name));
+        if (elsa && voiceSelect) {
+          voiceSelect.value = elsa.name;
+          localStorage.setItem('preferredVoiceName', elsa.name);
+          console.log('Auto-selezionata voce Elsa:', elsa.name);
+        }
+      }
+    });
+  }
+  setTimeout(populateVoiceList, 0);
+
+  // Event listeners per voiceSelect e testVoiceBtn
+  setTimeout(() => {
+    if (voiceSelect) {
+      voiceSelect.addEventListener('change', () => {
+        try {
+          localStorage.setItem('preferredVoiceName', voiceSelect.value);
+          const voiceControls = document.querySelector('.voice-controls');
+          if (voiceControls) {
+            voiceControls.style.display = 'none';
+          }
+        } catch (e) {
+          console.warn('localStorage non disponibile:', e);
+        }
+        console.log('Voce preferita salvata:', voiceSelect.value);
+      });
+    }
+
+    if (testVoiceBtn) {
+      testVoiceBtn.addEventListener('click', () => {
+        const testo = 'Questa è una prova della voce selezionata.';
+        const u = new SpeechSynthesisUtterance(testo);
+        u.lang = 'it-IT';
+        const v = (synth.getVoices() || []).find(x => x.name === (voiceSelect ? voiceSelect.value : ''));
+        if (v) u.voice = v;
+        synth.speak(u);
+      });
+    }
+  }, 100);
+
+  // funzione parla con protezioni e logging
   function parla(testo) {
     try {
       if (!testo) return;
@@ -303,7 +754,7 @@
       const u = new SpeechSynthesisUtterance(testo);
       u.lang = "it-IT";
 
-      // Opzionale: log degli eventi della utterance per debug
+      // Log eventi per debug
       u.onstart = () => console.log("utterance onstart:", testo);
       u.onend = () => console.log("utterance onend:", testo);
       u.onerror = (e) => console.warn("utterance onerror:", e, testo);
@@ -314,7 +765,7 @@
           u.voice = v;
           console.log("Voce selezionata per speak:", v.name, v.lang, "default:", v.default);
         } else {
-          console.log("Voce di default usata per speak");
+          console.log("Nessuna voce selezionata; verrà usata la voce di default del browser.");
         }
 
         // Evita di mettere in coda più ripetizioni: cancella e poi parla
@@ -343,7 +794,7 @@
             }
           }, { once: true });
         } else {
-          // voiceschanged già registrato, evita doppioni: prova comunque
+          // voiceschanged già registrato, prova comunque dopo breve delay
           setTimeout(trySpeak, 50);
         }
       } else {
@@ -353,52 +804,51 @@
       console.error("Errore in parla():", err, testo);
     }
   }
-</script>
-    /*function parla(testo) {
-      if (!testo) return;
-      const u = new SpeechSynthesisUtterance(testo);
-      u.lang = "it-IT";
-      const trySpeak = () => {
-        const v = selectFemaleVoice();
-        if (v) u.voice = v;
-        window.speechSynthesis.cancel(); // evita che Chrome ripeta!
-        window.speechSynthesis.speak(u);
-      };
-      if (!window.speechSynthesis.getVoices || window.speechSynthesis.getVoices().length === 0) {
-        if (!voicesLoaded) {
-          voicesLoaded = true;
-          window.speechSynthesis.addEventListener('voiceschanged', () => {
-            trySpeak();
-          }, { once: true });
+
+  // Speech Recognition setup
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (fraseEl) {
+        fraseEl.textContent = "SpeechRecognition non supportato nel tuo browser";
+      }
+      if (btnStart) {
+        btnStart.disabled = true;
+      }
+    });
+  } else {
+    const recognition = new SpeechRecognition();
+    recognition.lang = "it-IT";
+    recognition.interimResults = false;
+    recognition.continuous = true;
+    recognition.maxAlternatives = 1;
+
+    function aggiorna(numero, frase) {
+      if (numeroEl) numeroEl.textContent = numero ?? 0;
+      if (fraseEl) fraseEl.textContent = frase || "";
+    }
+
+    // onresult con dedup transcript e logging dettagliato
+    recognition.onresult = (e) => {
+      try {
+        const lastResult = e.results[e.results.length - 1][0];
+        const dettoRaw = lastResult.transcript.trim();
+        const now = Date.now();
+
+        // LOG per debug
+        console.log("recognition.onresult raw:", dettoRaw, "confidence:", lastResult.confidence);
+
+        // DEDUP: evita processare lo stesso transcript ripetuto più volte in rapida successione
+        if (dettoRaw === _lastTranscript && (now - _lastTranscriptTime) < TRANSCRIPT_DEDUPE_MS) {
+          console.log(`recognition.onresult: dedup SKIP (stesso transcript entro ${TRANSCRIPT_DEDUPE_MS}ms):`, dettoRaw);
+          return;
         }
-      } else {
-        trySpeak();
-      }
-    }*/
+        _lastTranscript = dettoRaw;
+        _lastTranscriptTime = now;
 
-    // ------- Speech Recognition + Controllo permessi -------
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      document.addEventListener('DOMContentLoaded', () => {
-        if (fraseEl) { fraseEl.textContent = "SpeechRecognition non supportato nel tuo browser"; }
-        if (btnStart) { btnStart.disabled = true; }
-      });
-    } else {
-      const recognition = new SpeechRecognition();
-      recognition.lang = "it-IT";
-      recognition.interimResults = false;
-      recognition.continuous = true;
-      recognition.maxAlternatives = 1;
-
-      function aggiorna(numero, frase) {
-        if (numeroEl) numeroEl.textContent = numero ?? 0;
-        if (fraseEl) fraseEl.textContent = frase || "";
-      }
-
-      recognition.onresult = (e) => {
-        const detto = e.results[e.results.length - 1][0].transcript.trim();
-        let numero = parseInt(detto.replace(/[^\d]/g, ''), 10);
+        let numero = parseInt(dettoRaw.replace(/[^\d]/g, ''), 10);
         let frase = "";
+
         if (!isNaN(numero)) {
           if (numero === 99) {
             frase = "Grazie per aver giocato! Arrivederci.";
@@ -406,82 +856,186 @@
             parla(frase);
             stoppedByUser = true;
             recognition.stop();
+
+            // Mostra solo il messaggio di chiusura e svuota la pagina
             document.body.innerHTML = "<h2 style='text-align:center;margin-top:40vh;'>Chiusura VoiceTombola</h2>";
             return;
           }
-          if (numero > 90) { frase = " "; }
-          else { const smorfiaAttuale = getSmorfia();
-            frase = smorfiaAttuale[numero] || `Numero ${numero}`; }
-        } else { frase = " "; }
-        aggiorna(numero || 0, frase);
-        if (frase.trim() !== "") { parla(frase); }
-      };
-      recognition.onerror = (ev) => {
-        listening = false;
-        if (ev.error === 'no-speech' || ev.error === 'audio-capture' || ev.error === 'aborted') { return; }
-        if (ev.error === 'not-allowed') {
-          if (authStatusEl) authStatusEl.textContent = 'Microfono negato. Consenti nelle impostazioni del browser.';
-          stoppedByUser = true;
-        } else {
-          if (authStatusEl) authStatusEl.textContent = `Errore: ${ev.error}. Premi Reset per riavviare.`;
-        }
-      };
-      recognition.onend = () => {
-        listening = false;
-        if (!stoppedByUser) {
-          setTimeout(() => {
-            if (!stoppedByUser) {
-              try { recognition.start(); listening = true; } catch (err) {
-                if (authStatusEl) authStatusEl.textContent = 'Microfono interrotto. Premi Reset per riavviare.';
-              }
-            }
-          }, 700);
-        } else {
-          if (authStatusEl) authStatusEl.textContent = 'Microfono spento. Seleziona una modalità per riavviare.';
-        }
-      };
-      async function requestMicPermission() {
-        try {
-          if (micStream) { return true; }
-          const savedPermission = localStorage.getItem('micPermissionGranted');
-          if (savedPermission === 'true') { return true; }
-          micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-          localStorage.setItem('micPermissionGranted', 'true');
-          return true;
-        } catch (e) { return false; }
-      }
-      function updateAuthStatus(granted) {
-        try {
-          if (granted) { if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare'; }
-          else { if (authStatusEl) authStatusEl.textContent = 'Errore: microfono non autorizzato. Ricarica la pagina e riprova.';}
-        } catch (e) { }
-      }
-      async function startListening() {
-        if (listening) { return; }
-        try {
-          const hasPermission = await requestMicPermission();
-          if (!hasPermission) {
-            if (authStatusEl) authStatusEl.textContent = 'Errore: microfono non autorizzato. Ricarica la pagina e riprova.';
-            return;
+          if (numero > 90) {
+            frase = " ";
+          } else {
+            const smorfiaAttuale = getSmorfia();
+            frase = smorfiaAttuale[numero] || `Numero ${numero}`;
+            console.log(`Usando smorfia ${smorfiaType === 0 ? 'Napoletana' : 'Generica'}: ${frase}`);
           }
-          stoppedByUser = false;
-          recognition.start();
-          listening = true;
-          if (authStatusEl) authStatusEl.textContent = 'Ascolto attivo... Di\' un numero o "novantanove" per terminare.';
-        } catch (err) {
-          if (authStatusEl) authStatusEl.textContent = 'Errore avvio riconoscimento. Usa Reset e riprova.';
+        } else {
+          frase = " ";
         }
+
+        aggiorna(numero || 0, frase);
+
+        // Parla solo se la frase non è vuota o composta solo da spazi
+        if (frase.trim() !== "") {
+          parla(frase);
+        }
+      } catch (err) {
+        console.error("Errore in recognition.onresult:", err);
       }
-      function stopListening() {
+    };
+
+    recognition.onerror = (ev) => {
+      console.warn("recognition.onerror", ev.error);
+      listening = false;
+
+      // Non fermare per errori temporanei
+      if (ev.error === 'no-speech' || ev.error === 'audio-capture' || ev.error === 'aborted') {
+        console.log("Errore temporaneo, continua ascolto");
+        return;
+      }
+
+      if (ev.error === 'not-allowed') {
+        if (authStatusEl) authStatusEl.textContent = 'Microfono negato. Consenti nelle impostazioni del browser.';
         stoppedByUser = true;
-        try { recognition.stop(); } catch (e) { }
+      } else {
+        if (authStatusEl) authStatusEl.textContent = `Errore: ${ev.error}. Premi Reset per riavviare.`;
       }
-      window.startListening = startListening;
-      window.stopListening = stopListening;
-      window.requestMicPermission = requestMicPermission;
-      window.updateAuthStatus = updateAuthStatus;
+    };
+
+    recognition.onend = () => {
+      listening = false;
+      console.log("Recognition.onend - stoppedByUser:", stoppedByUser);
+
+      if (!stoppedByUser) {
+        // Riavvia dopo 700 millisecondi (0.7 secondi) per mantenere il microfono attivo senza disturbare
+        setTimeout(() => {
+          if (!stoppedByUser) {
+            try {
+              recognition.start();
+              listening = true;
+              console.log("Recognition riavviato automaticamente");
+            } catch (err) {
+              console.warn("Impossibile riavviare recognition", err);
+              if (authStatusEl) authStatusEl.textContent = 'Microfono interrotto. Premi Reset per riavviare.';
+            }
+          }
+        }, 700);
+      } else {
+        console.log("Recognition fermato dall'utente");
+        if (authStatusEl) authStatusEl.textContent = 'Microfono spento. Seleziona una modalità per riavviare.';
+      }
+    };
+
+    // Richiedi permesso microfono una volta sola
+    async function requestMicPermission() {
+      try {
+        if (micStream) {
+          return true;
+        }
+
+        const savedPermission = localStorage.getItem('micPermissionGranted');
+        if (savedPermission === 'true') {
+          return true;
+        }
+
+        micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        localStorage.setItem('micPermissionGranted', 'true');
+        return true;
+      } catch (e) {
+        console.warn('Errore accesso microfono:', e);
+        return false;
+      }
     }
-    // ------- FINE SCRIPT PRINCIPALE -------
-  </script>
+
+    function updateAuthStatus(granted) {
+      try {
+        if (granted) {
+          if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+        } else {
+          if (authStatusEl) authStatusEl.textContent = 'Errore: microfono non autorizzato. Ricarica la pagina e riprova.';
+        }
+      } catch (e) {
+        console.warn('Errore aggiornamento stato:', e);
+      }
+    }
+
+    async function startListening() {
+      if (listening) {
+        console.log("Recognition già attivo");
+        return;
+      }
+
+      try {
+        const hasPermission = await requestMicPermission();
+        if (!hasPermission) {
+          if (authStatusEl) authStatusEl.textContent = 'Errore: microfono non autorizzato. Ricarica la pagina e riprova.';
+          return;
+        }
+
+        // Campanello disattivato ovunque
+
+        stoppedByUser = false;
+        recognition.start();
+        listening = true;
+        console.log("Recognition avviato");
+        if (authStatusEl) authStatusEl.textContent = 'Ascolto attivo... Di\' un numero o "novantanove" per terminare.';
+      } catch (err) {
+        console.warn("Errore start recognition", err);
+        if (authStatusEl) authStatusEl.textContent = 'Errore avvio riconoscimento. Usa Reset e riprova.';
+      }
+    }
+
+    function stopListening() {
+      stoppedByUser = true;
+      try { recognition.stop(); } catch (e) { /* ignore */ }
+    }
+
+    // Rendi disponibili globalmente
+    window.startListening = startListening;
+    window.stopListening = stopListening;
+    window.requestMicPermission = requestMicPermission;
+    window.updateAuthStatus = updateAuthStatus;
+  }
+</script>
+
+<body>
+  <!-- Header fisso stile mobile -->
+  <header class="app-header">
+    <h1>VoiceTombola</h1>
+  </header>
+
+  <!-- Contenuto principale scrollabile -->
+  <main class="app-content">
+    <!-- Status bar per messaggi -->
+    <div class="status-bar" id="authStatus">
+      Premi Avvia per autorizzare microfono e audio
+    </div>
+
+    <!-- Banner informativo -->
+    <div style="background-color: #007bff; padding: 0; border-radius: 16px; margin: 0px 16px; box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+       color:white; font-size: 20px; text-align: center; line-height: 2;">
+       <br>   L'app restituisce la smorfia (Gen/Nap)<br>del numero estratto e la riproduce<br>vocalmente.Per terminare dire "99"<br> per reset premere R;
+    </div>
+
+    <!-- Immagine con dimensioni aumentate -->
+    <img decoding="async" src="tombola.png" width="280" height="280" alt="Tombola" style="padding:1px;display:block; margin:24px auto; width:280px; height:auto; max-width:90%;">
+
+    <!-- Card per numero e frase -->
+    <div class="number-card">
+      <div id="numero">0</div>
+      <div id="frase">VIA!</div>
+    </div>
+  </main>
+
+  <!-- Toolbar bottom fissa -->
+  <div class="bottom-toolbar">
+    <div class="controls-container">
+      <button id="btnItaliano" onclick="selectMode('generico')">Generica</button>
+      <button id="btnNapoletano" onclick="selectMode('napoletano')">Napoletana</button>
+      <button id="btnReset" onclick="resetApp()">R</button>
+    </div>
+  </div>
+
+  <audio id="bell" src="audio_door.mp3" preload="auto"></audio>
+
 </body>
 </html>
