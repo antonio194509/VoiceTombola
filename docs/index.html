@@ -748,11 +748,41 @@
   
   // ...altro codice già presente...
   
-  
+  // Fuori da parla, proteggi la registrazione dell'evento con un "flag"
+let voicesLoaded = false;
+
+function parla(testo) {
+  if (!testo) return;
+  const u = new SpeechSynthesisUtterance(testo);
+  u.lang = "it-IT";
+
+  const trySpeak = () => {
+    const v = selectFemaleVoice();
+    if (v) {
+      u.voice = v;
+      console.log("Voce selezionata per speak:", v.name, v.lang, "default:", v.default);
+    } else {
+      console.log("Nessuna voce selezionata; verrà usata la voce di default del browser.");
+    }
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+  };
+
+  if (!window.speechSynthesis.getVoices || window.speechSynthesis.getVoices().length === 0) {
+    if (!voicesLoaded) {
+      voicesLoaded = true;
+      window.speechSynthesis.addEventListener('voiceschanged', () => {
+        trySpeak();
+      }, { once: true }); // Solo una volta!
+    }
+  } else {
+    trySpeak();
+  }
+}
 
   // ...altro codice già presente...
 
-  function parla(testo) {
+  /*function parla(testo) {
   if (!testo) return;
   const u = new SpeechSynthesisUtterance(testo);
   u.lang = "it-IT";
@@ -778,7 +808,7 @@
   } else {
     trySpeak();
   }
-}
+}*/
 // ...existing code...
 
 
@@ -1008,4 +1038,5 @@
 </body>
 
 </html>
+
 
