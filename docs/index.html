@@ -745,7 +745,45 @@
     }
   }, 100);
   // ...existing code...
-function parla(testo) {
+  <script>
+  // ...altro codice già presente...
+  
+  // PATCH: variabile globale per evitare ripetizioni
+  let voicesLoaded = false;
+
+  // PATCH: funzione parla nuova!
+  function parla(testo) {
+    if (!testo) return;
+    const u = new SpeechSynthesisUtterance(testo);
+    u.lang = "it-IT";
+
+    const trySpeak = () => {
+      const v = selectFemaleVoice();
+      if (v) {
+        u.voice = v;
+        console.log("Voce selezionata per speak:", v.name, v.lang, "default:", v.default);
+      } else {
+        console.log("Nessuna voce selezionata; verrà usata la voce di default del browser.");
+      }
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    };
+
+    if (!window.speechSynthesis.getVoices || window.speechSynthesis.getVoices().length === 0) {
+      if (!voicesLoaded) {
+        voicesLoaded = true;
+        window.speechSynthesis.addEventListener('voiceschanged', () => {
+          trySpeak();
+        }, { once: true }); // si attiva una sola volta!
+      }
+    } else {
+      trySpeak();
+    }
+  }
+
+  // ...altro codice già presente...
+</script>
+  /* function parla(testo) {
   if (!testo) return;
   const u = new SpeechSynthesisUtterance(testo);
   u.lang = "it-IT";
@@ -771,7 +809,7 @@ function parla(testo) {
   } else {
     trySpeak();
   }
-}
+}*/
 // ...existing code...
 
 
@@ -999,4 +1037,5 @@ function parla(testo) {
   <audio id="bell" src="audio_door.mp3" preload="auto"></audio>
 
 </body>
+
 </html>
