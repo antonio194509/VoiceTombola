@@ -1,5 +1,6 @@
 {
   "name": "VoiceTombola",
+  "id": "https://example.com/VoiceTombola/",
   "short_name": "Smorfia Tombola",
   "description": "Gioca a tombola tramite riconoscimento vocale, con smorfia napoletana e generica. Facile, veloce e intuitiva!",
   "start_url": "/VoiceTombola/",
