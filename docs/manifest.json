@@ -2,6 +2,7 @@
   "name": "VoiceTombola",
   "short_name": "Smorfia Tombola",
   "description": "Gioca a tombola tramite riconoscimento vocale, con smorfia napoletana e generica. Facile, veloce e intuitiva!",
+  "id": "https://example.com/VoiceTombola/",
   "start_url": "/VoiceTombola/",
   "display": "standalone",
   "background_color": "#000000",
