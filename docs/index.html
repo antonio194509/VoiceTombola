@@ -850,7 +850,7 @@ function parla(testo) {
       // Reset backoff delay on successful recognition
       restartDelay = 1000;
 
-      let numero = parseInt(detto.replace(/[^0-9])/g, '', 10);
+      let numero = parseInt(detto.replace(/[^0-9]/g, ''), 10);
       let frase = "";
 
       if (!isNaN(numero)) {
