@@ -319,20 +319,24 @@
   let listening = false;
   let stoppedByUser = false;
   let micStream = null;
+  let restartDelay = 1000; // Delay iniziale per restart (1 secondo)
+  let restartTimeoutId = null;
 
   // Funzioni di gestione modalità e avvio
+  function updateModeButtons() {
+    if (!btnItaliano || !btnNapoletano) return;
+    // smorfiaType: 0 = napoletano, 1 = generico/classica
+    btnItaliano.classList.toggle('selected', smorfiaType === 1);
+    btnNapoletano.classList.toggle('selected', smorfiaType === 0);
+  }
+
   function selectMode(mode) {
     smorfiaType = mode === 'napoletano' ? 0 : 1;
     
-    if (mode === 'napoletano') {
-      btnNapoletano.classList.add('selected');
-      btnItaliano.classList.remove('selected');
-    } else {
-      btnItaliano.classList.add('selected');
-      btnNapoletano.classList.remove('selected');
-    }
+    // Aggiorna UI in modo deterministico
+    updateModeButtons();
     
-    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
+    if (authStatusEl) authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
     
     // Avvia automaticamente l'ascolto
     setTimeout(() => {
@@ -843,8 +847,10 @@ function parla(testo) {
       const detto = e.results[e.results.length - 1][0].transcript.trim();
       console.log("Hai detto:", detto);
 
-      let numero = parseInt(detto.replace(/[^
-])/g, '', 10);
+      // Reset backoff delay on successful recognition
+      restartDelay = 1000;
+
+      let numero = parseInt(detto.replace(/[^0-9])/g, '', 10);
       let frase = "";
 
       if (!isNaN(numero)) {
@@ -900,22 +906,24 @@ function parla(testo) {
 
     recognition.onend = () => {
       listening = false;
-      console.log("Recognition.onend - stoppedByUser:", stoppedByUser);
+      console.log("Recognition.onend - stoppedByUser:", stoppedByUser, "delay:", restartDelay);
       
       if (!stoppedByUser) {
-        // Riavvia dopo 700 millisecondi (0.7 secondi) per mantenere il microfono attivo senza disturbare
-        setTimeout(() => {
+        // Riavvia con exponential backoff per evitare loop rapidi
+        restartTimeoutId = setTimeout(() => {
           if (!stoppedByUser) {
             try {
               recognition.start();
               listening = true;
-              console.log("Recognition riavviato automaticamente");
+              console.log("Recognition riavviato automaticamente dopo", restartDelay, "ms");
+              // Incrementa il delay con exponential backoff (max 10 secondi)
+              restartDelay = Math.min(restartDelay * 1.5, 10000);
             } catch (err) {
               console.warn("Impossibile riavviare recognition", err);
               if (authStatusEl) authStatusEl.textContent = 'Microfono interrotto. Premi Reset per riavviare.';
             }
           }
-        }, 700);
+        }, restartDelay);
       } else {
         console.log("Recognition fermato dall'utente");
         if (authStatusEl) authStatusEl.textContent = 'Microfono spento. Seleziona una modalità per riavviare.';
@@ -970,6 +978,13 @@ function parla(testo) {
 
         // Campanello disattivato ovunque
         
+        // Reset backoff delay quando avviato manualmente
+        restartDelay = 1000;
+        if (restartTimeoutId) {
+          clearTimeout(restartTimeoutId);
+          restartTimeoutId = null;
+        }
+        
         stoppedByUser = false;
         recognition.start();
         listening = true;
@@ -983,6 +998,10 @@ function parla(testo) {
 
     function stopListening() {
       stoppedByUser = true;
+      if (restartTimeoutId) {
+        clearTimeout(restartTimeoutId);
+        restartTimeoutId = null;
+      }
       try { recognition.stop(); } catch (e) { /* ignore */ }
     }
 
