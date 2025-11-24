@@ -321,6 +321,30 @@
   let micStream = null;
 
   // Funzioni di gestione modalità e avvio
+  function updateModeButtons() {
+  if (!btnItaliano || !btnNapoletano) return;
+  // smorfiaType: 0 = napoletano, 1 = generico/classica
+  btnItaliano.classList.toggle('selected', smorfiaType === 1);
+  btnNapoletano.classList.toggle('selected', smorfiaType === 0);
+}
+
+function selectMode(mode) {
+  smorfiaType = mode === 'napoletano' ? 0 : 1;
+
+  // Aggiorna UI in modo deterministico
+  updateModeButtons();
+  if (authStatusEl) authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
+
+  // Avvia automaticamente l'ascolto (manteniamo comportamento precedente)
+  setTimeout(() => {
+    if (window.startListening) {
+      window.startListening();
+    } else {
+      console.error('startListening non disponibile');
+      if (authStatusEl) authStatusEl.textContent = 'Errore: funzione di ascolto non disponibile';
+    }
+  }, 300);
+}*/
   function selectMode(mode) {
     smorfiaType = mode === 'napoletano' ? 0 : 1;
     
