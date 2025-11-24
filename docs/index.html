@@ -314,7 +314,9 @@
   }
 
   // Variabili globali
-  let smorfiaType = 0; // 0 = napoletano, 1 = generico
+  const SMORFIA_NAPOLETANA = 0;
+  const SMORFIA_GENERICA = 1;
+  let smorfiaType = SMORFIA_NAPOLETANA;
   let authStatusEl, numeroEl, fraseEl, btnStart, btnItaliano, btnNapoletano, voiceSelect, testVoiceBtn, bell;
   let listening = false;
   let stoppedByUser = false;
@@ -326,17 +328,18 @@
   let restartingTimeout = null;
   let restartBackoff = 200;
   const MAX_BACKOFF = 2000;
+  const BACKOFF_MULTIPLIER = 1.5;
 
   // Funzioni di gestione modalità e avvio
   function updateModeButtons() {
     if (btnItaliano && btnNapoletano) {
-      btnItaliano.classList.toggle('selected', smorfiaType === 1);
-      btnNapoletano.classList.toggle('selected', smorfiaType === 0);
+      btnItaliano.classList.toggle('selected', smorfiaType === SMORFIA_GENERICA);
+      btnNapoletano.classList.toggle('selected', smorfiaType === SMORFIA_NAPOLETANA);
     }
   }
   
   function selectMode(mode) {
-    smorfiaType = mode === 'napoletano' ? 0 : 1;
+    smorfiaType = mode === 'napoletano' ? SMORFIA_NAPOLETANA : SMORFIA_GENERICA;
     updateModeButtons();
     
     authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
@@ -609,7 +612,7 @@
 
   // Funzione per ottenere la smorfia corretta
   function getSmorfia() {
-    return smorfiaType === 0 ? smorfiaNapoletana : smorfiaGenerica;
+    return smorfiaType === SMORFIA_NAPOLETANA ? smorfiaNapoletana : smorfiaGenerica;
   }
 
   const synth = window.speechSynthesis;
@@ -839,7 +842,7 @@
           } else {
             const smorfiaAttuale = getSmorfia();
             frase = smorfiaAttuale[numero] || `Numero ${numero}`;
-            console.log(`Usando smorfia ${smorfiaType === 0 ? 'Napoletana' : 'Generica'}: ${frase}`);
+            console.log(`Usando smorfia ${smorfiaType === SMORFIA_NAPOLETANA ? 'Napoletana' : 'Generica'}: ${frase}`);
           }
         } else {
           frase = " ";
@@ -888,7 +891,7 @@
                 listening = true;
                 console.log("Recognition riavviato automaticamente con backoff:", restartBackoff);
                 // Increase backoff exponentially, up to MAX_BACKOFF
-                restartBackoff = Math.min(restartBackoff * 1.5, MAX_BACKOFF);
+                restartBackoff = Math.min(restartBackoff * BACKOFF_MULTIPLIER, MAX_BACKOFF);
               } catch (err) {
                 console.warn("Impossibile riavviare recognition", err);
                 if (authStatusEl) authStatusEl.textContent = 'Microfono interrotto. Premi Reset per riavviare.';
