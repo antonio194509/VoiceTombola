@@ -321,20 +321,21 @@
   let micStream = null;
 
   // Funzioni di gestione modalità e avvio
+  function updateModeButtons() {
+    if (!btnItaliano || !btnNapoletano) return;
+    // smorfiaType: 0 = napoletano, 1 = generico/classica
+    btnItaliano.classList.toggle('selected', smorfiaType === 1);
+    btnNapoletano.classList.toggle('selected', smorfiaType === 0);
+  }
+
   function selectMode(mode) {
     smorfiaType = mode === 'napoletano' ? 0 : 1;
-    
-    if (mode === 'napoletano') {
-      btnNapoletano.classList.add('selected');
-      btnItaliano.classList.remove('selected');
-    } else {
-      btnItaliano.classList.add('selected');
-      btnNapoletano.classList.remove('selected');
-    }
-    
-    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
-    
-    // Avvia automaticamente l'ascolto
+
+    // Aggiorna UI in modo deterministico
+    updateModeButtons();
+    if (authStatusEl) authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
+
+    // Avvia automaticamente l'ascolto (manteniamo comportamento precedente)
     setTimeout(() => {
       if (window.startListening) {
         window.startListening();
@@ -828,99 +829,177 @@ function parla(testo) {
       }
     });
   } else {
-    const recognition = new SpeechRecognition();
-    recognition.lang = "it-IT";
-    recognition.interimResults = false;
-    recognition.continuous = true;
-    recognition.maxAlternatives = 1;
+    // --- Persistent SpeechRecognition pattern (sostituisce la precedente istanza inline) ---
+    // speechSynthesis helper
+    const synth = window.speechSynthesis;
+
+    let recognition = null;
+    let shouldKeepListening = false;
+    let restartingTimeout = null;
+    let restartBackoff = 200; // ms
+    const MAX_BACKOFF = 2000;
+    // listening e stoppedByUser sono usate anche altrove; manteniamo compatibilità
+    let listening = false;
+    let stoppedByUser = false;
 
     function aggiorna(numero, frase) {
       if (numeroEl) numeroEl.textContent = numero ?? 0;
       if (fraseEl) fraseEl.textContent = frase || "";
     }
 
-    recognition.onresult = (e) => {
-      const detto = e.results[e.results.length - 1][0].transcript.trim();
-      console.log("Hai detto:", detto);
+    function pickItalianFemaleVoice() {
+      const voices = synth.getVoices ? synth.getVoices() : [];
+      const preferredNames = ['Elsa', 'Elsa (Microsoft)', 'Google', 'Alice', 'Federica', 'Lucia'];
+      for (const name of preferredNames) {
+        const v = voices.find(v => v.name && v.name.toLowerCase().includes(name.toLowerCase()) && v.lang && v.lang.startsWith('it'));
+        if (v) return v;
+      }
+      const itVoice = voices.find(v => v.lang && v.lang.startsWith('it'));
+      if (itVoice) return itVoice;
+      return voices[0] || null;
+    }
 
-      let numero = parseInt(detto.replace(/[^
-])/g, '', 10);
-      let frase = "";
+    function parla(text) {
+      if (!text || !text.trim()) return;
+      try {
+        if (!synth) return;
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'it-IT';
+        const preferredName = localStorage.getItem('preferredVoiceName');
+        const voices = synth.getVoices ? synth.getVoices() : [];
+        let voice = null;
+        if (preferredName) voice = voices.find(v => v.name === preferredName);
+        if (!voice) voice = pickItalianFemaleVoice();
+        if (voice) utter.voice = voice;
+        // Evita sovrapposizioni
+        synth.cancel();
+        synth.speak(utter);
+      } catch (e) {
+        console.warn('parla() error', e);
+      }
+    }
 
-      if (!isNaN(numero)) {
-        if (numero === 99) {
-         frase = "Grazie per aver giocato! Arrivederci.";
-          aggiorna(numero, frase);
-          parla(frase);
+    function createRecognition() {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SR) {
+        console.warn('SpeechRecognition non disponibile');
+        return null;
+      }
+      const r = new SR();
+      r.lang = 'it-IT';
+      r.interimResults = false;
+      r.continuous = true;
+      r.maxAlternatives = 1;
+
+      r.onresult = (e) => {
+        try {
+          const detto = e.results[e.results.length - 1][0].transcript.trim();
+          console.log("Hai detto:", detto);
+          let numero = parseInt(detto.replace(/[^\d]/g, ''), 10);
+          let frase = "";
+
+          if (!isNaN(numero)) {
+            if (numero === 99) {
+              frase = "Grazie per aver giocato! Arrivederci.";
+              aggiorna(numero, frase);
+              parla(frase);
+              stoppedByUser = true;
+              try { r.stop(); } catch(e) {}
+              document.body.innerHTML = "<h2>Chiusura VoiceTombola</h2>";
+              return;
+            }
+            if (numero > 90) {
+              frase = " ";
+            } else {
+              const smorfiaAttuale = getSmorfia();
+              frase = smorfiaAttuale[numero] || `Numero ${numero}`;
+            }
+          } else {
+            // fallback se non è un numero: mostra il testo grezzo
+            frase = detto;
+          }
+
+          aggiorna(numero || 0, frase);
+          if (frase.trim() !== "") parla(frase);
+        } catch (err) {
+          console.error('Errore onresult processing', err);
+        }
+      };
+
+      r.onerror = (ev) => {
+        console.warn('recognition.onerror', ev && ev.error ? ev.error : ev);
+        listening = false;
+        if (ev && (ev.error === 'no-speech' || ev.error === 'audio-capture' || ev.error === 'aborted')) {
+          console.log("Errore temporaneo, continua ascolto");
+          return;
+        }
+        if (ev && ev.error === 'not-allowed') {
+          if (authStatusEl) authStatusEl.textContent = 'Microfono negato. Consenti nelle impostazioni del browser.';
           stoppedByUser = true;
-          recognition.stop();
-
-
-  // Mostra solo il messaggio di chiusura e svuota la pagina
-  document.body.innerHTML = "<h2 style='text-align:center;margin-top:40vh;'>Chiusura VoiceTombola</h2>";
-  return;  
-        }
-        if (numero > 90) {
-          frase = " ";
         } else {
-          const smorfiaAttuale = getSmorfia();
-          frase = smorfiaAttuale[numero] || `Numero ${numero}`;
-          console.log(`Usando smorfia ${smorfiaType === 0 ? 'Napoletana' : 'Generica'}: ${frase}`);
+          if (authStatusEl) authStatusEl.textContent = `Errore: ${ev && ev.error ? ev.error : 'sconosciuto'}. Premi Reset per riavviare.`;
         }
-      } else {
-        frase = " ";
-      }
+      };
 
-      aggiorna(numero || 0, frase);
-   
-     
-
-  // Parla solo se la frase non è vuota o composta solo da spazi
-  if (frase.trim() !== "") {
-    parla(frase);
-  }
-};
-    recognition.onerror = (ev) => {
-      console.warn("recognition.onerror", ev.error);
-      listening = false;
-      
-      // Non fermare per errori temporanei
-      if (ev.error === 'no-speech' || ev.error === 'audio-capture' || ev.error === 'aborted') {
-        console.log("Errore temporaneo, continua ascolto");
-        return;
-      }
-      
-      if (ev.error === 'not-allowed') {
-        if (authStatusEl) authStatusEl.textContent = 'Microfono negato. Consenti nelle impostazioni del browser.';
-        stoppedByUser = true;
-      } else {
-        if (authStatusEl) authStatusEl.textContent = `Errore: ${ev.error}. Premi Reset per riavviare.`;
-      }
-    };
-
-    recognition.onend = () => {
-      listening = false;
-      console.log("Recognition.onend - stoppedByUser:", stoppedByUser);
-      
-      if (!stoppedByUser) {
-        // Riavvia dopo 700 millisecondi (0.7 secondi) per mantenere il microfono attivo senza disturbare
-        setTimeout(() => {
-          if (!stoppedByUser) {
+      r.onend = () => {
+        listening = false;
+        console.log("Recognition.onend - stoppedByUser:", stoppedByUser);
+        if (!stoppedByUser && shouldKeepListening) {
+          // Riavvia con backoff esponenziale (evitiamo polling aggressivo)
+          if (restartingTimeout) clearTimeout(restartingTimeout);
+          restartingTimeout = setTimeout(() => {
             try {
-              recognition.start();
+              if (!recognition) recognition = createRecognition();
+              recognition && recognition.start();
               listening = true;
-              console.log("Recognition riavviato automaticamente");
+              console.log("Recognition riavviato automaticamente (backoff)", restartBackoff);
+              // increase backoff in case of repeated fails
+              restartBackoff = Math.min(MAX_BACKOFF, restartBackoff * 2);
+              restartingTimeout = null;
             } catch (err) {
               console.warn("Impossibile riavviare recognition", err);
               if (authStatusEl) authStatusEl.textContent = 'Microfono interrotto. Premi Reset per riavviare.';
             }
-          }
-        }, 700);
-      } else {
-        console.log("Recognition fermato dall'utente");
-        if (authStatusEl) authStatusEl.textContent = 'Microfono spento. Seleziona una modalità per riavviare.';
+          }, restartBackoff);
+        } else {
+          console.log("Recognition fermato dall'utente o shouldKeepListening false");
+          if (authStatusEl) authStatusEl.textContent = 'Microfono spento. Seleziona una modalità per riavviare.';
+        }
+      };
+
+      return r;
+    }
+
+    async function startPersistentRecognition() {
+      if (listening && shouldKeepListening) {
+        console.log('Recognition già in ascolto');
+        return;
       }
-    };
+      shouldKeepListening = true;
+      stoppedByUser = false;
+      restartBackoff = 200; // reset backoff dopo start manuale
+
+      if (!recognition) recognition = createRecognition();
+      if (!recognition) return;
+
+      try {
+        recognition.start(); // spesso richiede user gesture
+        listening = true;
+        console.log('Recognition avviato');
+        if (authStatusEl) authStatusEl.textContent = 'Ascolto attivo... Di\' un numero o "novantanove" per terminare.';
+      } catch (err) {
+        console.warn('Errore start recognition', err);
+        if (authStatusEl) authStatusEl.textContent = 'Errore avvio riconoscimento. Usa Reset e riprova.';
+      }
+    }
+
+    function stopPersistentRecognition() {
+      shouldKeepListening = false;
+      stoppedByUser = true;
+      if (restartingTimeout) { clearTimeout(restartingTimeout); restartingTimeout = null; }
+      try { recognition && recognition.stop(); } catch(e) { /* ignore */ }
+      listening = false;
+    }
 
     // Richiedi permesso microfono una volta sola
     async function requestMicPermission() {
@@ -971,10 +1050,7 @@ function parla(testo) {
         // Campanello disattivato ovunque
         
         stoppedByUser = false;
-        recognition.start();
-        listening = true;
-        console.log("Recognition avviato");
-        if (authStatusEl) authStatusEl.textContent = 'Ascolto attivo... Di\' un numero o "novantanove" per terminare.';
+        await startPersistentRecognition();
       } catch (err) {
         console.warn("Errore start recognition", err);
         if (authStatusEl) authStatusEl.textContent = 'Errore avvio riconoscimento. Usa Reset e riprova.';
@@ -982,15 +1058,15 @@ function parla(testo) {
     }
 
     function stopListening() {
-      stoppedByUser = true;
-      try { recognition.stop(); } catch (e) { /* ignore */ }
+      stopPersistentRecognition();
     }
 
-    // Rendi disponibili globalmente
     window.startListening = startListening;
     window.stopListening = stopListening;
     window.requestMicPermission = requestMicPermission;
     window.updateAuthStatus = updateAuthStatus;
+
+    // --- end persistent pattern ---
   }
 </script>
 
