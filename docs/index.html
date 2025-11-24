@@ -28,8 +28,6 @@
     </document>
 
   <style>
-    
-    
     /* Reset e stili base per app mobile */
     * {
       margin: 0;
@@ -74,7 +72,6 @@
       font-weight: 600;
       color: #ffffff;
     }
-    
 
     /* Contenuto principale scrollabile */
     .app-content {
@@ -246,7 +243,7 @@
       width: 100%;
       -webkit-appearance: none;
       appearance: none;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23[...]);
       background-repeat: no-repeat;
       background-position: right 12px center;
       background-size: 12px;
@@ -306,7 +303,7 @@
   // Registra Service Worker per PWA
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
+      navigator.serviceWorker.register('./pwabuilder-sw.js')
         .then(registration => {
           console.log('Service Worker registrato:', registration.scope);
         })
@@ -335,7 +332,7 @@
       btnNapoletano.classList.remove('selected');
     }
     
-    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Generica' : 'Napoletana'} - Avvio in corso...`;
+    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
     
     // Avvia automaticamente l'ascolto
     setTimeout(() => {
@@ -376,7 +373,7 @@
       btnNapoletano.disabled = false;
       btnNapoletano.classList.remove('selected');
     }
-    if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+    if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Classica o Napoletana) per iniziare';
     console.log("App resettata");
   }
 
@@ -392,7 +389,18 @@
     bell = document.getElementById("bell");
     
     // Imposta stato iniziale
-    authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+    if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Classica o Napoletana) per iniziare';
+
+    // Aggiorna etichette bottoni subito (non rinominiamo variabili JS)
+    if (btnItaliano) btnItaliano.textContent = 'Classica';
+    const resetBtn = document.getElementById('btnReset');
+    if (resetBtn) resetBtn.textContent = 'Reset';
+
+    // Aggiorna descrizione/app-description se presente
+    const desc = document.querySelector('.app-description');
+    if (desc) {
+      desc.innerHTML = '<br>   Scegli il tipo di smorfia (Classica/Napoletana)<br>premendo il relativo tasto che<br>si colorerà di verde, inizia<br>a scandire i numeri estratti<br>che verranno vocalizzati.<br>Per terminare, dire "99"';
+    }
 
     // Avvia verifica permesso microfono
     if (window.requestMicPermission) {
@@ -496,10 +504,6 @@
     88: "e casecavalle", 
     89: "a vecchia",
     90: "a paura" 
-
-    
-    
-   
   };
 
   // Smorfia Generica
@@ -633,7 +637,7 @@
     } catch (e) {
       console.warn('Errore accesso localStorage:', e);
     }
-
+  
     // Elenco di nomi esatti preferiti
     const preferredNames = [
       "Microsoft Elsa Online (Natural)",
@@ -812,7 +816,6 @@ function parla(testo) {
 // ...existing code...
 
 
-
   // Speech Recognition setup
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SpeechRecognition) {
@@ -840,7 +843,8 @@ function parla(testo) {
       const detto = e.results[e.results.length - 1][0].transcript.trim();
       console.log("Hai detto:", detto);
 
-      let numero = parseInt(detto.replace(/[^\d]/g, ''), 10);
+      let numero = parseInt(detto.replace(/[^
+])/g, '', 10);
       let frase = "";
 
       if (!isNaN(numero)) {
@@ -942,7 +946,7 @@ function parla(testo) {
     function updateAuthStatus(granted) {
       try {
         if (granted) {
-          if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+          if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Classica o Napoletana) per iniziare';
         } else {
           if (authStatusEl) authStatusEl.textContent = 'Errore: microfono non autorizzato. Ricarica la pagina e riprova.';
         }
@@ -1006,12 +1010,13 @@ function parla(testo) {
     <!-- Banner informativo -->
     <div style="background-color: #007bff; padding: 0; border-radius: 16px; margin: 0px 16px; box-shadow: 0 4px 12px rgba(0,123,255,0.3);
        color:white; font-size: 20px; text-align: center; line-height: 2;">
-       
-
-             
-       <br>   L'app restituisce la smorfia (Gen/Nap)<br>del numero estratto e la riproduce<br>vocalmente.Per terminare dire "99"<br> per reset premere R; 
-        
-    
+       <br>   Scegli il tipo di smorfia (Classica/Napoletana)<br>
+premendo il relativo tasto che<br>
+si colorerà di verde, inizia<br>
+a scandire i numeri estratti<br>
+che verranno vocalizzati.<br>
+Per terminare, dire "99"
+    </div>
 
     <!-- Immagine con dimensioni aumentate -->
     <img decoding="async" src="tombola.png" width="280" height="280" alt="Tombola" style="padding:1px;display:block; margin:24px auto; width:280px; height:auto; max-width:90%;">
@@ -1027,17 +1032,11 @@ function parla(testo) {
   <!-- Toolbar bottom fissa -->
   <div class="bottom-toolbar">
     <div class="controls-container">
-      <button id="btnItaliano" onclick="selectMode('generico')">Generica</button>
+      <button id="btnItaliano" onclick="selectMode('generico')">Classica</button>
       <button id="btnNapoletano" onclick="selectMode('napoletano')">Napoletana</button>
-      <button id="btnReset" onclick="resetApp()">R</button>
+      <button id="btnReset">Reset</button>
     </div>
   </div>
 
-  <audio id="bell" src="audio_door.mp3" preload="auto"></audio>
-
 </body>
-
 </html>
-
-
-
