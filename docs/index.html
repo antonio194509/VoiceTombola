@@ -319,8 +319,9 @@
   let listening = false;
   let stoppedByUser = false;
   let micStream = null;
-  let restartBackoff = 1000; // Initial backoff in ms
-  const maxBackoff = 8000; // Maximum backoff in ms
+  const initialBackoff = 1000; // Initial backoff in ms (1 second)
+  const maxBackoff = 8000; // Maximum backoff in ms (8 seconds)
+  let restartBackoff = initialBackoff; // Current backoff value
   let recognition = null; // Will be initialized later
 
   // Funzioni di gestione modalità e avvio
@@ -928,7 +929,7 @@ function parla(testo) {
               recognition.start();
               listening = true;
               // On successful restart, reset backoff
-              restartBackoff = 1000;
+              restartBackoff = initialBackoff;
               console.log("Recognition restarted with persistent pattern");
             } catch (err) {
               console.warn("Failed to restart recognition, increasing backoff", err);
@@ -991,7 +992,7 @@ function parla(testo) {
         }
 
         // Reset backoff on manual start
-        restartBackoff = 1000;
+        restartBackoff = initialBackoff;
         stoppedByUser = false;
         recognition.start();
         listening = true;
@@ -1008,7 +1009,7 @@ function parla(testo) {
 
     function stopPersistentRecognition() {
       stoppedByUser = true;
-      restartBackoff = 1000; // Reset backoff on manual stop
+      restartBackoff = initialBackoff; // Reset backoff on manual stop
       try { recognition.stop(); } catch (e) { /* ignore */ }
     }
 
