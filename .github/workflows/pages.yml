@@ -1,0 +1,19 @@
+name: Deploy Pages from /docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload /docs as artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs
