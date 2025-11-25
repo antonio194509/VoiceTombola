@@ -8,7 +8,7 @@
   <meta name="screen-size" content="width=device-width,initial-scale=1,user-scalable=no">
   <meta name="screen-size" content="width=device-height,initial-scale=1,user-scalable=no">
   <!-- PWA Meta Tags -->
-  <meta name="description" content="App tombola con riconoscimento vocale e smorfia napoletana/generica">
+  <meta name="description" content="App tombola con riconoscimento vocale e smorfia classica/napoletana">
   <meta name="theme-color" content="#007bff">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -335,7 +335,7 @@
       btnNapoletano.classList.remove('selected');
     }
     
-    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Generica' : 'Napoletana'} - Avvio in corso...`;
+    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
     
     // Avvia automaticamente l'ascolto
     setTimeout(() => {
@@ -376,7 +376,7 @@
       btnNapoletano.disabled = false;
       btnNapoletano.classList.remove('selected');
     }
-    if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+    if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Classica o Napoletana) per iniziare';
     console.log("App resettata");
   }
 
@@ -392,7 +392,7 @@
     bell = document.getElementById("bell");
     
     // Imposta stato iniziale
-    authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+    authStatusEl.textContent = 'Seleziona una modalità (Classica o Napoletana) per iniziare';
 
     // Avvia verifica permesso microfono
     if (window.requestMicPermission) {
@@ -502,8 +502,8 @@
    
   };
 
-  // Smorfia Generica
-  const smorfiaGenerica = {
+  // Smorfia Classica
+  const smorfiaClassica = {
     1: "Italia" ,
     2: "la bambina", 
     3: "il gatto", 
@@ -598,7 +598,7 @@
 
   // Funzione per ottenere la smorfia corretta
   function getSmorfia() {
-    return smorfiaType === 0 ? smorfiaNapoletana : smorfiaGenerica;
+    return smorfiaType === 0 ? smorfiaNapoletana : smorfiaClassica;
   }
 
   const synth = window.speechSynthesis;
@@ -861,7 +861,7 @@ function parla(testo) {
         } else {
           const smorfiaAttuale = getSmorfia();
           frase = smorfiaAttuale[numero] || `Numero ${numero}`;
-          console.log(`Usando smorfia ${smorfiaType === 0 ? 'Napoletana' : 'Generica'}: ${frase}`);
+          console.log(`Usando smorfia ${smorfiaType === 0 ? 'Napoletana' : 'Classica'}: ${frase}`);
         }
       } else {
         frase = " ";
@@ -942,7 +942,7 @@ function parla(testo) {
     function updateAuthStatus(granted) {
       try {
         if (granted) {
-          if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Generica o Napoletana) per iniziare';
+          if (authStatusEl) authStatusEl.textContent = 'Seleziona una modalità (Classica o Napoletana) per iniziare';
         } else {
           if (authStatusEl) authStatusEl.textContent = 'Errore: microfono non autorizzato. Ricarica la pagina e riprova.';
         }
@@ -1025,7 +1025,7 @@ function parla(testo) {
   <!-- Toolbar bottom fissa -->
   <div class="bottom-toolbar">
     <div class="controls-container">
-      <button id="btnItaliano" onclick="selectMode('generico')">Generica</button>
+      <button id="btnItaliano" onclick="selectMode('generico')">Classica</button>
       <button id="btnNapoletano" onclick="selectMode('napoletano')">Napoletana</button>
       <button id="btnReset" onclick="resetApp()">R</button>
     </div>
@@ -1036,6 +1036,7 @@ function parla(testo) {
 </body>
 
 </html>
+
 
 
 
