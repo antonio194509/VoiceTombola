@@ -319,18 +319,30 @@
   let listening = false;
   let stoppedByUser = false;
   let micStream = null;
+  const initialBackoff = 1000; // Initial backoff in ms (1 second)
+  const maxBackoff = 8000; // Maximum backoff in ms (8 seconds)
+  let restartBackoff = initialBackoff; // Current backoff value
+  let recognition = null; // Will be initialized later
 
   // Funzioni di gestione modalità e avvio
+  function updateModeButtons(selectedMode) {
+    // Remove 'selected' class from all mode buttons
+    if (btnItaliano) btnItaliano.classList.remove('selected');
+    if (btnNapoletano) btnNapoletano.classList.remove('selected');
+    
+    // Add 'selected' class only to the active button
+    if (selectedMode === 'napoletano' && btnNapoletano) {
+      btnNapoletano.classList.add('selected');
+    } else if (selectedMode === 'generico' && btnItaliano) {
+      btnItaliano.classList.add('selected');
+    }
+  }
+
   function selectMode(mode) {
     smorfiaType = mode === 'napoletano' ? 0 : 1;
     
-    if (mode === 'napoletano') {
-      btnNapoletano.classList.add('selected');
-      btnItaliano.classList.remove('selected');
-    } else {
-      btnItaliano.classList.add('selected');
-      btnNapoletano.classList.remove('selected');
-    }
+    // Use deterministic button update
+    updateModeButtons(mode);
     
     authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
     
@@ -829,11 +841,17 @@ function parla(testo) {
       }
     });
   } else {
-    const recognition = new SpeechRecognition();
-    recognition.lang = "it-IT";
-    recognition.interimResults = false;
-    recognition.continuous = true;
-    recognition.maxAlternatives = 1;
+    // Create recognition instance with persistent pattern
+    function createRecognition() {
+      const recog = new SpeechRecognition();
+      recog.lang = "it-IT";
+      recog.interimResults = false;
+      recog.continuous = true;
+      recog.maxAlternatives = 1;
+      return recog;
+    }
+    
+    recognition = createRecognition();
 
     function aggiorna(numero, frase) {
       if (numeroEl) numeroEl.textContent = numero ?? 0;
@@ -904,21 +922,26 @@ function parla(testo) {
       console.log("Recognition.onend - stoppedByUser:", stoppedByUser);
       
       if (!stoppedByUser) {
-        // Riavvia dopo 700 millisecondi (0.7 secondi) per mantenere il microfono attivo senza disturbare
+        // Use exponential backoff for persistent recognition restart
+        console.log(`Restarting recognition with backoff: ${restartBackoff}ms`);
         setTimeout(() => {
           if (!stoppedByUser) {
             try {
               recognition.start();
               listening = true;
-              console.log("Recognition riavviato automaticamente");
+              // On successful restart, reset backoff
+              restartBackoff = initialBackoff;
+              console.log("Recognition restarted with persistent pattern");
             } catch (err) {
-              console.warn("Impossibile riavviare recognition", err);
+              console.warn("Failed to restart recognition, increasing backoff", err);
+              // Increase backoff exponentially on failure
+              restartBackoff = Math.min(restartBackoff * 2, maxBackoff);
               if (authStatusEl) authStatusEl.textContent = 'Microfono interrotto. Premi Reset per riavviare.';
             }
           }
-        }, 700);
+        }, restartBackoff);
       } else {
-        console.log("Recognition fermato dall'utente");
+        console.log("Recognition stopped by user");
         if (authStatusEl) authStatusEl.textContent = 'Microfono spento. Seleziona una modalità per riavviare.';
       }
     };
@@ -956,7 +979,7 @@ function parla(testo) {
       }
     }
 
-    async function startListening() {
+    async function startPersistentRecognition() {
       if (listening) {
         console.log("Recognition già attivo");
         return;
@@ -969,12 +992,12 @@ function parla(testo) {
           return;
         }
 
-        // Campanello disattivato ovunque
-        
+        // Reset backoff on manual start
+        restartBackoff = initialBackoff;
         stoppedByUser = false;
         recognition.start();
         listening = true;
-        console.log("Recognition avviato");
+        console.log("Persistent recognition started");
         if (authStatusEl) authStatusEl.textContent = 'Ascolto attivo... Di\' un numero o "novantanove" per terminare.';
       } catch (err) {
         console.warn("Errore start recognition", err);
@@ -982,10 +1005,17 @@ function parla(testo) {
       }
     }
 
-    function stopListening() {
+    // Alias for backward compatibility
+    const startListening = startPersistentRecognition;
+
+    function stopPersistentRecognition() {
       stoppedByUser = true;
+      restartBackoff = initialBackoff; // Reset backoff on manual stop
       try { recognition.stop(); } catch (e) { /* ignore */ }
     }
+
+    // Alias for backward compatibility
+    const stopListening = stopPersistentRecognition;
 
     // Rendi disponibili globalmente
     window.startListening = startListening;
