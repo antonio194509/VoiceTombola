@@ -322,22 +322,29 @@
 
   // Funzioni di gestione modalità e avvio
   function selectMode(mode) {
-  smorfiaType = mode === 'napoletano' ? 0 : 1;
-
-  // Aggiorna UI in modo deterministico
-  updateModeButtons();
-  if (authStatusEl) authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
-
-  // Avvia automaticamente l'ascolto (manteniamo comportamento precedente)
-  setTimeout(() => {
-    if (window.startListening) {
-      window.startListening();
+    smorfiaType = mode === 'napoletano' ? 0 : 1;
+    
+    if (mode === 'napoletano') {
+      btnNapoletano.classList.add('selected');
+      btnItaliano.classList.remove('selected');
     } else {
-      console.error('startListening non disponibile');
-      if (authStatusEl) authStatusEl.textContent = 'Errore: funzione di ascolto non disponibile';
+      btnItaliano.classList.add('selected');
+      btnNapoletano.classList.remove('selected');
     }
-  }, 300);
-}
+    
+    authStatusEl.textContent = `Modalità ${mode === 'generico' ? 'Classica' : 'Napoletana'} - Avvio in corso...`;
+    
+    // Avvia automaticamente l'ascolto
+    setTimeout(() => {
+      if (window.startListening) {
+        window.startListening();
+      } else {
+        console.error('startListening non disponibile');
+        if (authStatusEl) authStatusEl.textContent = 'Errore: funzione di ascolto non disponibile';
+      }
+    }, 300);
+  }
+ 
   
   function startGame() {
     if (window.startListening) {
