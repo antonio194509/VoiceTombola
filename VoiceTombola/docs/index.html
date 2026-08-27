@@ -1,0 +1,665 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Voice Tombola</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .active-screen {
+            display: flex !important;
+        }
+
+        .btn-main {
+            width: 80%;
+            max-width: 300px;
+            padding: 15px;
+            margin: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+        }
+        .btn-caller { background: #d32f2f; }
+        .btn-player { background: #1976d2; }
+        .btn-secondary { background: #444; font-size: 0.9rem; padding: 10px; }
+        .btn-stop { background: #ff1744 !important; font-weight: bold; color: white; border: none; border-radius: 5px; cursor: pointer; padding: 4px 10px; font-size: 0.8rem; }
+
+        .app-header {
+            background: linear-gradient(135deg, #4a76a8, #2a5298);
+            padding: 5px;
+            width: 100%;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .number-display {
+            background: #fff;
+            color: #000;
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin: 5px 0;
+            width: 95%;
+            max-width: 500px;
+            border: 3px solid #4a76a8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #numero { font-size: 2.8rem; font-weight: 900; color: #d32f2f; line-height: 1; }
+        #smorfia-mini { height: 45px; width: auto; margin: 0 5px; display: none; object-fit: contain; }
+        #frase-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 10px; overflow: hidden; }
+        #frase { font-size: 0.9rem; font-weight: bold; color: #1976d2; text-transform: uppercase; line-height: 1.1; max-height: 2.2em; overflow: hidden; }
+
+        .tabellone-container {
+            flex: 1;
+            width: 100%;
+            overflow: hidden;
+            padding: 0 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        .tab {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: #111;
+            border: 1px solid #333;
+        }
+        .tab td {
+            border: 1px solid #333;
+            padding: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Divisioni Tabellone: Linea verticale dopo la 5a colonna e orizzontali ogni 3 righe */
+        .tab td:nth-child(5) { border-right: 3px solid #fff; }
+        .tab tr:nth-child(3) td, .tab tr:nth-child(6) td { border-bottom: 3px solid #fff; }
+
+        .estratto { background: #2e7d32 !important; color: #fff; }
+        .ultimo { background: #fbc02d !important; color: #000 !important; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        .toolbar {
+            background: #eee;
+            width: 100%;
+
+            padding: 5px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            color: #000;
+        }
+        .toolbar-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 2px;
+            gap: 5px;
+        }
+        .btn-game {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px;
+            background: #4a76a8;
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .btn-lang.active { background: #2e7d32 !important; }
+
+        /* --- STILE CARTELLE PLAYER COMPATTO (NO SCROLL) --- */
+        #player-view { display: none; width: 100%; height: 100%; flex-direction: column; }
+        .player-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 5px; background: #333; border-radius: 5px; margin-bottom: 2px; }
+        .player-header h4 { margin: 0; font-size: 0.8rem; color: #ffc107; text-transform: uppercase; }
+        
+        #cartelle-container { display: flex; flex-direction: column; flex: 1; gap: 1px; overflow: hidden; }
+        .player-card { display: flex; flex: 1; background: #222; border-bottom: 1px solid #444; width: 100%; align-items: stretch; }
+        .card-side-num { width: 25px; background: #ffc107; color: #000; font-weight: 900; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; writing-mode: vertical-lr; transform: rotate(180deg); }
+        .card-grid { flex: 1; display: grid; grid-template-columns: repeat(9, 1fr); }
+        .cell { background: #000; border: 0.5px solid #222; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #fff; cursor: pointer; }
+        .cell.marked { background: #ffc107 !important; color: #000 !important; font-weight: bold; border-radius: 2px; }
+
+        .logo { width: 85%; max-width: 450px; height: auto; margin-top: 20px; opacity: 0.9; }
+
+        #chosen-cards-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+        .card-token {
+            background: #1976d2;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-token span { cursor: pointer; color: #ff5252; font-weight: 900; }
+        .setup-input-group { margin-bottom: 20px; }
+        input#card-number-input {
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: 2px solid #1976d2;
+            width: 80px;
+            text-align: center;
+            background: #fff;
+            color: #000;
+        }
+        .btn-voice-on { background: #ff9800 !important; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* LARGE SMORFIA OVERLAY */
+        #large-smorfia-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        #large-smorfia-img {
+            width: 350px;
+            height: 350px;
+            object-fit: contain;
+            border: 5px solid #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+        #large-smorfia-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffeb3b;
+            text-shadow: 4px 4px 10px #000;
+            margin-top: 10px;
+        }
+        h6 {
+            overflow-y: auto;
+            max-height: 300px;
+            padding: 10px;
+            font-weight: normal;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            text-align: justify;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. START SCREEN -->
+    <div id="screen-start" class="screen active-screen">
+        <h1>TOMBOLA FAMILY</h1>
+        <button class="btn-main btn-caller" onclick="showScreen('screen-caller-menu')">CALLER</button>
+        <button class="btn-main btn-player" onclick="showScreen('screen-player-setup')">PLAYER</button>
+        <img src="tombola_splash.png" class="logo" alt="Tombola">
+        <h6>The app opens by asking you to choose between the host and the player.
+            The host manages the bingo, draws the numbers, and determines and awards
+            the prizes. The player, on the other hand, plays by purchasing cards on
+            which they mark the drawn numbers and collect the prize. The host can draw
+            the numbers automatically. Three languages ÔÇïÔÇïare available: Italian,
+            English, and Neapolitan, including voice mode. The host is equipped with a
+            bag containing the bingo numbers and draws them. He pronounces the number
+            aloud, and the app responds with a smorfia, the image, and marks the number
+            on the board. An additional feature is the ability to modify the Neapolitan
+            smorfia, which can be reset, so anyone can create their own smorfia.
+            For single-digit numbers, it's best to prefix the number with a 0 (01, 02, etc.)
+            L'app si apre chiedendoti di scegliere tra il presentatore e il giocatore.
+            Il presentatore ├¿ colui che gestisce la tombola, estrae i numeri ,determina e
+            assegna i premi. Il giocatore, invece,gioca acquistando delle cartelle su cui
+            segna i numeri estratti e riscuote il premio. Il presentatore pu├▓ estrarre i
+            numeri automaticamente.Sono disponibili tre lingue:italiano, inglese e napoletano,
+            anche con modalit├á vocale.Il presentatore ├¿ dotato di un sacchetto contenente
+            i numeri della tombola e li estrae. Pronuncia il numero ad alta voce, l'app
+            risponde con la  smorfia , l'immagine  e segna il numero sul tabellone. Una
+            funzionalit├á aggiuntiva  ├¿ la possibilit├á di modificare lo smorfia napoletana,
+            ripristinabile, in modo che chiunque possa creare lo smorfia che desidera.
+            Per i numeri a 1 sola cifra ├¿ meglio anteporre lo 0 (01,02,...)
+        </h6>
+    </div>
+
+    <!-- 2. CALLER MENU -->
+    <div id="screen-caller-menu" class="screen">
+        <h2>CALLER MENU</h2>
+        <button class="btn-main btn-caller" onclick="startGame('caller')">PLAY GAME</button>
+        <button class="btn-main" style="background-color: #4CAF50;" onclick="getAndroidInterface()?.openModSmorfia()">EDIT SMORFIA</button>
+        <button class="btn-main" style="background-color: #FFEB3B; color: black;" onclick="restoreSmorfia()">RESTORE SMORFIA</button>
+        <button class="btn-main btn-secondary" onclick="triggerExit()">BACK</button>
+    </div>
+
+    <!-- 3. PLAYER SETUP -->
+    <div id="screen-player-setup" class="screen">
+        <h2>CHOISE CARDS</h2>
+        <div class="setup-input-group">
+            <input type="number" id="card-number-input" min="1" max="72" placeholder="00">
+            <button class="btn-game" onclick="addCard()" style="padding: 10px 15px;">ADD</button>
+        </div>
+        <div id="chosen-cards-display"></div>
+        <p id="cards-count-info" style="font-size: 0.8rem;">Selected: 0/6</p>
+        <button class="btn-main btn-player" onclick="startGame('player')">START</button>
+        <button class="btn-main btn-secondary" onclick="triggerExit()">BACK</button>
+    </div>
+
+    <!-- 4. GAME SCREEN -->
+    <div id="screen-game" class="screen" style="padding: 0; justify-content: flex-start;">
+        <div class="app-header" id="header-title">VOICE TOMBOLA</div>
+
+        <div class="number-display">
+            <div id="numero">0</div>
+            <img id="smorfia-mini" src="" alt="">
+            <div id="frase-area">
+                <div id="frase">READY?</div>
+            </div>
+            <!-- STOP button for caller here, will be moved or hidden for player -->
+            <button id="main-stop-btn" class="btn-stop" onclick="triggerExit()">STOP</button>
+        </div>
+
+        <div class="tabellone-container">
+            <div id="live-controls" style="padding: 10px; width: 100%; display: none;">
+                <button class="btn-game" style="background:#d32f2f; width:45%;" onclick="getAndroidInterface()?.checkAndStartListening()">­ƒÄñ LISTEN NOW</button>
+                <button class="btn-game" style="background:#1976d2; width:45%;" onclick="getAndroidInterface()?.startLiveAutomatica()">­ƒöè LIVE AUTO</button>
+            </div>
+            
+            <table class="tab" id="tabellone"></table>
+            
+            <div id="player-view">
+                <div class="player-header">
+                    <h4>CARDS / CARTELLE</h4>
+                    <button class="btn-stop" onclick="triggerExit()">STOP</button>
+                </div>
+                <div id="cartelle-container"></div>
+            </div>
+        </div>
+
+        <div class="toolbar" id="game-toolbar">
+            <div class="toolbar-row" id="row-extraction">
+                <button class="btn-game" id="btn-estrai" onclick="estrai()">­ƒÄñ VOICE</button>
+                <select id="select-interval" onchange="if(timerAuto) { stopAuto(); startAuto(); }" style="padding: 3px; border-radius: 5px; font-size: 0.8rem;">
+                    <option value="5000">5s</option>
+                    <option value="7000" selected>7s</option>
+                    <option value="10000">10s</option>
+                    <option value="15000">15s</option>
+                </select>
+                <button class="btn-game" id="btn-auto" style="background:#fbc02d; color:#000;" onclick="toggleAuto()">AUTO: OFF</button>
+            </div>
+            <div class="toolbar-row" id="row-languages">
+                <button id="lang-it" class="btn-game btn-lang" onclick="setLanguage('it')">ITA</button>
+                <button id="lang-en" class="btn-game btn-lang" onclick="setLanguage('en')">ENG</button>
+                <button id="lang-nap" class="btn-game btn-lang" onclick="setLanguage('nap')">NAP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. EDIT SCREEN -->
+    <div id="screen-edit" class="screen">
+        <h2>EDIT SMORFIA</h2>
+        <p>In fase di sviluppo...</p>
+        <button class="btn-main btn-secondary" onclick="showScreen('screen-caller-menu')">BACK</button>
+    </div>
+
+    <!-- LARGE SMORFIA OVERLAY -->
+    <div id="large-smorfia-overlay">
+        <img id="large-smorfia-img" src="" alt="Smorfia">
+        <div id="large-smorfia-num"></div>
+    </div>
+
+    <script src="cartelle.js"></script>
+    <script src="smorfia_it.js"></script>
+    <script src="smorfia_en.js"></script>
+    <script src="smorfia_nap.js"></script>
+
+    <script>
+        let estrazione = [];
+        let estrazioneVoice = []; // Traccia numeri estratti via voce
+        let lingua = 'it';
+        let timerAuto = null;
+        let userRole = 'caller';
+        let chosenCardIds = [];
+        let smorfiaType = 1;
+        let isListening = false;
+
+        function getAndroidInterface() { return window.Android || window.android || null; }
+
+        function triggerExit() {
+            const android = getAndroidInterface();
+            if (android && typeof android.showAdAndReload === 'function') {
+                android.showAdAndReload();
+            } else {
+                location.reload();
+            }
+        }
+
+        function showScreen(screenId) {
+            if (screenId === 'screen-game') { updateNapButtonLabel(); }
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
+            document.getElementById(screenId).classList.add('active-screen');
+        }
+
+        function restoreSmorfia() {
+            if (confirm("Restore original smorfia?")) {
+                getAndroidInterface()?.restoreSmorfiaFromBackup();
+                setTimeout(updateNapButtonLabel, 500);
+            }
+        }
+
+        function updateNapButtonLabel() {
+            const android = getAndroidInterface();
+            if (android && typeof android.isSmorfiaCustomized === 'function') {
+                const isCustom = android.isSmorfiaCustomized();
+                document.getElementById('lang-nap').innerText = isCustom ? 'OWN' : 'NAP';
+            }
+        }
+
+        function addCard() {
+            const input = document.getElementById('card-number-input');
+            const val = parseInt(input.value);
+            if (val >= 1 && val <= 72 && chosenCardIds.length < 6 && !chosenCardIds.includes(val)) {
+                chosenCardIds.push(val);
+                renderSetupCards();
+            }
+            input.value = "";
+        }
+
+        function renderSetupCards() {
+            const container = document.getElementById('chosen-cards-display');
+            container.innerHTML = chosenCardIds.map(id => `<div class="card-token">${id} <span onclick="removeCard(${id})" style="color:red">X</span></div>`).join('');
+        }
+
+        function removeCard(id) {
+            chosenCardIds = chosenCardIds.filter(c => c !== id);
+            renderSetupCards();
+        }
+
+        function startGame(role) {
+            if (role === 'player' && chosenCardIds.length === 0) { alert("Scegli le cartelle!"); return; }
+            userRole = role;
+            showScreen('screen-game');
+            initGame();
+        }
+
+        function initGame() {
+            estrazione = [];
+            document.getElementById('numero').innerText = "0";
+            document.getElementById('frase').innerText = "PRONTI?";
+            document.getElementById('smorfia-mini').style.display = 'none';
+            buildTabellone();
+            setLanguage('it');
+            
+            const mainStop = document.getElementById('main-stop-btn');
+            const gameToolbar = document.getElementById('game-toolbar');
+
+            if (userRole === 'caller') {
+                document.getElementById('header-title').innerText = "FAMILY CALLER";
+                document.getElementById('live-controls').style.display = 'block';
+                document.getElementById('live-controls').querySelector('button:nth-child(2)').style.display = 'inline-block'; // Mostra LIVE AUTO
+                gameToolbar.style.display = 'block';
+                document.getElementById('player-view').style.display = 'none';
+                document.getElementById('tabellone').style.display = 'table';
+                mainStop.style.display = 'block';
+            } else {
+                document.getElementById('header-title').innerText = "PLAYER MODE";
+                document.getElementById('live-controls').style.display = 'none'; // Nessun tasto microfono per il Player
+                gameToolbar.style.display = 'none';
+                document.getElementById('player-view').style.display = 'flex';
+                document.getElementById('tabellone').style.display = 'none';
+                mainStop.style.display = 'none';
+                createPlayerCards();
+            }
+        }
+
+        function buildTabellone() {
+            let html = "";
+            for (let r = 0; r < 9; r++) {
+                html += "<tr>";
+                for (let c = 1; c <= 10; c++) {
+                    let n = (r * 10) + c;
+                    html += `<td id="cell-${n}" onclick="gestisciClickCella(${n})">${n}</td>`;
+                }
+                html += "</tr>";
+            }
+            document.getElementById('tabellone').innerHTML = html;
+        }
+
+        function createPlayerCards() {
+            const container = document.getElementById('cartelle-container');
+            let cardsHtml = "";
+            // Always prepare for 6 slots
+            for (let i = 0; i < 6; i++) {
+                const id = chosenCardIds[i];
+                if (id) {
+                    const data = CARTELLE[id];
+                    let grid = "";
+                    for (let r = 0; r < 3; r++) {
+                        for (let c = 0; c < 9; c++) {
+                            let val = data[r][c];
+                            grid += `<div class="cell" ${val ? `onclick="marcaturaGiocatore(${val}, this)"` : ''}>${val}</div>`;
+                        }
+                    }
+                    cardsHtml += `<div class="player-card"><div class="card-side-num">${id}</div><div class="card-grid">${grid}</div></div>`;
+                } else {
+                    cardsHtml += `<div class="player-card" style="border-bottom:none; background:transparent;"></div>`;
+                }
+            }
+            container.innerHTML = cardsHtml;
+        }
+
+        function setLanguage(l) {
+            lingua = l;
+            smorfiaType = l === 'it' ? 1 : (l === 'en' ? 2 : 3);
+            document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('lang-' + l)?.classList.add('active');
+        }
+
+        function parla(frase, numero) {
+            const android = getAndroidInterface();
+            let textToSpeak = (lingua === 'en') ? "Number " + numero + ". " + frase : numero + ". " + frase;
+
+            if (android) {
+                android.stopAudio();
+                if (smorfiaType === 3 && numero >= 1 && numero <= 90) {
+                    android.playAudio(`audio/${String(numero).padStart(2, '0')}.mp3`);
+                } else {
+                    android.speak(textToSpeak, lingua === 'en' ? 'en-US' : 'it-IT');
+                }
+            } else {
+                // FALLBACK PER iOS / BROWSER GENERICO
+                const msg = new SpeechSynthesisUtterance(textToSpeak);
+                msg.lang = lingua === 'en' ? 'en-US' : 'it-IT';
+                window.speechSynthesis.speak(msg);
+
+                if (smorfiaType === 3 && numero >= 1 && numero <= 90) {
+                    const audio = new Audio(`audio/${String(numero).padStart(2, '0')}.mp3`);
+                    audio.play().catch(e => console.log("Audio play blocked"));
+                }
+            }
+        }
+
+        window.onSpeechResult = function(text) {
+            const n = parolaToNumero(text);
+            if (!isNaN(n) && n >= 1 && n <= 90 && !estrazione.includes(n)) {
+                estrazione.push(n);
+                estrazioneVoice.push(n); // Segna come estratto via voce
+                aggiornaUI(n);
+            }
+        };
+
+        function estrai() {
+            const btn = document.getElementById('btn-estrai');
+            if (userRole === 'caller') {
+                if (timerAuto) {
+                    stopAuto(); // Se era in AUTO, fermalo prima di passare a VOICE
+                }
+
+                isListening = !isListening;
+                if (isListening) {
+                    btn.innerText = "­ƒÄñ VOICE ON";
+                    btn.classList.add('btn-voice-on');
+                    getAndroidInterface()?.checkAndStartListening();
+                } else {
+                    btn.innerText = "­ƒÄñ VOICE";
+                    btn.classList.remove('btn-voice-on');
+                }
+            } else {
+                estraiRandom();
+            }
+        }
+
+        function estraiRandom() {
+            if (estrazione.length >= 90) { stopAuto(); return; }
+            let n;
+            do { n = Math.floor(Math.random() * 90) + 1; } while (estrazione.includes(n));
+            estrazione.push(n);
+            aggiornaUI(n);
+        }
+
+        function aggiornaUI(n) {
+            mostraIconaGrande(n);
+            let nm = getAndroidInterface()?.getCustomTitle(n) || (lingua === 'en' ? SMORFIA_EN[String(n).padStart(2, '0')] : SMORFIA_IT[String(n).padStart(2, '0')]);
+
+            const mini = document.getElementById('smorfia-mini');
+            if (mini) {
+                mini.src = "./smorfia/" + String(n).padStart(2, '0') + ".png";
+                mini.style.display = 'block';
+            }
+
+            document.getElementById('numero').innerText = n;
+            document.getElementById('frase').innerText = nm || "";
+            document.querySelectorAll('.tab td').forEach(t => t.classList.remove('ultimo'));
+            document.getElementById('cell-' + n)?.classList.add('estratto', 'ultimo');
+
+            // SOLO IL CALLER PARLA
+            if (userRole === 'caller') {
+                parla(nm, n);
+            }
+        }
+
+        function marcaturaGiocatore(n, el) {
+            if (!el) return;
+            const wasMarked = el.classList.contains('marked');
+            el.classList.toggle('marked');
+
+            // Se stiamo segnando il numero (non togliendo il segno), mostriamo l'icona e il banner
+            if (!wasMarked) {
+                aggiornaUI(n);
+            }
+        }
+
+        function mostraIconaGrande(n) {
+            var o = document.getElementById('large-smorfia-overlay');
+            var i = document.getElementById('large-smorfia-img');
+            var m = document.getElementById('large-smorfia-num');
+            if (o && i && m) {
+                i.src = "./smorfia/" + String(n).padStart(2, '0') + ".png";
+                m.innerText = n;
+                o.style.display = 'flex';
+                setTimeout(() => o.style.display = 'none', 3000);
+            }
+        }
+
+        function parolaToNumero(text) {
+            if (!text) return NaN;
+            const s = text.toLowerCase().trim().replace(/[.,?']/g, '');
+            const mapping = {
+                'uno': 1, 'due': 2, 'tre': 3, 'tr├®': 3, 'quattro': 4, 'cinque': 5, 'sei': 6, 'sette': 7, 'otto': 8, 'nove': 9, 'dieci': 10,
+                'undici': 11, 'dodici': 12, 'tredici': 13, 'quattordici': 14, 'quindici': 15, 'sedici': 16, 'diciassette': 17, 'diciotto': 18, 'diciannove': 19, 'venti': 20,
+                'ventuno': 21, 'ventidue': 22, 'ventitr├®': 23, 'ventitre': 23, 'ventiquattro': 24, 'venticinque': 25, 'ventisei': 26, 'ventisette': 27, 'ventotto': 28, 'ventinove': 29, 'trenta': 30,
+                'trentuno': 31, 'trentadue': 32, 'trentatr├®': 33, 'trentatre': 33, 'trentaquattro': 34, 'trentacinque': 35, 'trentasei': 36, 'trentasette': 37, 'trentotto': 38, 'trentanove': 39, 'quaranta': 40,
+                'quarantuno': 41, 'quarantadue': 42, 'quarantatr├®': 43, 'quarantatre': 43, 'quarantaquattro': 44, 'quarantacinque': 45, 'quarantasei': 46, 'quarantasette': 47, 'quarantotto': 48, 'quarantanove': 49, 'cinquanta': 50,
+                'cinquantuno': 51, 'cinquantadue': 52, 'cinquantatr├®': 53, 'cinquantatre': 53, 'cinquantaquattro': 54, 'cinquantacinque': 55, 'cinquantasei': 56, 'cinquantasette': 57, 'cinquantotto': 58, 'cinquantanove': 59, 'sessanta': 60,
+                'sessantuno': 61, 'sessantadue': 62, 'sessantatr├®': 63, 'sessantatre': 63, 'sessantaquattro': 64, 'sessantacinque': 65, 'sessantasei': 66, 'sessantasette': 67, 'sessantotto': 68, 'sessantanove': 69, 'settanta': 70,
+                'settantuno': 71, 'settantadue': 72, 'settantatr├®': 73, 'settantatre': 73, 'settantaquattro': 74, 'settantacinque': 75, 'settantasei': 76, 'settantasette': 77, 'settantotto': 78, 'settantanove': 79, 'ottanta': 80,
+                'ottantuno': 81, 'ottantadue': 82, 'ottantatr├®': 83, 'ottantatre': 83, 'ottantaquattro': 84, 'ottantacinque': 85, 'ottantasei': 86, 'ottantasette': 87, 'ottantotto': 88, 'ottantanove': 89, 'novanta': 90
+            };
+            if (!isNaN(s)) return parseInt(s);
+            const sortedKeys = Object.keys(mapping).sort((a, b) => b.length - a.length);
+            for (let key of sortedKeys) { if (s.includes(key)) return mapping[key]; }
+            return NaN;
+        }
+
+        function gestisciClickCella(n) {
+            // Annullamento possibile solo per numeri estratti via voce, con VOICE ON e AUTO OFF
+            if (userRole === 'caller' && estrazione.includes(n) && estrazioneVoice.includes(n) && isListening && !timerAuto) {
+                annullaNumero(n);
+            }
+        }
+
+        function annullaNumero(n) {
+            const msgConfirm = (lingua === 'en') ? `Cancel number ${n}?` : `Annullare il numero ${n}?`;
+            if (confirm(msgConfirm)) {
+                estrazione = estrazione.filter(num => num !== n);
+                estrazioneVoice = estrazioneVoice.filter(num => num !== n);
+
+                const cell = document.getElementById('cell-' + n);
+                if (cell) {
+                    cell.classList.remove('estratto', 'ultimo');
+                }
+
+                if (parseInt(document.getElementById('numero').innerText) === n) {
+                    document.getElementById('numero').innerText = "0";
+                    document.getElementById('frase').innerText = (lingua === 'en') ? "CANCELLED" : "ANNULLATO";
+                    document.getElementById('smorfia-mini').style.display = 'none';
+                }
+
+                const msgVocale = (lingua === 'en') ? `Number ${n} cancelled` : `Numero ${n} annullato`;
+                parla(msgVocale, "");
+            }
+        }
+
+        function toggleAuto() { if (timerAuto) stopAuto(); else startAuto(); }
+        function startAuto() {
+            if (isListening) {
+                estrai(); // Se il microfono ├¿ acceso, spegnilo prima di passare a AUTO
+            }
+            const interval = parseInt(document.getElementById('select-interval').value) || 7000;
+            estraiRandom();
+            timerAuto = setInterval(estraiRandom, interval);
+            document.getElementById('btn-auto').innerText = "AUTO: ON";
+            document.getElementById('btn-auto').style.background = "#d32f2f";
+            document.getElementById('btn-auto').style.color = "#fff";
+        }
+        function stopAuto() { clearInterval(timerAuto); timerAuto = null; document.getElementById('btn-auto').innerText = "AUTO: OFF"; document.getElementById('btn-auto').style.background = "#fbc02d"; document.getElementById('btn-auto').style.color = "#000"; }
+    </script>
+</body>
+</html>
