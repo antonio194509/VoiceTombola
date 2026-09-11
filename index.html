@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoiceTombola</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+
+      main {
+        width: min(720px, calc(100% - 2rem));
+        padding: 2rem;
+        border-radius: 1rem;
+        background: rgba(15, 23, 42, 0.92);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      h1,
+      p {
+        margin-top: 0;
+      }
+
+      .current-number {
+        margin: 2rem 0;
+        font-size: clamp(4rem, 18vw, 8rem);
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      button {
+        padding: 0.9rem 1.2rem;
+        border: 0;
+        border-radius: 999px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      #draw-button {
+        background: #22c55e;
+        color: #052e16;
+      }
+
+      #reset-button {
+        background: #e2e8f0;
+        color: #0f172a;
+      }
+
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .status {
+        margin: 1rem 0 0;
+        min-height: 1.5rem;
+      }
+
+      .numbers {
+        margin-top: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr));
+        gap: 0.5rem;
+      }
+
+      .numbers span {
+        padding: 0.5rem 0;
+        border-radius: 0.75rem;
+        text-align: center;
+        background: rgba(148, 163, 184, 0.18);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>VoiceTombola</h1>
+      <p>Estrai i numeri della tombola e falli annunciare automaticamente dal browser.</p>
+
+      <div class="current-number" id="current-number">--</div>
+
+      <div class="controls">
+        <button id="draw-button" type="button">Estrai numero</button>
+        <button id="reset-button" type="button">Ricomincia</button>
+      </div>
+
+      <p class="status" id="status">Pronto per iniziare.</p>
+      <div class="numbers" id="drawn-numbers" aria-label="Numeri estratti"></div>
+    </main>
+
+    <script>
+      const maxNumber = 90;
+      const drawButton = document.getElementById("draw-button");
+      const resetButton = document.getElementById("reset-button");
+      const currentNumber = document.getElementById("current-number");
+      const status = document.getElementById("status");
+      const drawnNumbers = document.getElementById("drawn-numbers");
+
+      let availableNumbers = [];
+      let extractedNumbers = [];
+
+      function speakNumber(number) {
+        if (!("speechSynthesis" in window)) {
+          status.textContent = "Numero estratto, ma la sintesi vocale non è supportata da questo browser.";
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(`Numero ${number}`);
+        utterance.lang = "it-IT";
+        window.speechSynthesis.speak(utterance);
+      }
+
+      function renderExtractedNumbers() {
+        drawnNumbers.replaceChildren(
+          ...extractedNumbers
+            .slice()
+            .sort((first, second) => first - second)
+            .map((number) => {
+              const item = document.createElement("span");
+              item.textContent = number;
+              return item;
+            })
+        );
+      }
+
+      function resetGame() {
+        availableNumbers = Array.from({ length: maxNumber }, (_, index) => index + 1);
+        extractedNumbers = [];
+        currentNumber.textContent = "--";
+        status.textContent = "Pronto per iniziare.";
+        drawButton.disabled = false;
+        renderExtractedNumbers();
+        window.speechSynthesis?.cancel();
+      }
+
+      function drawNumber() {
+        const randomIndex = Math.floor(Math.random() * availableNumbers.length);
+        const [number] = availableNumbers.splice(randomIndex, 1);
+
+        extractedNumbers.push(number);
+        currentNumber.textContent = number;
+        status.textContent = `Estratti ${extractedNumbers.length} numeri su ${maxNumber}.`;
+        renderExtractedNumbers();
+        speakNumber(number);
+
+        if (availableNumbers.length === 0) {
+          drawButton.disabled = true;
+          status.textContent = "Tutti i numeri sono stati estratti.";
+        }
+      }
+
+      drawButton.addEventListener("click", drawNumber);
+      resetButton.addEventListener("click", resetGame);
+      resetGame();
+    </script>
+  </body>
+</html>
