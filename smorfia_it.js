@@ -1,0 +1,21 @@
+const SMORFIA_IT = {
+ "01":"l'Italia", "02":"la bambina", "03":"il gatto", "04":"il maiale", "05":"la mano",
+     "06":"guarda sempre a terra", "07":"il vaso", "08":"la Madonna", "09":"la figliolanza",
+      "10":"i fagioli", "11":"i topolini", "12":"il soldato", "13":"Sant'Antonio", "14":"l'ubriaco",
+       "15":"il ragazzo", "16":"il deretano", "17":"la sfortuna", "18":"il sangue", "19":"la risata",
+       "20":"la festa", "21":"la donna nuda", "22":"il pazzo", "23":"lo scemo", "24":"le guardie",
+        "25":"Natale", "26":"Nanninella", "27":"il vaso da notte", "28":"il seno", "29":"il padre dei bimbi",
+         "30":"le palle del capitano", "31":"il padrone di casa", "32":"il capitone", "33":"gli anni di Cristo",
+          "34":"la testa", "35":"l'uccellino", "36":"le nacchere", "37":"il monaco", "38":"le bastonate",
+           "39":"il cappio al collo", "40":"la noia", "41":"il coltello", "42":"il caffè",
+           "43":"la pettegola", "44":"le carceri", "45":"il vino buono", "46":"i soldi", "47":"il morto",
+            "48":"il morto che parla", "49":"la carne", "50":"il pane", "51":"il giardino", "52":"la mamma",
+            "53":"il vecchio", "54":"il cappello", "55":"la musica", "56":"la caduta", "57":"il gobbo",
+            "58":"l'imbroglio", "59":"i peli", "60":"il lamento", "61":"il cacciatore", "62":"il morto ammazzato",
+             "63":"la sposa", "64":"la marsina", "65":"il pianto", "66":"le due sorelle", "67":"il polpo nella chitarra",
+              "68":"la zuppa cotta", "69":"sottosopra", "70":"il palazzo", "71":"l'uomo di niente", "72":"la meraviglia",
+               "73":"l'ospedale", "74":"la grotta", "75":"Pulcinella", "76":"la fontana", "77":"i diavoli", "78":"la prostituta",
+                "79":"il ladro", "80":"la bocca", "81":"i fiori", "82":"la tavola imbandita", "83":"il maltempo",
+                "84":"la chiesa", "85":"le anime del Purgatorio", "86":"la bottega", "87":"i pidocchi", "88":"i caciocavalli",
+                 "89":"la vecchia", "90":"la paura"
+};
