@@ -1,0 +1,25 @@
+{
+  "name": "VoiceTombola",
+  "id": "https://example.com/VoiceTombola/",
+  "short_name": "Smorfia Tombola",
+  "description": "Gioca a tombola tramite riconoscimento vocale, con smorfia napoletana e generica. Facile, veloce e intuitiva!",
+  "start_url": "/VoiceTombola/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#007bff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "tombola.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "tombola.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
+

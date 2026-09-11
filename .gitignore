@@ -1,0 +1,15 @@
+*.iml
+.artifacts/
+.gradle/
+.idea/
+/local.properties
+local.properties
+/build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+.DS_Store
+
+# Logs
+*.log

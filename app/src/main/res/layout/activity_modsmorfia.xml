@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="20dp"
+    android:background="#F5F5F5">
+
+    <!-- Immagine della Smorfia -->
+    <ImageView
+        android:id="@+id/ivSmorfia"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/tombola_splash"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/white"
+        android:padding="5dp"
+        android:contentDescription="smorfia_image" />
+
+    <!-- Titolo / Frase -->
+    <TextView
+        android:id="@+id/tvSignificato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Smorfia"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Nome Smorfia -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOUR SMORFIA NAME (Max 10 chars)"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        android:layout_gravity="start" />
+
+    <EditText
+        android:id="@+id/NomeSmorfia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ex: SICILIAN"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        android:inputType="textCapCharacters"
+        android:maxLength="10"
+        android:layout_marginBottom="15dp" />
+
+    <!-- Input Numero -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTER NUMBER (1-90), 0 TO EXIT"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        android:layout_gravity="start" />
+
+    <EditText
+        android:id="@+id/inputNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="0 to end"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        android:inputType="number"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Bottoni Azione -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <!-- REGISTRA -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="12dp">
+            <ImageView
+                android:id="@+id/btnMicrofono"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_microfono"
+                android:contentDescription="Record" />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start/Stop" 
+                android:textSize="12sp" 
+                android:textColor="#000000"/>
+        </LinearLayout>
+
+        <!-- ASCOLTA -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="12dp">
+            <ImageView
+                android:id="@+id/btnAscolta"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_play"
+                android:contentDescription="Listen" />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Audio" 
+                android:textSize="12sp" 
+                android:textColor="#000000"/>
+        </LinearLayout>
+
+        <!-- SALVA -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="12dp">
+            <ImageView
+                android:id="@+id/btnSave"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/ic_minidisk"
+                android:contentDescription="Save" />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" 
+                android:textSize="12sp" 
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-2131623548316611/2876992073" />
+</LinearLayout>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Voice Tombola</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .active-screen {
+            display: flex !important;
+        }
+
+        .btn-main {
+            width: 80%;
+            max-width: 300px;
+            padding: 15px;
+            margin: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+        }
+        .btn-caller { background: #d32f2f; }
+        .btn-player { background: #1976d2; }
+        .btn-secondary { background: #444; font-size: 0.9rem; padding: 10px; }
+        .btn-stop { background: #ff1744 !important; font-weight: bold; color: white; border: none; border-radius: 5px; cursor: pointer; padding: 4px 10px; font-size: 0.8rem; }
+
+        .app-header {
+            background: linear-gradient(135deg, #4a76a8, #2a5298);
+            padding: 5px;
+            width: 100%;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .number-display {
+            background: #fff;
+            color: #000;
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin: 5px 0;
+            width: 95%;
+            max-width: 500px;
+            border: 3px solid #4a76a8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #numero { font-size: 2.8rem; font-weight: 900; color: #d32f2f; line-height: 1; }
+        #smorfia-mini { height: 45px; width: auto; margin: 0 5px; display: none; object-fit: contain; }
+        #frase-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 10px; overflow: hidden; }
+        #frase { font-size: 0.9rem; font-weight: bold; color: #1976d2; text-transform: uppercase; line-height: 1.1; max-height: 2.2em; overflow: hidden; }
+
+        .tabellone-container {
+            flex: 1;
+            width: 100%;
+            overflow: hidden;
+            padding: 0 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        .tab {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: #111;
+            border: 1px solid #333;
+        }
+        .tab td {
+            border: 1px solid #333;
+            padding: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Divisioni Tabellone: Linea verticale dopo la 5a colonna e orizzontali ogni 3 righe */
+        .tab td:nth-child(5) { border-right: 3px solid #fff; }
+        .tab tr:nth-child(3) td, .tab tr:nth-child(6) td { border-bottom: 3px solid #fff; }
+
+        .estratto { background: #2e7d32 !important; color: #fff; }
+        .ultimo { background: #fbc02d !important; color: #000 !important; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        .toolbar {
+            background: #eee;
+            width: 100%;
+
+            padding: 5px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            color: #000;
+        }
+        .toolbar-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 2px;
+            gap: 5px;
+        }
+        .btn-game {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px;
+            background: #4a76a8;
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        .btn-lang.active { background: #2e7d32 !important; }
+
+        /* --- STILE CARTELLE PLAYER COMPATTO (NO SCROLL) --- */
+        #player-view { display: none; width: 100%; height: 100%; flex-direction: column; }
+        .player-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 5px; background: #333; border-radius: 5px; margin-bottom: 2px; }
+        .player-header h4 { margin: 0; font-size: 0.8rem; color: #ffc107; text-transform: uppercase; }
+
+        #cartelle-container { display: flex; flex-direction: column; flex: 1; gap: 1px; overflow: hidden; }
+        .player-card { display: flex; flex: 1; background: #222; border-bottom: 1px solid #444; width: 100%; align-items: stretch; }
+        .card-side-num { width: 25px; background: #ffc107; color: #000; font-weight: 900; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; writing-mode: vertical-lr; transform: rotate(180deg); }
+        .card-grid { flex: 1; display: grid; grid-template-columns: repeat(9, 1fr); }
+        .cell { background: #000; border: 0.5px solid #222; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #fff; cursor: pointer; }
+        .cell.marked { background: #ffc107 !important; color: #000 !important; font-weight: bold; border-radius: 2px; }
+
+        .logo { width: 85%; max-width: 450px; height: auto; margin-top: 20px; opacity: 0.9; }
+
+        #chosen-cards-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+        .card-token {
+            background: #1976d2;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-token span { cursor: pointer; color: #ff5252; font-weight: 900; }
+        .setup-input-group { margin-bottom: 20px; }
+        input#card-number-input {
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: 2px solid #1976d2;
+            width: 80px;
+            text-align: center;
+            background: #fff;
+            color: #000;
+        }
+        .id-container {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .id-label {
+            font-size: 0.8rem;
+            color: #ffc107;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        #caller-id-input, #caller-id-input-caller {
+            padding: 10px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            border: 2px solid #ffc107;
+            width: 150px;
+            text-align: center;
+            background: #222;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Nuova Griglia Cartelle */
+        .cards-grid-container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* Default, optimized in JS for 6 rows of 12 if possible or scroll */
+            gap: 5px;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+            margin: 0 auto;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        /* Forza 12 colonne per riga per avere 6 righe (72 / 6 = 12) */
+        @media (min-width: 600px) {
+            .cards-grid-container {
+                grid-template-columns: repeat(12, 1fr);
+            }
+        }
+
+        /* Su mobile restiamo flessibili ma cerchiamo di mantenere la densità */
+        @media (max-width: 599px) {
+            .cards-grid-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .card-flag {
+            background: #333;
+            color: #fff;
+            padding: 8px 0;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #444;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .card-flag:active { transform: scale(0.9); }
+        .card-flag.selected, .card-flag.occupied {
+            background: #1976d2 !important; /* Blu per tutte le cartelle in gioco */
+            color: #ffffff !important;
+            border-color: #ffc107 !important;
+            box-shadow: 0 0 10px rgba(25, 118, 210, 0.8);
+            font-weight: 900;
+        }
+        .btn-voice-on { background: #ff9800 !important; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* LARGE SMORFIA OVERLAY */
+        #large-smorfia-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        #large-smorfia-img {
+            width: 350px;
+            height: 350px;
+            object-fit: contain;
+            border: 5px solid #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+        #large-smorfia-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffeb3b;
+            text-shadow: 4px 4px 10px #000;
+            margin-top: 10px;
+        }
+        h6 {
+            overflow-y: auto;
+            max-height: 300px;
+            padding: 10px;
+            font-weight: normal;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            text-align: justify;
+            width: 90%;
+        }
+    </style>
+    <script>
+        window.getAndroidInterface = function() { return window.Android || window.android || null; };
+        window.showAlert = function(msg) { alert(msg); };
+        window.showScreen = function(screenId) {
+            if (typeof updateNapButtonLabel === 'function' && screenId === 'screen-game') { updateNapButtonLabel(); }
+            if (screenId === 'screen-player-setup') {
+                if (typeof chosenCardIds !== 'undefined') chosenCardIds = [];
+                if (typeof occupiedCards !== 'undefined') occupiedCards = [];
+                if (typeof renderCardGrid === 'function') renderCardGrid();
+                if (typeof onPlayerIdEntered === 'function') onPlayerIdEntered();
+
+                if (typeof cardPollInterval !== 'undefined') {
+                    if (cardPollInterval) clearInterval(cardPollInterval);
+                    cardPollInterval = setInterval(fetchOccupiedCards, 400);
+                }
+            } else {
+                if (typeof cardPollInterval !== 'undefined' && cardPollInterval) {
+                    clearInterval(cardPollInterval);
+                    cardPollInterval = null;
+                }
+            }
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
+            const target = document.getElementById(screenId);
+            if (target) target.classList.add('active-screen');
+        };
+
+        window.startGame = function(role) {
+            const callerIdInput = role === 'player' ? document.getElementById('caller-id-input') : document.getElementById('caller-id-input-caller');
+            const callerId = callerIdInput ? callerIdInput.value.toUpperCase().trim() : '';
+
+            if (!callerId || callerId.length < 3) {
+              showAlert(role === 'player' ? "Please enter the presenter code or IP!" : "Please enter a game code!");
+                return;
+            }
+
+            if (role === 'player' && typeof chosenCardIds !== 'undefined' && chosenCardIds.length === 0) {
+                showAlert("Please choose your cards!");
+                return;
+            }
+
+           const androidBridge = (typeof window !== 'undefined' && window.android) ? window.android : null;
+
+const startRole = (role, callerId) => {
+    const btn = role === 'caller'
+        ? document.querySelector('#screen-caller-menu .btn-caller')
+        : document.querySelector('#screen-player-setup .btn-player');
+
+    const originalText = btn ? btn.innerText : '';
+
+    if (btn) {
+        btn.innerText = (role === 'caller') ? 'CHECKING...' : 'CONNECTING...';
+        btn.disabled = true;
+    }
+
+    if (androidBridge && typeof androidBridge.checkLocalCaller === 'function') {
+        window.pendingRole = role;
+        window.pendingId = callerId;
+
+        window.checkTimeout = setTimeout(() => {
+            if (btn) {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+
+            if (role === 'player') {
+                showAlert("Presenter not found! Make sure you are on the same WiFi network or enter the correct IP address.");
+            }
+        }, 10000);
+
+        androidBridge.checkLocalCaller(callerId);
+        return true;
+    }
+
+    window.userRole = role;
+    showScreen('screen-game');
+
+    if (typeof initGame === 'function') {
+        initGame();
+    }
+
+    return false;
+};
+
+if (role === 'caller') {
+    startRole('caller', callerId);
+} else if (role === 'player') {
+    startRole('player', callerId);
+}
+;
+
+window.restoreSmorfia = function() {
+    if (confirm("Restore original smorfia?")) {
+        if (typeof getAndroidInterface === 'function') {
+            const androidApi = getAndroidInterface();
+            if (androidApi && typeof androidApi.restoreSmorfiaFromBackup === 'function') {
+                androidApi.restoreSmorfiaFromBackup();
+            }
+        }
+
+        setTimeout(() => {
+            if (typeof updateNapButtonLabel === 'function') {
+                updateNapButtonLabel();
+            }
+        }, 500);
+    }
+};
+
+
+    </script>
+</head>
+<body>
+
+<!-- 1. START SCREEN -->
+<div id="screen-start" class="screen active-screen">
+    <h1>TOMBOLA FAMILY</h1>
+    <button class="btn-main btn-caller" onclick="showScreen('screen-caller-menu')">CALLER</button>
+    <button class="btn-main btn-player" onclick="showScreen('screen-player-setup')">PLAYER</button>
+    <img src="tombola_splash.png" class="logo" alt="Tombola">
+    <h6>The app opens by asking you to choose between the host and the player.
+        The host manages the bingo, draws the numbers, and determines and awards
+        the prizes. The player, on the other hand, plays by purchasing cards on
+        which they mark the drawn numbers and collect the prize. The host can draw
+        the numbers automatically. Three languages are available: Italian,
+        English, and Neapolitan, including voice mode. The host is equipped with a
+        bag containing the bingo numbers and draws them. He pronounces the number
+        aloud, and the app responds with a smorfia, the image, and marks the number
+        on the board. An additional feature is the ability to modify the Neapolitan
+        smorfia, which can be reset, so anyone can create their own smorfia.
+        For single-digit numbers, it's best to prefix the number with a 0 (01, 02, etc.)
+        L'app si apre chiedendoti di scegliere tra il presentatore e il giocatore.
+        Il presentatore è colui che gestisce la tombola, estrae i numeri ,determina e
+        assegna i premi. Il giocatore, invece,gioca acquistando delle cartelle su cui
+        segna i numeri estratti e riscuote il premio. Il presentatore può estrarre i
+        numeri automaticamente.Sono disponibili tre lingue:italiano, inglese e napoletano,
+        anche con modalità vocale.Il presentatore è dotato di un sacchetto contenente
+        i numeri della tombola e li estrae. Pronuncia il numero ad alta voce, l'app
+        risponde con la  smorfia , l'immagine  e segna il numero sul tabellone. Una
+        funzionalità aggiuntiva  è la possibilità di modificare lo smorfia napoletana,
+        ripristinabile, in modo che chiunque possa creare lo smorfia che desidera.
+        Per i numeri a 1 sola cifra è meglio anteporre lo 0 (01,02,...)
+    </h6>
+</div>
+
+<!-- 2. CALLER MENU -->
+<div id="screen-caller-menu" class="screen">
+    <h2>CALLER MENU</h2>
+    <div class="id-container">
+        <label class="id-label">CALLER ID</label>
+        <input type="text" id="caller-id-input-caller" maxlength="6" placeholder="CODE">
+    </div>
+    <button class="btn-main btn-caller" onclick="startGame('caller')">START GAME</button>
+    <button class="btn-main" style="background-color: #4CAF50;" onclick="getAndroidInterface()?.openModSmorfia()">EDIT SMORFIA</button>
+    <button class="btn-main" style="background-color: #FFEB3B; color: black;" onclick="restoreSmorfia()">RESTORE SMORFIA</button>
+    <button class="btn-main btn-secondary" onclick="triggerExit()">BACK</button>
+</div>
+
+<!-- 3. PLAYER SETUP -->
+<div id="screen-player-setup" class="screen">
+    <h2>CHOOSE YOUR CARDS</h2>
+    <div class="id-container">
+        <label class="id-label">CALLER ID</label>
+        <input type="text" id="caller-id-input" maxlength="6" placeholder="CODE" onblur="onPlayerIdEntered()">
+    </div>
+
+    <div id="card-grid-container" class="cards-grid-container">
+        <!-- Generato via JS: 72 cartelle -->
+    </div>
+
+    <p id="cards-count-info" style="font-size: 0.9rem; margin-top: 10px; color: #ffc107; font-weight: bold;">Selected: 0/6</p>
+
+    <div style="width: 100%; display: flex; justify-content: center; gap: 10px;">
+        <button class="btn-main btn-player" onclick="startGame('player')" style="width: 45%;">START</button>
+        <button class="btn-main btn-secondary" onclick="triggerExit()" style="width: 45%;">BACK</button>
+    </div>
+</div>
+
+<!-- 4. GAME SCREEN -->
+<div id="screen-game" class="screen" style="padding: 0; justify-content: flex-start;">
+    <div class="app-header" id="header-title">VOICE TOMBOLA</div>
+
+    <div class="number-display">
+        <div id="numero">0</div>
+        <img id="smorfia-mini" src="" alt="">
+        <div id="frase-area">
+            <div id="frase">READY?</div>
+        </div>
+        <!-- STOP button for caller here, will be moved or hidden for player -->
+        <button id="main-stop-btn" class="btn-stop" onclick="triggerExit()">STOP</button>
+    </div>
+
+    <div class="tabellone-container">
+        <div id="live-controls" style="padding: 10px; width: 100%; display: none;">
+            <button class="btn-game" style="background:#d32f2f; width:45%;" onclick="getAndroidInterface()?.checkAndStartListening()">🎤 LISTEN NOW</button>
+            <button class="btn-game" style="background:#1976d2; width:45%;" onclick="getAndroidInterface()?.startLiveAutomatica()">🔊 LIVE AUTO</button>
+        </div>
+
+        <table class="tab" id="tabellone"></table>
+
+        <div id="player-view">
+            <div class="player-header">
+                <h4>PLAYER CARDS</h4>
+                <button class="btn-stop" onclick="triggerExit()">STOP</button>
+            </div>
+            <div id="cartelle-container"></div>
+        </div>
+    </div>
+
+    <div class="toolbar" id="game-toolbar">
+        <div class="toolbar-row" id="row-extraction">
+            <button class="btn-game" id="btn-estrai" onclick="estrai()">🎤 VOICE</button>
+            <select id="select-interval" onchange="if(timerAuto) { stopAuto(); startAuto(); }" style="padding: 3px; border-radius: 5px; font-size: 0.8rem;">
+                <option value="5000">5s</option>
+                <option value="7000" selected>7s</option>
+                <option value="10000">10s</option>
+                <option value="15000">15s</option>
+            </select>
+            <button class="btn-game" id="btn-auto" style="background:#fbc02d; color:#000;" onclick="toggleAuto()">AUTO: OFF</button>
+        </div>
+        <div class="toolbar-row" id="row-languages">
+            <button id="lang-it" class="btn-game btn-lang" onclick="setLanguage('it')">ITA</button>
+            <button id="lang-en" class="btn-game btn-lang" onclick="setLanguage('en')">ENG</button>
+            <button id="lang-nap" class="btn-game btn-lang" onclick="setLanguage('nap')">NAP</button>
+        </div>
+    </div>
+</div>
+
+<!-- 5. EDIT SCREEN -->
+<div id="screen-edit" class="screen">
+    <h2>EDIT SMORFIA</h2>
+    <p>In fase di sviluppo...</p>
+    <button class="btn-main btn-secondary" onclick="showScreen('screen-caller-menu')">BACK</button>
+</div>
+
+<!-- LARGE SMORFIA OVERLAY -->
+<div id="large-smorfia-overlay">
+    <img id="large-smorfia-img" src="" alt="Smorfia">
+    <div id="large-smorfia-num"></div>
+</div>
+
+<script src="cartelle.js"></script>
+<script src="smorfia_it.js"></script>
+<script src="smorfia_en.js"></script>
+<script src="smorfia_nap.js"></script>
+
+<script>
+    let estrazione = [];
+    let estrazioneVoice = []; // Traccia numeri estratti via voce
+    let lingua = 'it';
+    let timerAuto = null;
+    let userRole = 'caller';
+    let chosenCardIds = [];
+    let smorfiaType = 1;
+    let isListening = false;
+
+    function getAndroidInterface() { return window.Android || window.android || null; }
+
+    function triggerExit() {
+        const android = getAndroidInterface();
+        if (userRole === 'caller') {
+            if (window.callerIp) {
+                const req = JSON.stringify({ action: "resetGame" });
+                android?.sendGameRequest(window.callerIp, req);
+            }
+            android?.releaseLocalCaller?.();
+        } else if (userRole === 'player' && window.callerIp) {
+            chosenCardIds.forEach(cardId => {
+                const req = JSON.stringify({ action: "releaseCard", cardId: cardId });
+                android?.sendGameRequest(window.callerIp, req);
+            });
+        }
+
+        if (android && typeof android.showAdAndReload === 'function') {
+            android.showAdAndReload();
+        } else {
+            location.reload();
+        }
+    }
+
+    function showAlert(msg) {
+        alert(msg);
+    }
+
+    let cardPollInterval = null;
+
+    function showScreen(screenId) {
+        if (screenId === 'screen-game') { updateNapButtonLabel(); }
+        if (screenId === 'screen-player-setup') {
+            chosenCardIds = []; // Resetta selezioni all'ingresso
+            occupiedCards = [];
+            renderCardGrid();
+            onPlayerIdEntered();
+
+            // Polling velocissimo in tempo reale ogni 0.4 secondi per sincronizzazione immediata
+            if (cardPollInterval) clearInterval(cardPollInterval);
+            cardPollInterval = setInterval(fetchOccupiedCards, 400);
+        } else {
+            if (cardPollInterval) {
+                clearInterval(cardPollInterval);
+                cardPollInterval = null;
+            }
+        }
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
+        document.getElementById(screenId).classList.add('active-screen');
+    }
+
+    function restoreSmorfia() {
+        if (confirm("Restore original smorfia?")) {
+            getAndroidInterface()?.restoreSmorfiaFromBackup();
+            setTimeout(updateNapButtonLabel, 500);
+        }
+    }
+
+    function updateNapButtonLabel() {
+        const android = getAndroidInterface();
+        if (android && typeof android.isSmorfiaCustomized === 'function') {
+            const isCustom = android.isSmorfiaCustomized();
+            document.getElementById('lang-nap').innerText = isCustom ? 'OWN' : 'NAP';
+        }
+    }
+
+    // --- LOGICA GRIGLIA CARTELLE CON CICLI FOR PER PLAYER E CARTELLE ---
+    let occupiedCards = [];
+    function getClientId() {
+        let id = localStorage.getItem('tombola_client_id');
+        if (!id) {
+            id = 'player_' + Math.random().toString(36).substring(2, 9);
+            localStorage.setItem('tombola_client_id', id);
+        }
+        return id;
+    }
+    window.clientId = getClientId();
+    window.playerNum = window.playerNum || 1;
+    window.totalPlayers = window.totalPlayers || 1;
+
+    function renderCardGrid() {
+        const container = document.getElementById('card-grid-container');
+        if (!container) return;
+
+        let html = "";
+        let myNum = window.playerNum;
+
+        // I due cicli FOR richiesti:
+        // 1. For dei player (da 1 a max 6)
+        // 2. For interno delle cartelle (da 1 a 72, considerando che le prime 36 sono per i tradizionali, quindi 37-72)
+        for (let p = 1; p <= 6; p++) {
+            if (p !== myNum) continue;
+
+            for (let c = 1; c <= 72; c++) {
+                if (c < 37) continue; // Le prime 36 sono per i giocatori con cartelle tradizionali
+
+                const isSelected = chosenCardIds.includes(c);
+                const isOccupiedByOther = occupiedCards.includes(c);
+
+                // Appena la cartella è cliccata o scelta da altri, deve scomparire dalla griglia
+                if (isSelected || isOccupiedByOther) {
+                    continue;
+                }
+
+                html += `
+                    <div id="card-flag-${c}"
+                         class="card-flag"
+                         onclick="toggleCardSelection(${c})">
+                        ${c}
+                    </div>`;
+            }
+        }
+        container.innerHTML = html;
+        document.getElementById('cards-count-info').innerText = `Player #${myNum} - Selected: ${chosenCardIds.length}/6`;
+    }
+
+    function toggleCardSelection(id) {
+        // Se la cartella è già in gioco (blu per tutti), non la può scegliere e mostra il messaggio
+        if (occupiedCards.includes(id) || chosenCardIds.includes(id)) {
+            showAlert("Card already in play!");
+            return;
+        }
+
+        // Seleziona la cartella (massimo 6)
+        if (chosenCardIds.length >= 6) {
+            showAlert("You can select maximum 6 cards!");
+            return;
+        }
+
+        chosenCardIds.push(id);
+        renderCardGrid();
+
+        // Registra subito la cartella sul server in modo che diventi blu per tutti
+        claimCardOnServer(id);
+    }
+
+    function onPlayerIdEntered() {
+        const callerIdInput = document.getElementById('caller-id-input');
+        const callerId = callerIdInput.value.toUpperCase().trim();
+        if (callerId && callerId.length >= 3) {
+            const android = getAndroidInterface();
+            if (android && typeof android.checkLocalCaller === 'function') {
+                window.pendingRole = 'grid_update';
+                window.pendingId = callerId;
+                android.checkLocalCaller(callerId);
+            }
+        }
+    }
+
+    function fetchOccupiedCards() {
+        if (!window.callerIp) {
+            onPlayerIdEntered();
+            return;
+        }
+        const android = getAndroidInterface();
+        const req = JSON.stringify({ action: "getOccupied", clientId: window.clientId });
+        android?.sendGameRequest(window.callerIp, req);
+    }
+
+    function claimCardOnServer(id) {
+        if (!window.callerIp) {
+            onPlayerIdEntered();
+            return;
+        }
+        const android = getAndroidInterface();
+        const req = JSON.stringify({ action: "claimCard", cardId: id, clientId: window.clientId });
+        android?.sendGameRequest(window.callerIp, req);
+    }
+
+    function releaseCardOnServer(id) {
+        const android = getAndroidInterface();
+        const req = JSON.stringify({ action: "releaseCard", cardId: id, clientId: window.clientId });
+        android?.sendGameRequest(window.callerIp, req);
+    }
+
+    window.onLocalCallerChecked = function(isActive, hostIp) {
+        clearTimeout(window.checkTimeout);
+        const role = window.pendingRole;
+        const callerId = window.pendingId;
+
+        if (role === 'caller') {
+            const btn = document.querySelector('#screen-caller-menu .btn-caller');
+            if (btn) {
+                btn.innerText = "START GAME";
+                btn.disabled = false;
+            }
+
+            if (isActive) {
+                alert("WARNING: A presenter is already active for this code on the WiFi/Hotspot network!");
+            } else {
+                getAndroidInterface()?.claimLocalCaller(callerId);
+                userRole = role;
+                showScreen('screen-game');
+                initGame();
+            }
+        } else if (role === 'player') {
+            const btn = document.querySelector('#screen-player-setup .btn-player');
+            if (btn) {
+                btn.innerText = "START";
+                btn.disabled = false;
+            }
+
+            if (!isActive) {
+                showAlert("Presenter not found on the local network for code " + callerId);
+            } else {
+                window.callerIp = hostIp;
+
+                if (chosenCardIds.length === 0) {
+                    showAlert("Please choose your cards!");
+                    return;
+                }
+
+                userRole = role;
+                showScreen('screen-game');
+                initGame();
+                // Assicuriamoci che le cartelle selezionate siano registrate sul server
+                if (chosenCardIds.length > 0) {
+                    chosenCardIds.forEach(id => claimCardOnServer(id));
+                }
+            }
+        } else if (role === 'grid_update') {
+            if (isActive) {
+                window.callerIp = hostIp;
+                fetchOccupiedCards();
+                // Registra subito sul server eventuali cartelle già selezionate prima della connessione
+                if (chosenCardIds.length > 0) {
+                    chosenCardIds.forEach(id => claimCardOnServer(id));
+                }
+            }
+        }
+
+        window.pendingRole = null;
+        window.pendingId = null;
+    };
+
+    function syncPlayerCards() {
+        // Obsoleto, gestito ora durante la selezione o in onLocalCallerChecked
+    }
+
+    window.onGameResponse = function(responseJson) {
+        if (!responseJson) return;
+        try {
+            const res = JSON.parse(responseJson);
+            if (res.cards) occupiedCards = res.cards;
+            if (res.playerNum !== undefined) window.playerNum = res.playerNum;
+            if (res.currentChoosingPlayer !== undefined) window.currentChoosingPlayer = res.currentChoosingPlayer;
+            if (res.totalPlayers !== undefined) window.totalPlayers = res.totalPlayers;
+            renderCardGrid();
+
+            if (res.status === "error") {
+                if (res.message && res.message.includes("Maximum 6 online players allowed")) {
+                    showAlert(res.message);
+                    triggerExit();
+                } else if (res.message === "Card already taken") {
+                    if (res.cardId) {
+                        chosenCardIds = chosenCardIds.filter(id => id !== res.cardId);
+                    }
+                    showAlert("Card already in play!");
+                    fetchOccupiedCards();
+                } else if (!res.message.includes("Please wait for your turn")) {
+                    showAlert("Server Error: " + res.message);
+                }
+            }
+        } catch(e) {}
+    };
+
+    function initGame() {
+        estrazione = [];
+        document.getElementById('numero').innerText = "0";
+        document.getElementById('frase').innerText = "READY?";
+        document.getElementById('smorfia-mini').style.display = 'none';
+        buildTabellone();
+        setLanguage('it');
+
+        const mainStop = document.getElementById('main-stop-btn');
+        const gameToolbar = document.getElementById('game-toolbar');
+
+        if (userRole === 'caller') {
+            document.getElementById('header-title').innerText = "FAMILY CALLER";
+            document.getElementById('live-controls').style.display = 'block';
+            document.getElementById('live-controls').querySelector('button:nth-child(2)').style.display = 'inline-block'; // Mostra LIVE AUTO
+            gameToolbar.style.display = 'block';
+            document.getElementById('row-extraction').style.display = 'flex';
+            document.getElementById('player-view').style.display = 'none';
+            document.getElementById('tabellone').style.display = 'table';
+            mainStop.style.display = 'block';
+        } else {
+            document.getElementById('header-title').innerText = "PLAYER MODE";
+            document.getElementById('live-controls').style.display = 'none'; // Nessun tasto microfono per il Player
+            gameToolbar.style.display = 'block';
+            document.getElementById('row-extraction').style.display = 'none';
+            document.getElementById('player-view').style.display = 'flex';
+            document.getElementById('tabellone').style.display = 'none';
+            mainStop.style.display = 'none';
+            createPlayerCards();
+        }
+    }
+
+    function buildTabellone() {
+        let html = "";
+        for (let r = 0; r < 9; r++) {
+            html += "<tr>";
+            for (let c = 1; c <= 10; c++) {
+                let n = (r * 10) + c;
+                html += `<td id="cell-${n}" onclick="gestisciClickCella(${n})">${n}</td>`;
+            }
+            html += "</tr>";
+        }
+        document.getElementById('tabellone').innerHTML = html;
+    }
+
+    function createPlayerCards() {
+        const container = document.getElementById('cartelle-container');
+        if (!container) return;
+        
+        let cardsHtml = "";
+        // Se non ci sono cartelle scelte, mostra un messaggio o un contenitore vuoto
+        if (chosenCardIds.length === 0) {
+            container.innerHTML = "<div style='padding:20px; color:white;'>No cards selected!</div>";
+            return;
+        }
+
+        // Always prepare for 6 slots
+        for (let i = 0; i < 6; i++) {
+            const id = chosenCardIds[i];
+            if (id) {
+                const data = CARTELLE[id];
+                if (!data) {
+                    console.error("Card data not found for ID: " + id);
+                    continue;
+                }
+                let grid = "";
+                for (let r = 0; r < 3; r++) {
+                    for (let c = 0; c < 9; c++) {
+                        let val = data[r][c];
+                        grid += `<div class="cell" ${val ? `onclick="marcaturaGiocatore(${val}, this)"` : ''}>${val || ''}</div>`;
+                    }
+                }
+                cardsHtml += `<div class="player-card"><div class="card-side-num">${id}</div><div class="card-grid">${grid}</div></div>`;
+            } else {
+                cardsHtml += `<div class="player-card" style="border-bottom:none; background:transparent;"></div>`;
+            }
+        }
+        container.innerHTML = cardsHtml;
+    }
+
+    function setLanguage(l) {
+        lingua = l;
+        smorfiaType = l === 'it' ? 1 : (l === 'en' ? 2 : 3);
+        document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('lang-' + l)?.classList.add('active');
+    }
+
+    function parla(frase, numero) {
+        const android = getAndroidInterface();
+        let textToSpeak = (lingua === 'en') ? "Number " + numero + ". " + frase : numero + ". " + frase;
+
+        if (android) {
+            android.stopAudio();
+            if (smorfiaType === 3 && numero >= 1 && numero <= 90) {
+                android.playAudio(`audio/${String(numero).padStart(2, '0')}.mp3`);
+            } else {
+                android.speak(textToSpeak, lingua === 'en' ? 'en-US' : 'it-IT');
+            }
+        } else {
+            // FALLBACK PER iOS / BROWSER GENERICO
+            const msg = new SpeechSynthesisUtterance(textToSpeak);
+            msg.lang = lingua === 'en' ? 'en-US' : 'it-IT';
+            window.speechSynthesis.speak(msg);
+
+            if (smorfiaType === 3 && numero >= 1 && numero <= 90) {
+                const audio = new Audio(`audio/${String(numero).padStart(2, '0')}.mp3`);
+                audio.play().catch(e => console.log("Audio play blocked"));
+            }
+        }
+    }
+
+    window.onSpeechResult = function(text) {
+        if (!text) return;
+        const cleaned = String(text).trim().toLowerCase();
+        const n = parolaToNumero(cleaned);
+        if (!isNaN(n) && n >= 1 && n <= 90 && !estrazione.includes(n)) {
+            estrazione.push(n);
+            estrazioneVoice.push(n); // Segna come estratto via voce
+            aggiornaUI(n);
+        }
+    };
+
+    function estrai() {
+        const btn = document.getElementById('btn-estrai');
+        if (userRole === 'caller') {
+            if (timerAuto) {
+                stopAuto(); // Se era in AUTO, fermalo prima di passare a VOICE
+            }
+
+            isListening = !isListening;
+            if (isListening) {
+                btn.innerText = "🎤 VOICE ON";
+                btn.classList.add('btn-voice-on');
+                getAndroidInterface()?.checkAndStartListening();
+            } else {
+                btn.innerText = "🎤 VOICE";
+                btn.classList.remove('btn-voice-on');
+            }
+        } else {
+            estraiRandom();
+        }
+    }
+
+    function estraiRandom() {
+        if (estrazione.length >= 90) { stopAuto(); return; }
+        let n;
+        do { n = Math.floor(Math.random() * 90) + 1; } while (estrazione.includes(n));
+        estrazione.push(n);
+        aggiornaUI(n);
+    }
+
+    function aggiornaUI(n) {
+        mostraIconaGrande(n);
+        let nm = getAndroidInterface()?.getCustomTitle(n);
+        if (!nm) {
+            if (lingua === 'en') nm = SMORFIA_EN[String(n).padStart(2, '0')];
+            else if (lingua === 'nap') nm = SMORFIA_NAP[String(n).padStart(2, '0')];
+            else nm = SMORFIA_IT[String(n).padStart(2, '0')];
+        }
+
+        const mini = document.getElementById('smorfia-mini');
+        if (mini) {
+            mini.src = "./smorfia/" + String(n).padStart(2, '0') + ".png";
+            mini.style.display = 'block';
+        }
+
+        document.getElementById('numero').innerText = n;
+        document.getElementById('frase').innerText = nm || "";
+        document.querySelectorAll('.tab td').forEach(t => t.classList.remove('ultimo'));
+        document.getElementById('cell-' + n)?.classList.add('estratto', 'ultimo');
+
+        // SOLO IL CALLER PARLA
+        if (userRole === 'caller') {
+            parla(nm, n);
+        }
+    }
+
+    function marcaturaGiocatore(n, el) {
+        if (!el) return;
+        const wasMarked = el.classList.contains('marked');
+        el.classList.toggle('marked');
+
+        // Se stiamo segnando il numero (non togliendo il segno), mostriamo l'icona e il banner
+        if (!wasMarked) {
+            aggiornaUI(n);
+        }
+    }
+
+    function mostraIconaGrande(n) {
+        var o = document.getElementById('large-smorfia-overlay');
+        var i = document.getElementById('large-smorfia-img');
+        var m = document.getElementById('large-smorfia-num');
+        if (o && i && m) {
+            i.src = "./smorfia/" + String(n).padStart(2, '0') + ".png";
+            m.innerText = n;
+            o.style.display = 'flex';
+            setTimeout(() => o.style.display = 'none', 3000);
+        }
+    }
+
+    function parolaToNumero(text) {
+        if (!text) return NaN;
+        const s = text.toLowerCase().trim().replace(/[.,?']/g, '');
+        const mapping = {
+            'uno': 1, 'due': 2, 'tre': 3, 'tré': 3, 'quattro': 4, 'cinque': 5, 'sei': 6, 'sette': 7, 'otto': 8, 'nove': 9, 'dieci': 10,
+            'undici': 11, 'dodici': 12, 'tredici': 13, 'quattordici': 14, 'quindici': 15, 'sedici': 16, 'diciassette': 17, 'diciotto': 18, 'diciannove': 19, 'venti': 20,
+            'ventuno': 21, 'ventidue': 22, 'ventitré': 23, 'ventitre': 23, 'ventiquattro': 24, 'venticinque': 25, 'ventisei': 26, 'ventisette': 27, 'ventotto': 28, 'ventinove': 29, 'trenta': 30,
+            'trentuno': 31, 'trentadue': 32, 'trentatré': 33, 'trentatre': 33, 'trentaquattro': 34, 'trentacinque': 35, 'trentasei': 36, 'trentasette': 37, 'trentotto': 38, 'trentanove': 39, 'quaranta': 40,
+            'quarantuno': 41, 'quarantadue': 42, 'quarantatré': 43, 'quarantatre': 43, 'quarantaquattro': 44, 'quarantacinque': 45, 'quarantasei': 46, 'quarantasette': 47, 'quarantotto': 48, 'quarantanove': 49, 'cinquanta': 50,
+            'cinquantuno': 51, 'cinquantadue': 52, 'cinquantatré': 53, 'cinquantatre': 53, 'cinquantaquattro': 54, 'cinquantacinque': 55, 'cinquantasei': 56, 'cinquantasette': 57, 'cinquantotto': 58, 'cinquantanove': 59, 'sessanta': 60,
+            'sessantuno': 61, 'sessantadue': 62, 'sessantatré': 63, 'sessantatre': 63, 'sessantaquattro': 64, 'sessantacinque': 65, 'sessantasei': 66, 'sessantasette': 67, 'sessantotto': 68, 'sessantanove': 69, 'settanta': 70,
+            'settantuno': 71, 'settantadue': 72, 'settantatré': 73, 'settantatre': 73, 'settantaquattro': 74, 'settantacinque': 75, 'settantasei': 76, 'settantasette': 77, 'settantotto': 78, 'settantanove': 79, 'ottanta': 80,
+            'ottantuno': 81, 'ottantadue': 82, 'ottantatré': 83, 'ottantatre': 83, 'ottantaquattro': 84, 'ottantacinque': 85, 'ottantasei': 86, 'ottantasette': 87, 'ottantotto': 88, 'ottantanove': 89, 'novanta': 90
+        };
+        if (!isNaN(s)) return parseInt(s);
+        const sortedKeys = Object.keys(mapping).sort((a, b) => b.length - a.length);
+        for (let key of sortedKeys) { if (s.includes(key)) return mapping[key]; }
+        return NaN;
+    }
+
+    function gestisciClickCella(n) {
+        // Annullamento possibile solo per numeri estratti via voce, con VOICE ON e AUTO OFF
+        if (userRole === 'caller' && estrazione.includes(n) && estrazioneVoice.includes(n) && isListening && !timerAuto) {
+            annullaNumero(n);
+        }
+    }
+
+    function annullaNumero(n) {
+        const msgConfirm = (lingua === 'en') ? `Cancel number ${n}?` : `Annullare il numero ${n}?`;
+        if (confirm(msgConfirm)) {
+            estrazione = estrazione.filter(num => num !== n);
+            estrazioneVoice = estrazioneVoice.filter(num => num !== n);
+
+            const cell = document.getElementById('cell-' + n);
+            if (cell) {
+                cell.classList.remove('estratto', 'ultimo');
+            }
+
+            if (parseInt(document.getElementById('numero').innerText) === n) {
+                document.getElementById('numero').innerText = "0";
+                document.getElementById('frase').innerText = (lingua === 'en') ? "CANCELLED" : "ANNULLATO";
+                document.getElementById('smorfia-mini').style.display = 'none';
+            }
+
+            const msgVocale = (lingua === 'en') ? `Number ${n} cancelled` : `Numero ${n} annullato`;
+            parla(msgVocale, "");
+        }
+    }
+
+    function toggleAuto() { if (timerAuto) stopAuto(); else startAuto(); }
+    function startAuto() {
+        if (isListening) {
+            estrai(); // Se il microfono è acceso, spegnilo prima di passare a AUTO
+        }
+        const interval = parseInt(document.getElementById('select-interval').value) || 7000;
+        estraiRandom();
+        timerAuto = setInterval(estraiRandom, interval);
+        document.getElementById('btn-auto').innerText = "AUTO: ON";
+        document.getElementById('btn-auto').style.background = "#d32f2f";
+        document.getElementById('btn-auto').style.color = "#fff";
+    }
+    function stopAuto() { clearInterval(timerAuto); timerAuto = null; document.getElementById('btn-auto').innerText = "AUTO: OFF"; document.getElementById('btn-auto').style.background = "#fbc02d"; document.getElementById('btn-auto').style.color = "#000"; }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const callerIdInputPlayer = document.getElementById('caller-id-input');
+        const callerIdInputCaller = document.getElementById('caller-id-input-caller');
+        const savedId = localStorage.getItem('voice_tombola_caller_id');
+
+        const syncInputs = (val) => {
+            if (callerIdInputPlayer) callerIdInputPlayer.value = val;
+            if (callerIdInputCaller) callerIdInputCaller.value = val;
+            localStorage.setItem('voice_tombola_caller_id', val);
+        };
+
+        if (savedId) syncInputs(savedId);
+
+        [callerIdInputPlayer, callerIdInputCaller].forEach(input => {
+            if (input) {
+                input.addEventListener('input', (e) => {
+                    let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                    if (val.length > 6) val = val.substring(0, 6);
+                    syncInputs(val);
+                    if (input === callerIdInputPlayer && val.length >= 3) {
+                        onPlayerIdEntered();
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
