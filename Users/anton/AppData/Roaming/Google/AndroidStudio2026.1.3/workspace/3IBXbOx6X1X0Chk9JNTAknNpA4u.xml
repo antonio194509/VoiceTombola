@@ -1,0 +1,842 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="TombolaFamily" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf ideFingerprint="2svadmb3u59e0" SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" file-id="1058" managing-fs="1788670988630">
+          <provider editor-type-id="text-editor" selected="true" />
+        </entry>
+        <tab><![CDATA[{"tabTitle":"gradle-wrapper.properties","foregroundColor":-16777216,"textAttributes":{"name":"a"},"icon":[10,57,99,111,109,46,105,110,116,101,108,108,105,106,46,117,105,46,105,99,111,110,115,46,82,97,115,116,101,114,105,122,101,100,73,109,97,103,101,68,97,116,97,76,111,97,100,101,114,68,101,115,99,114,105,112,116,111,114,18,85,10,24,102,105,108,101,84,121,112,101,115,47,112,114,111,112,101,114,116,105,101,115,46,115,118,103,18,30,101,120,112,117,105,47,102,105,108,101,84,121,112,101,115,47,112,114,111,112,101,114,116,105,101,115,46,115,118,103,26,12,99,111,109,46,105,110,116,101,108,108,105,106,40,-9,-117,-107,-50,-8,-1,-1,-1,-1,1,48,0]}]]></tab>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary"><![CDATA[{
+  "data": {
+    "Properties": {
+      "usageCount": 7,
+      "lastUsed": 1788673583631
+    }
+  }
+}]]></component>
+  <component name="IdeDocumentHistory">{}</component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="Properties">
+      <summary usageCount="7" lastUsage="1788673583632" />
+    </language>
+  </component>
+  <component name="ProjectRoots">
+    <project-root url="file://$PROJECT_DIR$" />
+    <project-root url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="AndroidView" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/.gradle}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app/build}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app/src}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app/src/main}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app/src/main}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/app/src/main/assets}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/build}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/build}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/build/reports}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/build}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/build/reports}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/build/reports/configuration-cache}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="dir{file://C:/TombolaFamily/gradle}" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+          <presentation>
+            <attributes />
+            <data iconPath="expui/toolwindows/project.svg" iconPlugin="com.intellij" isLeaf="false" text="TombolaFamily" />
+            <item name="TombolaFamily" type="b2602c69:ProjectViewProjectNode" />
+            <presentation>
+              <attributes>
+                <map>
+                  <entry key="filePath" value="$PROJECT_DIR$" />
+                </map>
+              </attributes>
+              <data iconPath="expui/nodes/module.svg" iconPlugin="com.intellij" isLeaf="false" text="TombolaFamily" />
+              <item name="dir{file://C:/TombolaFamily}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/.artifacts" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text=".artifacts" />
+                <item name="dir{file://C:/TombolaFamily/.artifacts}" type="462c0819:PsiDirectoryNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/.gradle" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text=".gradle" />
+                <item name="dir{file://C:/TombolaFamily/.gradle}" type="462c0819:PsiDirectoryNode" />
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/.gradle/9.5.0" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="9.5.0" />
+                  <item name="dir{file://C:/TombolaFamily/.gradle/9.5.0}" type="462c0819:PsiDirectoryNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/.gradle/9.7.1" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="9.7.1" />
+                  <item name="dir{file://C:/TombolaFamily/.gradle/9.7.1}" type="462c0819:PsiDirectoryNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/.gradle/buildOutputCleanup" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="buildOutputCleanup" />
+                  <item name="dir{file://C:/TombolaFamily/.gradle/buildOutputCleanup}" type="462c0819:PsiDirectoryNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/.gradle/configuration-cache" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="configuration-cache" />
+                  <item name="dir{file://C:/TombolaFamily/.gradle/configuration-cache}" type="462c0819:PsiDirectoryNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/.gradle/vcs-1" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="vcs-1" />
+                  <item name="dir{file://C:/TombolaFamily/.gradle/vcs-1}" type="462c0819:PsiDirectoryNode" />
+                </presentation>
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/.idea" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text=".idea" />
+                <item name="dir{file://C:/TombolaFamily/.idea}" type="462c0819:PsiDirectoryNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/.kotlin" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text=".kotlin" />
+                <item name="dir{file://C:/TombolaFamily/.kotlin}" type="462c0819:PsiDirectoryNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/app" />
+                  </map>
+                </attributes>
+                <data iconPath="studio/icons/shell/filetree/android-module.svg" iconPlugin="org.jetbrains.android" isLeaf="false" text="app" />
+                <item name="dir{file://C:/TombolaFamily/app}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/app/build" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="build" />
+                  <item name="dir{file://C:/TombolaFamily/app/build}" type="462c0819:PsiDirectoryNode" />
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/app/build/generated" />
+                      </map>
+                    </attributes>
+                    <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="generated" />
+                    <item name="dir{file://C:/TombolaFamily/app/build/generated}" type="462c0819:PsiDirectoryNode" />
+                  </presentation>
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/app/build/intermediates" />
+                      </map>
+                    </attributes>
+                    <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="intermediates" />
+                    <item name="dir{file://C:/TombolaFamily/app/build/intermediates}" type="462c0819:PsiDirectoryNode" />
+                  </presentation>
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/app/build/kotlin" />
+                      </map>
+                    </attributes>
+                    <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="kotlin" />
+                    <item name="dir{file://C:/TombolaFamily/app/build/kotlin}" type="462c0819:PsiDirectoryNode" />
+                  </presentation>
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/app/build/outputs" />
+                      </map>
+                    </attributes>
+                    <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="outputs" />
+                    <item name="dir{file://C:/TombolaFamily/app/build/outputs}" type="462c0819:PsiDirectoryNode" />
+                  </presentation>
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/app/debug" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="debug" />
+                  <item name="dir{file://C:/TombolaFamily/app/debug}" type="462c0819:PsiDirectoryNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/app/src" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="src" />
+                  <item name="dir{file://C:/TombolaFamily/app/src}" type="462c0819:PsiDirectoryNode" />
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/app/src/androidTest" />
+                      </map>
+                    </attributes>
+                    <data iconPath="studio/icons/shell/filetree/android-module.svg" iconPlugin="org.jetbrains.android" isLeaf="false" text="androidTest" />
+                    <item name="dir{file://C:/TombolaFamily/app/src/androidTest}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+                  </presentation>
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/app/src/main" />
+                      </map>
+                    </attributes>
+                    <data iconPath="studio/icons/shell/filetree/android-module.svg" iconPlugin="org.jetbrains.android" isLeaf="false" text="main" />
+                    <item name="dir{file://C:/TombolaFamily/app/src/main}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets" />
+                        </map>
+                      </attributes>
+                      <data iconPath="expui/nodes/resourcesRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="assets" />
+                      <item name="dir{file://C:/TombolaFamily/app/src/main/assets}" type="462c0819:PsiDirectoryNode" />
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/.artifacts" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text=".artifacts" />
+                        <item name="dir{file://C:/TombolaFamily/app/src/main/assets/.artifacts}" type="462c0819:PsiDirectoryNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/audio" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="audio" />
+                        <item name="dir{file://C:/TombolaFamily/app/src/main/assets/audio}" type="462c0819:PsiDirectoryNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/audioBackup" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="audioBackup" />
+                        <item name="dir{file://C:/TombolaFamily/app/src/main/assets/audioBackup}" type="462c0819:PsiDirectoryNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/smorfia" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="smorfia" />
+                        <item name="dir{file://C:/TombolaFamily/app/src/main/assets/smorfia}" type="462c0819:PsiDirectoryNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/audio_door.mp3" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/unknown.svg" iconPlugin="com.intellij" isLeaf="true" text="audio_door.mp3" />
+                        <item name="audio_door.mp3" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/cartelle.js" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/javaScript.svg" iconPlugin="com.intellij" isLeaf="true" text="cartelle.js" />
+                        <item name="cartelle.js" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/Cartelle TOMBOLA by DORWEB.pdf" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/unknown.svg" iconPlugin="com.intellij" isLeaf="true" text="Cartelle TOMBOLA by DORWEB.pdf" />
+                        <item name="Cartelle TOMBOLA by DORWEB.pdf" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/index.html" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/html.svg" iconPlugin="com.intellij" isLeaf="true" text="index.html" />
+                        <item name="index.html" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/live.html" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/html.svg" iconPlugin="com.intellij" isLeaf="true" text="live.html" />
+                        <item name="live.html" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/manifest.json" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/json.svg" iconPlugin="com.intellij" isLeaf="true" text="manifest.json" />
+                        <item name="manifest.json" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/offline.html" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/html.svg" iconPlugin="com.intellij" isLeaf="true" text="offline.html" />
+                        <item name="offline.html" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/online.html" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/html.svg" iconPlugin="com.intellij" isLeaf="true" text="online.html" />
+                        <item name="online.html" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/smorfia.json" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/json.svg" iconPlugin="com.intellij" isLeaf="true" text="smorfia.json" />
+                        <item name="smorfia.json" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/smorfia tombola.pdf" />
+                          </map>
+                        </attributes>
+                        <data iconPath="nodes/nodePlaceholder.svg" iconPlugin="com.intellij" isLeaf="true" text="smorfia tombola.pdf" />
+                        <item name="smorfia tombola.pdf" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/smorfia_en.js" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/javaScript.svg" iconPlugin="com.intellij" isLeaf="true" text="smorfia_en.js" />
+                        <item name="smorfia_en.js" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/smorfia_it.js" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/javaScript.svg" iconPlugin="com.intellij" isLeaf="true" text="smorfia_it.js" />
+                        <item name="smorfia_it.js" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/smorfia_nap.js" />
+                          </map>
+                        </attributes>
+                        <data iconPath="expui/fileTypes/javaScript.svg" iconPlugin="com.intellij" isLeaf="true" text="smorfia_nap.js" />
+                        <item name="smorfia_nap.js" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/Tabellone Tombola.png" />
+                          </map>
+                        </attributes>
+                        <data iconPath="fileTypes/image.svg" iconPlugin="com.intellij" isLeaf="true" text="Tabellone Tombola.png" />
+                        <item name="Tabellone Tombola.png" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/tomband.png" />
+                          </map>
+                        </attributes>
+                        <data iconPath="fileTypes/image.svg" iconPlugin="com.intellij" isLeaf="true" text="tomband.png" />
+                        <item name="tomband.png" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/tombola.ico" />
+                          </map>
+                        </attributes>
+                        <data iconPath="fileTypes/image.svg" iconPlugin="com.intellij" isLeaf="true" text="tombola.ico" />
+                        <item name="tombola.ico" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/tombola.png" />
+                          </map>
+                        </attributes>
+                        <data iconPath="fileTypes/image.svg" iconPlugin="com.intellij" isLeaf="true" text="tombola.png" />
+                        <item name="tombola.png" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                      <presentation>
+                        <attributes>
+                          <map>
+                            <entry key="filePath" value="$PROJECT_DIR$/app/src/main/assets/tombola_splash.png" />
+                          </map>
+                        </attributes>
+                        <data iconPath="fileTypes/image.svg" iconPlugin="com.intellij" isLeaf="true" text="tombola_splash.png" />
+                        <item name="tombola_splash.png" type="ab9368bb:PsiFileNode" />
+                      </presentation>
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/app/src/main/java" />
+                        </map>
+                      </attributes>
+                      <data iconPath="modules/sourceRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="java" />
+                      <item name="dir{file://C:/TombolaFamily/app/src/main/java}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/app/src/main/keepRules" />
+                        </map>
+                      </attributes>
+                      <data iconPath="modules/sourceRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="keepRules" />
+                      <item name="dir{file://C:/TombolaFamily/app/src/main/keepRules}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/app/src/main/res" />
+                        </map>
+                      </attributes>
+                      <data iconPath="expui/nodes/resourcesRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="res" />
+                      <item name="dir{file://C:/TombolaFamily/app/src/main/res}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+                        </map>
+                      </attributes>
+                      <data iconPath="fileTypes/xml.svg" iconPlugin="com.intellij" isLeaf="true" text="AndroidManifest.xml" />
+                      <item name="AndroidManifest.xml" type="ab9368bb:PsiFileNode" />
+                    </presentation>
+                  </presentation>
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/app/src/test" />
+                      </map>
+                    </attributes>
+                    <data iconPath="expui/nodes/module.svg" iconPlugin="com.intellij" isLeaf="false" text="test" />
+                    <item name="dir{file://C:/TombolaFamily/app/src/test}" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+                  </presentation>
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/app/.gitignore" />
+                    </map>
+                  </attributes>
+                  <data iconPath="vcs/ignore_file.svg" iconPlugin="com.intellij" isLeaf="true" text=".gitignore" />
+                  <item name=".gitignore" type="ab9368bb:PsiFileNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/app/build.gradle.kts" />
+                    </map>
+                  </attributes>
+                  <data iconPath="org/jetbrains/kotlin/idea/icons/expui/kotlin.svg" iconPlugin="org.jetbrains.kotlin" isLeaf="true" text="build.gradle.kts" />
+                  <item name="build.gradle.kts" type="24436e51:KtFileTreeNode" />
+                </presentation>
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/build" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="build" />
+                <item name="dir{file://C:/TombolaFamily/build}" type="462c0819:PsiDirectoryNode" />
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/build/reports" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="reports" />
+                  <item name="dir{file://C:/TombolaFamily/build/reports}" type="462c0819:PsiDirectoryNode" />
+                  <presentation>
+                    <attributes>
+                      <map>
+                        <entry key="filePath" value="$PROJECT_DIR$/build/reports/configuration-cache" />
+                      </map>
+                    </attributes>
+                    <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="configuration-cache" />
+                    <item name="dir{file://C:/TombolaFamily/build/reports/configuration-cache}" type="462c0819:PsiDirectoryNode" />
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/build/reports/configuration-cache/5a3wvp97jvkuzm059vnb8e2bj" />
+                        </map>
+                      </attributes>
+                      <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="5a3wvp97jvkuzm059vnb8e2bj" />
+                      <item name="dir{file://C:/TombolaFamily/build/reports/configuration-cache/5a3wvp97jvkuzm059vnb8e2bj}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/build/reports/configuration-cache/6xkxwxgjwnfn34gz4ruuyzfi0" />
+                        </map>
+                      </attributes>
+                      <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="6xkxwxgjwnfn34gz4ruuyzfi0" />
+                      <item name="dir{file://C:/TombolaFamily/build/reports/configuration-cache/6xkxwxgjwnfn34gz4ruuyzfi0}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/build/reports/configuration-cache/8ccqhl5eypyc14vpr4covcshl" />
+                        </map>
+                      </attributes>
+                      <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="8ccqhl5eypyc14vpr4covcshl" />
+                      <item name="dir{file://C:/TombolaFamily/build/reports/configuration-cache/8ccqhl5eypyc14vpr4covcshl}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/build/reports/configuration-cache/a3idirck3ct9qnoguaqpf321l" />
+                        </map>
+                      </attributes>
+                      <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="a3idirck3ct9qnoguaqpf321l" />
+                      <item name="dir{file://C:/TombolaFamily/build/reports/configuration-cache/a3idirck3ct9qnoguaqpf321l}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                    <presentation>
+                      <attributes>
+                        <map>
+                          <entry key="filePath" value="$PROJECT_DIR$/build/reports/configuration-cache/d96modtm3108tsl49k7a22yfk" />
+                        </map>
+                      </attributes>
+                      <data iconPath="expui/nodes/excludeRoot.svg" iconPlugin="com.intellij" isLeaf="false" text="d96modtm3108tsl49k7a22yfk" />
+                      <item name="dir{file://C:/TombolaFamily/build/reports/configuration-cache/d96modtm3108tsl49k7a22yfk}" type="462c0819:PsiDirectoryNode" />
+                    </presentation>
+                  </presentation>
+                </presentation>
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/gradle" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="gradle" />
+                <item name="dir{file://C:/TombolaFamily/gradle}" type="462c0819:PsiDirectoryNode" />
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/gradle/wrapper" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="wrapper" />
+                  <item name="dir{file://C:/TombolaFamily/gradle/wrapper}" type="462c0819:PsiDirectoryNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/gradle/gradle-daemon-jvm.properties" />
+                    </map>
+                  </attributes>
+                  <data iconPath="expui/fileTypes/properties.svg" iconPlugin="com.intellij" isLeaf="true" text="gradle-daemon-jvm.properties" />
+                  <item name="gradle-daemon-jvm.properties" type="ab9368bb:PsiFileNode" />
+                </presentation>
+                <presentation>
+                  <attributes>
+                    <map>
+                      <entry key="filePath" value="$PROJECT_DIR$/gradle/libs.versions.toml" />
+                    </map>
+                  </attributes>
+                  <data iconPath="icons/toml-file.svg" iconPlugin="org.toml.lang" isLeaf="true" text="libs.versions.toml" />
+                  <item name="libs.versions.toml" type="ab9368bb:PsiFileNode" />
+                </presentation>
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/projectFilesBackup" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/nodes/folder.svg" iconPlugin="com.intellij" isLeaf="false" text="projectFilesBackup" />
+                <item name="dir{file://C:/TombolaFamily/projectFilesBackup}" type="462c0819:PsiDirectoryNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/.gitignore" />
+                  </map>
+                </attributes>
+                <data iconPath="vcs/ignore_file.svg" iconPlugin="com.intellij" isLeaf="true" text=".gitignore" />
+                <item name=".gitignore" type="ab9368bb:PsiFileNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/build.gradle.kts" />
+                  </map>
+                </attributes>
+                <data iconPath="org/jetbrains/kotlin/idea/icons/expui/kotlin.svg" iconPlugin="org.jetbrains.kotlin" isLeaf="true" text="build.gradle.kts" />
+                <item name="build.gradle.kts" type="24436e51:KtFileTreeNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/gradle.properties" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/fileTypes/properties.svg" iconPlugin="com.intellij" isLeaf="true" text="gradle.properties" />
+                <item name="gradle.properties" type="ab9368bb:PsiFileNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/gradlew" />
+                  </map>
+                </attributes>
+                <data iconPath="nodes/console.svg" iconPlugin="com.intellij" isLeaf="true" text="gradlew" />
+                <item name="gradlew" type="ab9368bb:PsiFileNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/gradlew.bat" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/fileTypes/text.svg" iconPlugin="com.intellij" isLeaf="true" text="gradlew.bat" />
+                <item name="gradlew.bat" type="ab9368bb:PsiFileNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/local.properties" />
+                  </map>
+                </attributes>
+                <data iconPath="expui/fileTypes/properties.svg" iconPlugin="com.intellij" isLeaf="true" text="local.properties" />
+                <item name="local.properties" type="ab9368bb:PsiFileNode" />
+              </presentation>
+              <presentation>
+                <attributes>
+                  <map>
+                    <entry key="filePath" value="$PROJECT_DIR$/settings.gradle.kts" />
+                  </map>
+                </attributes>
+                <data iconPath="org/jetbrains/kotlin/idea/icons/expui/kotlin.svg" iconPlugin="org.jetbrains.kotlin" isLeaf="true" text="settings.gradle.kts" />
+                <item name="settings.gradle.kts" type="24436e51:KtFileTreeNode" />
+              </presentation>
+            </presentation>
+            <presentation>
+              <attributes />
+              <data iconPath="nodes/ppLib.svg" iconPlugin="com.intellij" isLeaf="false" text="External Libraries" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </presentation>
+            <presentation>
+              <attributes />
+              <data iconPath="scope/scratches.svg" iconPlugin="com.intellij" isLeaf="true" text="Scratches and Consoles" />
+              <item name="Scratches and Consoles" type="b85a3e1f:ScratchTreeStructureProvider$MyProjectNode" />
+            </presentation>
+          </presentation>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="SplittingTabsState">
+    <tool-windows>
+      <tool-window id="Logcat" selected-tab="0">
+        <tabs>
+          <tab name="Logcat">
+            <content>
+              <panel>{'device':{'physicalDevice':{'serialNumber':'R9WT90LFPHZ','isOnline':false,'release':'12','apiLevel':{'majorVersion':31,'minorVersion':0},'featureLevel':31,'manufacturer':'samsung','model':'SM-T503','type':'HANDHELD'}},'formattingConfig':{'preset':'STANDARD'},'filter':'','filterMatchCase':false,'isSoftWrap':false}</panel>
+            </content>
+          </tab>
+        </tabs>
+      </tool-window>
+    </tool-windows>
+  </component>
+  <component name="TerminalTabsStorage">
+    <option name="tabs">
+      <TerminalSessionPersistedTab name="Local" workingDirectory="C:\TombolaFamily" processType="SHELL">
+        <option name="shellCommand">
+          <option value="powershell.exe" />
+        </option>
+        <option name="envVariables">
+          <map />
+        </option>
+      </TerminalSessionPersistedTab>
+    </option>
+  </component>
+  <component name="ToolWindowManager">
+    <layoutV2>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.4325397" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Resources Explorer" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3294993" />
+      <window_info anchor="bottom" id="Problems" order="2" />
+      <window_info anchor="bottom" id="Problems View" order="3" />
+      <window_info anchor="bottom" id="Logcat" order="4" weight="0.32964888" />
+      <window_info anchor="bottom" id="App Quality Insights" order="5" />
+      <window_info anchor="bottom" id="Build" order="6" visible="true" weight="0.32964888" />
+      <window_info anchor="bottom" id="GitHub Copilot MCP Log" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.32964888" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="1" weight="0.25" />
+      <window_info anchor="right" id="Device Manager" order="2" weight="0.25" />
+      <window_info anchor="right" id="Device Manager 2" order="3" weight="0.25" />
+      <window_info anchor="right" id="Running Devices" order="4" weight="0.25" />
+      <window_info active="true" anchor="right" id="StudioBot" order="5" visible="true" weight="0.4325397" />
+      <window_info anchor="right" id="github.copilotToolWindow" order="6" />
+      <window_info anchor="right" id="GitHub Copilot Chat" order="7" />
+      <unified_weights bottom="0.32964888" left="0.4325397" right="0.4325397" />
+    </layoutV2>
+    <recentWindows>
+      <value>StudioBot</value>
+      <value>Project</value>
+      <value>Terminal</value>
+      <value>Logcat</value>
+      <value>Build</value>
+      <value>Run</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="349" y="137" key="IDE.errors.dialog" timestamp="1788537517706">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="349" y="137" key="IDE.errors.dialog/0.0.1536.816@0.0.1536.816" timestamp="1788537517706" />
+    <state x="1129" y="564" width="319" height="192" key="ProcessPopupWindow" timestamp="1788603719798">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="1129" y="564" width="319" height="192" key="ProcessPopupWindow/0.0.1536.816@0.0.1536.816" timestamp="1788603719798" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

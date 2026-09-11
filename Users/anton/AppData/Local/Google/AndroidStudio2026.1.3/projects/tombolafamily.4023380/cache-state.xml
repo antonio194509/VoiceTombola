@@ -1,0 +1,260 @@
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="myGradleUserHome" value="$USER_HOME$/gradle_home_alt" />
+    <option name="myGradleHomes">
+      <map>
+        <entry key="$PROJECT_DIR$" value="C:\Users\anton\gradle_home_alt\wrapper\dists\gradle-9.7.1-bin\1w1c7tv4s851m17nbqdsro2tv\gradle-9.7.1" />
+      </map>
+    </option>
+    <option name="myGradleVersions">
+      <map>
+        <entry key="$PROJECT_DIR$" value="9.7.1" />
+      </map>
+    </option>
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="TombolaFamily" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="TombolaFamily" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value=":app" />
+                <option name="path" value="$PROJECT_DIR$/app" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="KotlinGradleFUSSettings">
+    <option name="gradleUserDirs" value="C:\Users\anton\gradle_home_alt" />
+    <option name="gradleUserDirs" value="C:\Users\anton\.gradle" />
+  </component>
+  <component name="ProcessedFilesStorage">
+    <timestamps>
+      <entry key="3e4ecd51a1ca740ca4f9ad896fa402ed" value="1788628068611" />
+      <entry key="f9b4db72dfd3a1c3fe7ae43d13b08500" value="1788628061226" />
+    </timestamps>
+  </component>
+  <component name="Project">
+    <option name="lastProjectScan" value="1788086700" />
+  </component>
+  <component name="RestoreUpdateTree">{}</component>
+  <component name="sourceFolderManager">
+    <sourceFolders>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/main/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/main/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/main/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/java" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/keepRules" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/java" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/keepRules" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/keepRules" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/keepRules" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/java" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/keepRules" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="TombolaFamily.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="TombolaFamily.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debugUnitTest/out" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="TombolaFamily.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debugAndroidTest/out" />
+      </SourceFolderModelState>
+    </sourceFolders>
+  </component>
+</project>

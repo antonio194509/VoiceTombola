@@ -1,0 +1,3 @@
+- [x] Fix Neapolitan smorfia display in `index.html`
+- [x] Verify logic in `index.html`
+- [x] Create walkthrough

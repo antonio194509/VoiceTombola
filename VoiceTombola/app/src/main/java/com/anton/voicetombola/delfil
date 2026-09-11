@@ -1,0 +1,130 @@
+package com.anton.voicetombola
+
+import android.content.Context
+import android.net.nsd.NsdManager
+import android.net.nsd.NsdServiceInfo
+import android.util.Log
+
+class NsdHelper(private val context: Context) {
+
+    private val nsdManager = context.getSystemService(Context.NSD_SERVICE) as NsdManager
+    private var registrationListener: NsdManager.RegistrationListener? = null
+    private var discoveryListener: NsdManager.DiscoveryListener? = null
+
+    private val SERVICE_TYPE = "_tombola._tcp."
+    private var currentServiceName: String? = null
+
+    fun registerService(code: String) {
+        unregisterService() // Clear any existing
+
+        val serviceInfo = NsdServiceInfo().apply {
+            serviceName = "TombolaCaller_$code"
+            serviceType = SERVICE_TYPE
+            port = 8888 // Dummy port
+        }
+
+        registrationListener = object : NsdManager.RegistrationListener {
+            override fun onServiceRegistered(NsdServiceInfo: NsdServiceInfo) {
+                currentServiceName = NsdServiceInfo.serviceName
+                Log.d("NSD", "Service registered: $currentServiceName")
+            }
+
+            override fun onRegistrationFailed(serviceInfo: NsdServiceInfo, errorCode: Int) {
+                Log.e("NSD", "Registration failed: $errorCode")
+            }
+
+            override fun onServiceUnregistered(arg0: NsdServiceInfo) {
+                Log.d("NSD", "Service unregistered")
+            }
+
+            override fun onUnregistrationFailed(serviceInfo: NsdServiceInfo, errorCode: Int) {
+                Log.e("NSD", "Unregistration failed: $errorCode")
+            }
+        }
+
+        nsdManager.registerService(serviceInfo, NsdManager.PROTOCOL_DNS_SD, registrationListener)
+    }
+
+    fun unregisterService() {
+        registrationListener?.let {
+            nsdManager.unregisterService(it)
+            registrationListener = null
+            currentServiceName = null
+        }
+    }
+
+    fun isCallerActive(code: String, callback: (String?) -> Unit) {
+        val targetName = "TombolaCaller_$code"
+        var found = false
+
+        discoveryListener = object : NsdManager.DiscoveryListener {
+            override fun onDiscoveryStarted(regType: String) {
+                Log.d("NSD", "Discovery started")
+            }
+
+            override fun onServiceFound(service: NsdServiceInfo) {
+                Log.d("NSD", "Service found: ${service.serviceName}")
+                if (service.serviceName == targetName) {
+                    found = true
+                    nsdManager.resolveService(service, object : NsdManager.ResolveListener {
+                        override fun onResolveFailed(serviceInfo: NsdServiceInfo, errorCode: Int) {
+                            Log.e("NSD", "Resolve failed: $errorCode")
+                            callback(null)
+                        }
+
+                        override fun onServiceResolved(serviceInfo: NsdServiceInfo) {
+                            Log.d("NSD", "Service resolved: ${serviceInfo.host.hostAddress}")
+                            callback(serviceInfo.host.hostAddress)
+                        }
+                    })
+                    stopDiscovery()
+                } else {
+                    Log.d("NSD", "Ignoring different service: ${service.serviceName}")
+                }
+            }
+
+            override fun onServiceLost(service: NsdServiceInfo) {
+                Log.d("NSD", "Service lost: ${service.serviceName}")
+            }
+
+            override fun onDiscoveryStopped(regType: String) {
+                Log.d("NSD", "Discovery stopped")
+                if (!found) callback(null)
+            }
+
+            override fun onStartDiscoveryFailed(serviceType: String, errorCode: Int) {
+                Log.e("NSD", "Discovery start failed: $errorCode")
+                stopDiscovery()
+                callback(null)
+            }
+
+            override fun onStopDiscoveryFailed(serviceType: String, errorCode: Int) {
+                Log.e("NSD", "Discovery stop failed: $errorCode")
+                stopDiscovery()
+            }
+        }
+
+        nsdManager.discoverServices(SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, discoveryListener)
+
+        // Timeout after 2.5 seconds if nothing found
+        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            if (!found) {
+                stopDiscovery()
+                callback(null)
+            }
+        }, 2500)
+    }
+
+    private fun stopDiscovery() {
+        discoveryListener?.let {
+            try {
+                nsdManager.stopServiceDiscovery(it)
+            } catch (e: Exception) {
+                Log.e("NSD", "Error stopping discovery", e)
+            }
+            discoveryListener = null
+        }
+    }
+}
+
+

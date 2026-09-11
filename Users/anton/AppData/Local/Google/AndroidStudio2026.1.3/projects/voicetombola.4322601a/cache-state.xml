@@ -1,0 +1,454 @@
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="myGradleUserHome" value="$USER_HOME$/gradle_home_alt" />
+    <option name="myGradleHomes">
+      <map>
+        <entry key="$PROJECT_DIR$" value="C:\Users\anton\gradle_home_alt\wrapper\dists\gradle-9.7.1-bin\1w1c7tv4s851m17nbqdsro2tv\gradle-9.7.1" />
+      </map>
+    </option>
+    <option name="myGradleVersions">
+      <map>
+        <entry key="$PROJECT_DIR$" value="9.7.1" />
+      </map>
+    </option>
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="VoiceTombola" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="VoiceTombola" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value=":app" />
+                <option name="path" value="$PROJECT_DIR$/app" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="KotlinCompilationErrorFileTimeStamps"><![CDATA[{
+  "timestamps": {
+    "7281645ed1c4a9d114a442ad2a538118-FUNCTION_DECLARATION_WITH_NO_NAME": 1789122367504,
+    "7281645ed1c4a9d114a442ad2a538118-INACCESSIBLE_OUTER_CLASS_RECEIVER": 1789124503845,
+    "7281645ed1c4a9d114a442ad2a538118-NO_THIS": 1789124667996,
+    "7281645ed1c4a9d114a442ad2a538118-OVERLOAD_RESOLUTION_AMBIGUITY": 1789123948862,
+    "7281645ed1c4a9d114a442ad2a538118-SUPER_NOT_AVAILABLE": 1789124667996,
+    "7281645ed1c4a9d114a442ad2a538118-CONFLICTING_OVERLOADS": 1789123948862,
+    "7281645ed1c4a9d114a442ad2a538118-UNRESOLVED_REFERENCE": 1789122367504,
+    "7281645ed1c4a9d114a442ad2a538118-WRONG_MODIFIER_TARGET": 1789122367504
+  }
+}]]></component>
+  <component name="KotlinGradleFUSSettings">
+    <option name="gradleUserDirs" value="C:\Users\anton\gradle_home_alt" />
+    <option name="gradleUserDirs" value="C:\Users\anton\.gradle" />
+  </component>
+  <component name="MarkdownArtifactFilesPersistentStateV2">
+    <knownArtifactFiles>
+      <entry virtualFileUrl="file://$PROJECT_DIR$/.artifacts/implementation_plan.artifact.md">
+        <fileState commentingSessionTitle="Implementation Plan" lastModifiedTimeUtc="2026-08-30T15:00:00Z" />
+      </entry>
+      <entry virtualFileUrl="file://$PROJECT_DIR$/.artifacts/task.artifact.md">
+        <fileState commentingSessionTitle="Task" lastModifiedTimeUtc="2026-08-30T15:00:00Z" />
+      </entry>
+      <entry virtualFileUrl="file://$PROJECT_DIR$/.artifacts/walkthrough.artifact.md">
+        <fileState commentingSessionTitle="Walkthrough" lastModifiedTimeUtc="2026-08-30T15:00:00Z" />
+      </entry>
+    </knownArtifactFiles>
+  </component>
+  <component name="ProcessedFilesStorage">
+    <timestamps>
+      <entry key="10976b930117fe357f9bb9dd8c94a7f9" value="1789125212207" />
+      <entry key="2138c96c1669a7dcd3f07d07a1cbb7df" value="1789050468014" />
+      <entry key="62c5dca4d3ebbf2d5c2d71894f00a545" value="1789117515142" />
+      <entry key="7281645ed1c4a9d114a442ad2a538118" value="1789122086455" />
+      <entry key="7816fb258d9791a3d91680f7652b4d60" value="1789051244363" />
+      <entry key="82500c38964506224db94fc913953150" value="1789050462170" />
+      <entry key="a37ed50a13fdcba75f8530ccf9f05b3d" value="1789050938222" />
+      <entry key="c1beae9c7f423f8375ecb131f77a5474" value="1789050713970" />
+    </timestamps>
+  </component>
+  <component name="Project">
+    <option name="lastProjectScan" value="1788102729" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id>Best practicesGradle</id>
+          </State>
+          <State>
+            <id>Gradle</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>LatestMinorVersion</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="RestoreUpdateTree">{}</component>
+  <component name="github-copilot-input-history">
+    <inputEntries>
+      <PersistedInputEntry>
+        <option name="query" value="ma lo script usato da github non è quello usto da android studio perchè html è docs ee come faccio a vedere che ha tutte le funzioni di index android?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ho bisogno di almeno un caller con il tabellone e 2 player . faccio aprire il link e procedo." />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="allora copio index di asset su index di doxs?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="prima provo così perchè l'ufficiale è play store il link lo dò agli amici che non hanno android" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="non sono allineati" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="dal file" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="per modificare in github il codice di docs/index devo fare il push da android?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="sostituisco docs/index con assets/index e committ" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="per essere certi che github ha assets ed altri file aggiornati ? faccio il git add e push da android" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ma  la app github senza i i file kt ed xml come funziona?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="github non riconosce il prefisso window. in docs/html" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="purtroppo il file docs/index è diverso da assets/index per modifiche ai display. Posso riportare solo gli script  ma già ho modificato uj  window.userRole in user.Role ed ha funzionato" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="riconoscimento codice Id  if (android &amp;&amp; typeof android.checkLocalCaller === 'function') {&#10;                    window.pendingRole = 'caller';&#10;                    window.pendingId = callerId;&#10;                    window.checkTimeout = setTimeout(() =&gt; {&#10;                        if (btn) {&#10;                            btn.innerText = originalText;&#10;                            btn.disabled = false;&#10;                        }&#10;                    }, 10000);&#10;                    android.checkLocalCaller(callerId);&#10;                    return;&#10;                }&#10;            } else if (role === 'player') {&#10;                const btn = document.querySelector('#screen-player-setup .btn-player');&#10;                const originalText = btn ? btn.innerText : '';&#10;                if (btn) {&#10;                    btn.innerText = &quot;CONNECTING...&quot;;&#10;                    btn.disabled = true;&#10;                }&#10;&#10;                if (android &amp;&amp; typeof android.checkLocalCaller === 'function') {&#10;                    window.pendingRole = 'player';&#10;                    window.pendingId = callerId;&#10;                    window.checkTimeout = setTimeout(() =&gt; {&#10;                        if (btn) {&#10;                            btn.innerText = originalText;&#10;                            btn.disabled = false;&#10;                        }&#10;                        showAlert(&quot;Presenter not found! Make sure you are on the same WiFi network or enter the correct IP address.&quot;);&#10;                    }, 10000);&#10;                    android.checkLocalCaller(callerId);&#10;                    return;&#10;                }" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="devo modificare sia assets che docs ? ecco lo script" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="const android = getAndroidInterface();&#10;            if (role === 'caller') {&#10;                const btn = document.querySelector('#screen-caller-menu .btn-caller');&#10;                const originalText = btn ? btn.innerText : '';&#10;                if (btn) {&#10;                    btn.innerText = &quot;CHECKING...&quot;;&#10;                    btn.disabled = true;&#10;                }&#10;&#10;                if (android &amp;&amp; typeof android.checkLocalCaller === 'function') {&#10;                    window.pendingRole = 'caller';&#10;                    window.pendingId = callerId;&#10;                    window.checkTimeout = setTimeout(() =&gt; {&#10;                        if (btn) {&#10;                            btn.innerText = originalText;&#10;                            btn.disabled = false;&#10;                        }&#10;                    }, 10000);&#10;                    android.checkLocalCaller(callerId);&#10;                    return;&#10;                }&#10;            } else if (role === 'player') {&#10;                const btn = document.querySelector('#screen-player-setup .btn-player');&#10;                const originalText = btn ? btn.innerText : '';&#10;                if (btn) {&#10;                    btn.innerText = &quot;CONNECTING...&quot;;&#10;                    btn.disabled = true;&#10;                }&#10;&#10;                if (android &amp;&amp; typeof android.checkLocalCaller === 'function') {&#10;                    window.pendingRole = 'player';&#10;                    window.pendingId = callerId;&#10;                    window.checkTimeout = setTimeout(() =&gt; {&#10;                        if (btn) {&#10;                            btn.innerText = originalText;&#10;                            btn.disabled = false;&#10;                        }&#10;                        showAlert(&quot;Presenter not found! Make sure you are on the same WiFi network or enter the correct IP address.&quot;);&#10;                    }, 10000);&#10;                    android.checkLocalCaller(callerId);&#10;                    return;&#10;                }&#10;            }&#10;&#10;            window.userRole = role;&#10;            showScreen('screen-game');&#10;            if (typeof initGame === 'function') initGame();&#10;        };&#10;&#10;        window.restoreSmorfia = function() {&#10;            if (confirm(&quot;Restore original smorfia?&quot;)) {&#10;                getAndroidInterface()?.restoreSmorfiaFromBackup();&#10;                setTimeout(() =&gt; { if (typeof updateNapButtonLabel === 'function') updateNapButtonLabel(); }, 500);&#10;            }&#10;        };" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="basta incollarlo" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="dammi tutto lo script sino a restore smorfia compreso" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="dammi lo script completo da 340 a 394" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="dammi il meglio , funzionante , che puoi" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <contextItems>
+          <option value="{&quot;type&quot;:&quot;file&quot;,&quot;item&quot;:{&quot;virtualFile&quot;:&quot;file://C:/Users/anton/Pictures/Screenshots/Screenshot 2026-09-07 171453.png&quot;,&quot;isTokenReferenced&quot;:false}}" />
+        </contextItems>
+        <option name="query" value="Android studio mi scrive di non inserire le modifiche" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ho salvato non ha bloccato non ho fatto revert" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="sostituisco  tutto lo script su github" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="repo su github non lo so fare" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ok incolla normale" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="Copilot github I'll analyze the HTML file to identify why it's not starting.&#10;&#10;&#10;Get file VoiceTombola/docs&#10;Guarda, il file index.html che hai condiviso è truncato (finisce con [...] a metà del codice). Questo è il problema principale: manca gran parte della logica JavaScript necessaria per l'app funzioni.&#10;&#10;Ecco cosa manca e cosa verificare:&#10;&#10; Problemi Critici&#10;File truncato - Il file termina bruscamente nella funzione marcaturaGiocatore(). Mancano:&#10;&#10;Il resto della logica di marcatura&#10;Funzioni per aggiornare il tabellone dal lato server&#10;Gestione della sincronizzazione giocatori&#10;Logica di premi/vincite&#10;File JavaScript mancanti - Il codice fa riferimento a questi file che devono esistere:&#10;&#10;HTML&#10;&lt;script src=&quot;cartelle.js&quot;&gt;&lt;/script&gt;&#10;&lt;script src=&quot;smorfia_it.js&quot;&gt;&lt;/script&gt;&#10;&lt;script src=&quot;smorfia_en.js&quot;&gt;&lt;/script&gt;&#10;&lt;script src=&quot;smorfia_nap.js&quot;&gt;&lt;/script&gt;&#10;Se questi non esistono → errore critico e l'app non parte.&#10;&#10;Immagini e asset mancanti:&#10;&#10;tombola_splash.png&#10;Cartella smorfia/ con immagini 01.png → 90.png&#10;Cartella audio/ (per Napoletano)&#10;Interfaccia Android mancante - Il codice chiama window.Android che probabilmente esiste solo in un'app Android nativa, non nel browser web.&#10;&#10;✅ Come Risolvere&#10;Dammi il contenuto di questi file che mancano:&#10;&#10;cartelle.js - Contiene la variabile CARTELLE con i dati delle 72 cartelle&#10;smorfia_it.js, smorfia_en.js, smorfia_nap.js - Mappe numeri → descrizioni&#10;In alternativa, puoi:&#10;&#10;Verificare che tutti i file siano nella cartella VoiceTombola/docs/&#10;Controllare la console del browser (F12) per i veri errori JavaScript&#10;Condividere il file completo di index.html (senza truncature)&#10;Quale di questi file non esiste o è corrotto?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="i file index hanno lo script uguale    il tuo script è identico                             const androidBridge = (typeof window !== 'undefined' &amp;&amp; window.android) ? window.android : null;&#10;&#10;    const startRole = (role, callerId) =&gt; {&#10;    const btn = role === 'caller'&#10;        ? document.querySelector('#screen-caller-menu .btn-caller')&#10;        : document.querySelector('#screen-player-setup .btn-player');&#10;&#10;    const originalText = btn ? btn.innerText : '';&#10;&#10;    if (btn) {&#10;        btn.innerText = (role === 'caller') ? 'CHECKING...' : 'CONNECTING...';&#10;        btn.disabled = true;&#10;    }&#10;&#10;    if (androidBridge &amp;&amp; typeof androidBridge.checkLocalCaller === 'function') {&#10;        window.pendingRole = role;&#10;        window.pendingId = callerId;&#10;&#10;        window.checkTimeout = setTimeout(() =&gt; {&#10;            if (btn) {&#10;                btn.innerText = originalText;&#10;                btn.disabled = false;&#10;            }&#10;&#10;            if (role === 'player') {&#10;                showAlert(&quot;Presenter not found! Make sure you are on the same WiFi network or enter the correct IP address.&quot;);&#10;            }&#10;        }, 10000);&#10;&#10;        androidBridge.checkLocalCaller(callerId);&#10;        return true;&#10;    }&#10;&#10;    window.userRole = role;&#10;    showScreen('screen-game');&#10;&#10;    if (typeof initGame === 'function') {&#10;        initGame();&#10;    }&#10;&#10;    return false;&#10;};&#10;&#10;if (role === 'caller') {&#10;    startRole('caller', callerId);&#10;} else if (role === 'player') {&#10;    startRole('player', callerId);&#10;}&#10;;&#10;&#10;window.restoreSmorfia = function() {&#10;    if (confirm(&quot;Restore original smorfia?&quot;)) {&#10;        if (typeof getAndroidInterface === 'function') {&#10;            const androidApi = getAndroidInterface();&#10;            if (androidApi &amp;&amp; typeof androidApi.restoreSmorfiaFromBackup === 'function') {&#10;                androidApi.restoreSmorfiaFromBackup();&#10;            }&#10;        }&#10;&#10;        setTimeout(() =&gt; {&#10;            if (typeof updateNapButtonLabel === 'function') {&#10;                updateNapButtonLabel();&#10;            }&#10;        }, 500);&#10;    }&#10;};    i file js sono presenti" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ads controllato ma il caller ed il player non startano" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ok , ma non ora" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="queesto e l'index completo di android studio pubblicato su play store &lt;!DOCTYPE html&gt;&#13;&#10;&lt;html lang=&quot;it&quot;&gt;&#13;&#10;&lt;head&gt;&#13;&#10;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#13;&#10;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;&#13;&#10;    &lt;title&gt;Voice Tombola&lt;/title&gt;&#13;&#10;    &lt;style&gt;&#13;&#10;        * { box-sizing: border-box; }&#13;&#10;        body {&#13;&#10;            margin: 0;&#13;&#10;            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;&#13;&#10;            background: #000;&#13;&#10;            color: #fff;&#13;&#10;            text-align: center;&#13;&#10;            overflow: hidden;&#13;&#10;            height: 100vh;&#13;&#10;            display: flex;&#13;&#10;            flex-direction: column;&#13;&#10;        }&#13;&#10;&#13;&#10;        .screen {&#13;&#10;            display: none;&#13;&#10;            width: 100%;&#13;&#10;            height: 100%;&#13;&#10;            padding: 10px;&#13;&#10;            flex-direction: column;&#13;&#10;            align-items: center;&#13;&#10;            justify-content: flex-start;&#13;&#10;        }&#13;&#10;&#13;&#10;        .active-screen {&#13;&#10;            display: flex !important;&#13;&#10;        }&#13;&#10;&#13;&#10;        .btn-main {&#13;&#10;            width: 80%;&#13;&#10;            max-width: 300px;&#13;&#10;            padding: 15px;&#13;&#10;            margin: 10px;&#13;&#10;            font-size: 1rem;&#13;&#10;            border: none;&#13;&#10;            border-radius: 10px;&#13;&#10;            cursor: pointer;&#13;&#10;            font-weight: bold;&#13;&#10;            text-transform: uppercase;&#13;&#10;            color: white;&#13;&#10;        }&#13;&#10;        .btn-caller { background: #d32f2f; }&#13;&#10;        .btn-player { background: #1976d2; }&#13;&#10;        .btn-secondary { background: #444; font-size: 0.9rem; padding: 10px; }&#13;&#10;        .btn-stop { background: #ff1744 !important; font-weight: bold; color: white; border: none; border-radius: 5px; cursor: pointer; padding: 4px 10px; font-size: 0.8rem; }&#13;&#10;&#13;&#10;        .app-header {&#13;&#10;            background: linear-gradient(135deg, #4a76a8, #2a5298);&#13;&#10;            padding: 5px;&#13;&#10;            width: 100%;&#13;&#10;            font-size: 0.9rem;&#13;&#10;            font-weight: bold;&#13;&#10;        }&#13;&#10;&#13;&#10;        .number-display {&#13;&#10;            background: #fff;&#13;&#10;            color: #000;&#13;&#10;            border-radius: 10px;&#13;&#10;            padding: 5px 10px;&#13;&#10;            margin: 5px 0;&#13;&#10;            width: 95%;&#13;&#10;            max-width: 500px;&#13;&#10;            border: 3px solid #4a76a8;&#13;&#10;            display: flex;&#13;&#10;            align-items: center;&#13;&#10;            justify-content: space-between;&#13;&#10;        }&#13;&#10;        #numero { font-size: 2.8rem; font-weight: 900; color: #d32f2f; line-height: 1; }&#13;&#10;        #smorfia-mini { height: 45px; width: auto; margin: 0 5px; display: none; object-fit: contain; }&#13;&#10;        #frase-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 10px; overflow: hidden; }&#13;&#10;        #frase { font-size: 0.9rem; font-weight: bold; color: #1976d2; text-transform: uppercase; line-height: 1.1; max-height: 2.2em; overflow: hidden; }&#13;&#10;&#13;&#10;        .tabellone-container {&#13;&#10;            flex: 1;&#13;&#10;            width: 100%;&#13;&#10;            overflow: hidden;&#13;&#10;            padding: 0 5px;&#13;&#10;            display: flex;&#13;&#10;            flex-direction: column;&#13;&#10;        }&#13;&#10;        .tab {&#13;&#10;            width: 100%;&#13;&#10;            height: 100%;&#13;&#10;            border-collapse: collapse;&#13;&#10;            table-layout: fixed;&#13;&#10;            background: #111;&#13;&#10;            border: 1px solid #333;&#13;&#10;        }&#13;&#10;        .tab td {&#13;&#10;            border: 1px solid #333;&#13;&#10;            padding: 0;&#13;&#10;            font-size: 1.2rem;&#13;&#10;            font-weight: bold;&#13;&#10;            color: #fff;&#13;&#10;        }&#13;&#10;&#13;&#10;        /* Divisioni Tabellone: Linea verticale dopo la 5a colonna e orizzontali ogni 3 righe */&#13;&#10;        .tab td:nth-child(5) { border-right: 3px solid #fff; }&#13;&#10;        .tab tr:nth-child(3) td, .tab tr:nth-child(6) td { border-bottom: 3px solid #fff; }&#13;&#10;&#13;&#10;        .estratto { background: #2e7d32 !important; color: #fff; }&#13;&#10;        .ultimo { background: #fbc02d !important; color: #000 !important; animation: blink 1s infinite; }&#13;&#10;        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }&#13;&#10;&#13;&#10;        .toolbar {&#13;&#10;            background: #eee;&#13;&#10;            width: 100%;&#13;&#10;&#13;&#10;            padding: 5px;&#13;&#10;            border-top-left-radius: 15px;&#13;&#10;            border-top-right-radius: 15px;&#13;&#10;            color: #000;&#13;&#10;        }&#13;&#10;        .toolbar-row {&#13;&#10;            display: flex;&#13;&#10;            justify-content: space-around;&#13;&#10;            align-items: center;&#13;&#10;            margin-bottom: 2px;&#13;&#10;            gap: 5px;&#13;&#10;        }&#13;&#10;        .btn-game {&#13;&#10;            padding: 6px 10px;&#13;&#10;            border: none;&#13;&#10;            border-radius: 5px;&#13;&#10;            background: #4a76a8;&#13;&#10;            color: #fff;&#13;&#10;            font-weight: bold;&#13;&#10;            font-size: 0.8rem;&#13;&#10;            cursor: pointer;&#13;&#10;        }&#13;&#10;        .btn-lang.active { background: #2e7d32 !important; }&#13;&#10;&#13;&#10;        /* --- STILE CARTELLE PLAYER COMPATTO (NO SCROLL) --- */&#13;&#10;        #player-view { display: none; width: 100%; height: 100%; flex-direction: column; }&#13;&#10;        .player-header { display: flex; justify-content: space-between; align-items: center; padding: 2px 5px; background: #333; border-radius: 5px; margin-bottom: 2px; }&#13;&#10;        .player-header h4 { margin: 0; font-size: 0.8rem; color: #ffc107; text-transform: uppercase; }&#13;&#10;&#13;&#10;        #cartelle-container { display: flex; flex-direction: column; flex: 1; gap: 1px; overflow: hidden; }&#13;&#10;        .player-card { display: flex; flex: 1; background: #222; border-bottom: 1px solid #444; width: 100%; align-items: stretch; }&#13;&#10;        .card-side-num { width: 25px; background: #ffc107; color: #000; font-weight: 900; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; writing-mode: vertical-lr; transform: rotate(180deg); }&#13;&#10;        .card-grid { flex: 1; display: grid; grid-template-columns: repeat(9, 1fr); }&#13;&#10;        .cell { background: #000; border: 0.5px solid #222; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: #fff; cursor: pointer; }&#13;&#10;        .cell.marked { background: #ffc107 !important; color: #000 !important; font-weight: bold; border-radius: 2px; }&#13;&#10;&#13;&#10;        .logo { width: 85%; max-width: 450px; height: auto; margin-top: 20px; opacity: 0.9; }&#13;&#10;&#13;&#10;        #chosen-cards-display {&#13;&#10;            display: flex;&#13;&#10;            flex-wrap: wrap;&#13;&#10;            gap: 10px;&#13;&#10;            margin: 15px 0;&#13;&#10;            justify-content: center;&#13;&#10;        }&#13;&#10;        .card-token {&#13;&#10;            background: #1976d2;&#13;&#10;            padding: 5px 12px;&#13;&#10;            border-radius: 20px;&#13;&#10;            font-weight: bold;&#13;&#10;            display: flex;&#13;&#10;            align-items: center;&#13;&#10;            gap: 8px;&#13;&#10;        }&#13;&#10;        .card-token span { cursor: pointer; color: #ff5252; font-weight: 900; }&#13;&#10;        .setup-input-group { margin-bottom: 20px; }&#13;&#10;        input#card-number-input {&#13;&#10;            padding: 10px;&#13;&#10;            font-size: 1.2rem;&#13;&#10;            border-radius: 5px;&#13;&#10;            border: 2px solid #1976d2;&#13;&#10;            width: 80px;&#13;&#10;            text-align: center;&#13;&#10;            background: #fff;&#13;&#10;            color: #000;&#13;&#10;        }&#13;&#10;        .id-container {&#13;&#10;            margin-bottom: 15px;&#13;&#10;            display: flex;&#13;&#10;            flex-direction: column;&#13;&#10;            align-items: center;&#13;&#10;        }&#13;&#10;        .id-label {&#13;&#10;            font-size: 0.8rem;&#13;&#10;            color: #ffc107;&#13;&#10;            margin-bottom: 5px;&#13;&#10;            font-weight: bold;&#13;&#10;        }&#13;&#10;        #caller-id-input, #caller-id-input-caller {&#13;&#10;            padding: 10px;&#13;&#10;            font-size: 1.1rem;&#13;&#10;            border-radius: 5px;&#13;&#10;            border: 2px solid #ffc107;&#13;&#10;            width: 150px;&#13;&#10;            text-align: center;&#13;&#10;            background: #222;&#13;&#10;            color: #fff;&#13;&#10;            text-transform: uppercase;&#13;&#10;            font-weight: bold;&#13;&#10;            letter-spacing: 1px;&#13;&#10;        }&#13;&#10;&#13;&#10;        /* Nuova Griglia Cartelle */&#13;&#10;        .cards-grid-container {&#13;&#10;            display: grid;&#13;&#10;            grid-template-columns: repeat(6, 1fr); /* Default, optimized in JS for 6 rows of 12 if possible or scroll */&#13;&#10;            gap: 5px;&#13;&#10;            width: 100%;&#13;&#10;            max-width: 600px;&#13;&#10;            padding: 10px;&#13;&#10;            margin: 0 auto;&#13;&#10;            flex: 1;&#13;&#10;            overflow-y: auto;&#13;&#10;        }&#13;&#10;&#13;&#10;        /* Forza 12 colonne per riga per avere 6 righe (72 / 6 = 12) */&#13;&#10;        @media (min-width: 600px) {&#13;&#10;            .cards-grid-container {&#13;&#10;                grid-template-columns: repeat(12, 1fr);&#13;&#10;            }&#13;&#10;        }&#13;&#10;&#13;&#10;        /* Su mobile restiamo flessibili ma cerchiamo di mantenere la densità */&#13;&#10;        @media (max-width: 599px) {&#13;&#10;            .cards-grid-container {&#13;&#10;                grid-template-columns: repeat(6, 1fr);&#13;&#10;            }&#13;&#10;        }&#13;&#10;&#13;&#10;        .card-flag {&#13;&#10;            background: #333;&#13;&#10;            color: #fff;&#13;&#10;            padding: 8px 0;&#13;&#10;            border-radius: 6px;&#13;&#10;            font-size: 0.85rem;&#13;&#10;            font-weight: bold;&#13;&#10;            cursor: pointer;&#13;&#10;            border: 2px solid #444;&#13;&#10;            text-align: center;&#13;&#10;            transition: all 0.2s;&#13;&#10;        }&#13;&#10;        .card-flag:active { transform: scale(0.9); }&#13;&#10;        .card-flag.selected, .card-flag.occupied {&#13;&#10;            background: #1976d2 !important; /* Blu per tutte le cartelle in gioco */&#13;&#10;            color: #ffffff !important;&#13;&#10;            border-color: #ffc107 !important;&#13;&#10;            box-shadow: 0 0 10px rgba(25, 118, 210, 0.8);&#13;&#10;            font-weight: 900;&#13;&#10;        }&#13;&#10;        .btn-voice-on { background: #ff9800 !important; animation: pulse 1.5s infinite; }&#13;&#10;        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }&#13;&#10;&#13;&#10;        /* LARGE SMORFIA OVERLAY */&#13;&#10;        #large-smorfia-overlay {&#13;&#10;            position: fixed;&#13;&#10;            top: 0;&#13;&#10;            left: 0;&#13;&#10;            width: 100%;&#13;&#10;            height: 100%;&#13;&#10;            background: rgba(0,0,0,0.85);&#13;&#10;            display: none;&#13;&#10;            flex-direction: column;&#13;&#10;            align-items: center;&#13;&#10;            justify-content: center;&#13;&#10;            z-index: 9999;&#13;&#10;            animation: fadeIn 0.3s ease-out;&#13;&#10;        }&#13;&#10;        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }&#13;&#10;        #large-smorfia-img {&#13;&#10;            width: 350px;&#13;&#10;            height: 350px;&#13;&#10;            object-fit: contain;&#13;&#10;            border: 5px solid #fff;&#13;&#10;            border-radius: 15px;&#13;&#10;            box-shadow: 0 0 30px rgba(255,255,255,0.5);&#13;&#10;        }&#13;&#10;        #large-smorfia-num {&#13;&#10;            font-size: 3rem;&#13;&#10;            font-weight: 900;&#13;&#10;            color: #ffeb3b;&#13;&#10;            text-shadow: 4px 4px 10px #000;&#13;&#10;            margin-top: 10px;&#13;&#10;        }&#13;&#10;        h6 {&#13;&#10;            overflow-y: auto;&#13;&#10;            max-height: 300px;&#13;&#10;            padding: 10px;&#13;&#10;            font-weight: normal;&#13;&#10;            font-size: 0.85rem;&#13;&#10;            line-height: 1.4;&#13;&#10;            margin: 10px 0;&#13;&#10;            background: rgba(255,255,255,0.05);&#13;&#10;            border-radius: 8px;&#13;&#10;            text-align: justify;&#13;&#10;            width: 90%;&#13;&#10;        }&#13;&#10;    &lt;/style&gt;&#13;&#10;    &lt;script&gt;&#13;&#10;        window.getAndroidInterface = function() { return window.Android || window.android || null; };&#13;&#10;        window.showAlert = function(msg) { alert(msg); };&#13;&#10;        window.showScreen = function(screenId) {&#13;&#10;            if (typeof updateNapButtonLabel === 'function' &amp;&amp; screenId === 'screen-game') { updateNapButtonLabel(); }&#13;&#10;            if (screenId === 'screen-player-setup') {&#13;&#10;                if (typeof chosenCardIds !== 'undefined') chosenCardIds = [];&#13;&#10;                if (typeof occupiedCards !== 'undefined') occupiedCards = [];&#13;&#10;                if (typeof renderCardGrid === 'function') renderCardGrid();&#13;&#10;                if (typeof onPlayerIdEntered === 'function') onPlayerIdEntered();&#13;&#10;&#13;&#10;                if (typeof cardPollInterval !== 'undefined') {&#13;&#10;                    if (cardPollInterval) clearInterval(cardPollInterval);&#13;&#10;                    cardPollInterval = setInterval(fetchOccupiedCards, 400);&#13;&#10;                }&#13;&#10;            } else {&#13;&#10;                if (typeof cardPollInterval !== 'undefined' &amp;&amp; cardPollInterval) {&#13;&#10;                    clearInterval(cardPollInterval);&#13;&#10;                    cardPollInterval = null;&#13;&#10;                }&#13;&#10;            }&#13;&#10;            document.querySelectorAll('.screen').forEach(s =&gt; s.classList.remove('active-screen'));&#13;&#10;            const target = document.getElementById(screenId);&#13;&#10;            if (target) target.classList.add('active-screen');&#13;&#10;        };&#13;&#10;&#13;&#10;        window.startGame = function(role) {&#13;&#10;            const callerIdInput = role === 'player' ? document.getElementById('caller-id-input') : document.getElementById('caller-id-input-caller');&#13;&#10;            const callerId = callerIdInput ? callerIdInput.value.toUpperCase().trim() : '';&#13;&#10;&#13;&#10;            if (!callerId || callerId.length &lt; 3) {&#13;&#10;              showAlert(role === 'player' ? &quot;Please enter the presenter code or IP!&quot; : &quot;Please enter a game code!&quot;);&#13;&#10;                return;&#13;&#10;            }&#13;&#10;&#13;&#10;            if (role === 'player' &amp;&amp; typeof chosenCardIds !== 'undefined' &amp;&amp; chosenCardIds.length === 0) {&#13;&#10;                showAlert(&quot;Please choose your cards!&quot;);&#13;&#10;                return;&#13;&#10;            }&#13;&#10;&#13;&#10;           const androidBridge = (typeof window !== 'undefined' &amp;&amp; window.android) ? window.android : null;&#13;&#10;&#13;&#10;const startRole = (role, callerId) =&gt; {&#13;&#10;    const btn = role === 'caller'&#13;&#10;        ? document.querySelector('#screen-caller-menu .btn-caller')&#13;&#10;        : document.querySelector('#screen-player-setup .btn-player');&#13;&#10;&#13;&#10;    const originalText = btn ? btn.innerText : '';&#13;&#10;&#13;&#10;    if (btn) {&#13;&#10;        btn.innerText = (role === 'caller') ? 'CHECKING...' : 'CONNECTING...';&#13;&#10;        btn.disabled = true;&#13;&#10;    }&#13;&#10;&#13;&#10;    if (androidBridge &amp;&amp; typeof androidBridge.checkLocalCaller === 'function') {&#13;&#10;        window.pendingRole = role;&#13;&#10;        window.pendingId = callerId;&#13;&#10;&#13;&#10;        window.checkTimeout = setTimeout(() =&gt; {&#13;&#10;            if (btn) {&#13;&#10;                btn.innerText = originalText;&#13;&#10;                btn.disabled = false;&#13;&#10;            }&#13;&#10;&#13;&#10;            if (role === 'player') {&#13;&#10;                showAlert(&quot;Presenter not found! Make sure you are on the same WiFi network or enter the correct IP address.&quot;);&#13;&#10;            }&#13;&#10;        }, 10000);&#13;&#10;&#13;&#10;        androidBridge.checkLocalCaller(callerId);&#13;&#10;        return true;&#13;&#10;    }&#13;&#10;&#13;&#10;    window.userRole = role;&#13;&#10;    showScreen('screen-game');&#13;&#10;&#13;&#10;    if (typeof initGame === 'function') {&#13;&#10;        initGame();&#13;&#10;    }&#13;&#10;&#13;&#10;    return false;&#13;&#10;};&#13;&#10;&#13;&#10;if (role === 'caller') {&#13;&#10;    startRole('caller', callerId);&#13;&#10;} else if (role === 'player') {&#13;&#10;    startRole('player', callerId);&#13;&#10;}&#13;&#10;;&#13;&#10;&#13;&#10;window.restoreSmorfia = function() {&#13;&#10;    if (confirm(&quot;Restore original smorfia?&quot;)) {&#13;&#10;        if (typeof getAndroidInterface === 'function') {&#13;&#10;            const androidApi = getAndroidInterface();&#13;&#10;            if (androidApi &amp;&amp; typeof androidApi.restoreSmorfiaFromBackup === 'function') {&#13;&#10;                androidApi.restoreSmorfiaFromBackup();&#13;&#10;            }&#13;&#10;        }&#13;&#10;&#13;&#10;        setTimeout(() =&gt; {&#13;&#10;            if (typeof updateNapButtonLabel === 'function') {&#13;&#10;                updateNapButtonLabel();&#13;&#10;            }&#13;&#10;        }, 500);&#13;&#10;    }&#13;&#10;};&#13;&#10;&#13;&#10;&#13;&#10;    &lt;/script&gt;&#13;&#10;&lt;/head&gt;&#13;&#10;&lt;body&gt;&#13;&#10;&#13;&#10;&lt;!-- 1. START SCREEN --&gt;&#13;&#10;&lt;div id=&quot;screen-start&quot; class=&quot;screen active-screen&quot;&gt;&#13;&#10;    &lt;h1&gt;TOMBOLA FAMILY&lt;/h1&gt;&#13;&#10;    &lt;button class=&quot;btn-main btn-caller&quot; onclick=&quot;showScreen('screen-caller-menu')&quot;&gt;CALLER&lt;/button&gt;&#13;&#10;    &lt;button class=&quot;btn-main btn-player&quot; onclick=&quot;showScreen('screen-player-setup')&quot;&gt;PLAYER&lt;/button&gt;&#13;&#10;    &lt;img src=&quot;tombola_splash.png&quot; class=&quot;logo&quot; alt=&quot;Tombola&quot;&gt;&#13;&#10;    &lt;h6&gt;The app opens by asking you to choose between the host and the player.&#13;&#10;        The host manages the bingo, draws the numbers, and determines and awards&#13;&#10;        the prizes. The player, on the other hand, plays by purchasing cards on&#13;&#10;        which they mark the drawn numbers and collect the prize. The host can draw&#13;&#10;        the numbers automatically. Three languages are available: Italian,&#13;&#10;        English, and Neapolitan, including voice mode. The host is equipped with a&#13;&#10;        bag containing the bingo numbers and draws them. He pronounces the number&#13;&#10;        aloud, and the app responds with a smorfia, the image, and marks the number&#13;&#10;        on the board. An additional feature is the ability to modify the Neapolitan&#13;&#10;        smorfia, which can be reset, so anyone can create their own smorfia.&#13;&#10;        For single-digit numbers, it's best to prefix the number with a 0 (01, 02, etc.)&#13;&#10;        L'app si apre chiedendoti di scegliere tra il presentatore e il giocatore.&#13;&#10;        Il presentatore è colui che gestisce la tombola, estrae i numeri ,determina e&#13;&#10;        assegna i premi. Il giocatore, invece,gioca acquistando delle cartelle su cui&#13;&#10;        segna i numeri estratti e riscuote il premio. Il presentatore può estrarre i&#13;&#10;        numeri automaticamente.Sono disponibili tre lingue:italiano, inglese e napoletano,&#13;&#10;        anche con modalità vocale.Il presentatore è dotato di un sacchetto contenente&#13;&#10;        i numeri della tombola e li estrae. Pronuncia il numero ad alta voce, l'app&#13;&#10;        risponde con la  smorfia , l'immagine  e segna il numero sul tabellone. Una&#13;&#10;        funzionalità aggiuntiva  è la possibilità di modificare lo smorfia napoletana,&#13;&#10;        ripristinabile, in modo che chiunque possa creare lo smorfia che desidera.&#13;&#10;        Per i numeri a 1 sola cifra è meglio anteporre lo 0 (01,02,...)&#13;&#10;    &lt;/h6&gt;&#13;&#10;&lt;/div&gt;&#13;&#10;&#13;&#10;&lt;!-- 2. CALLER MENU --&gt;&#13;&#10;&lt;div id=&quot;screen-caller-menu&quot; class=&quot;screen&quot;&gt;&#13;&#10;    &lt;h2&gt;CALLER MENU&lt;/h2&gt;&#13;&#10;    &lt;div class=&quot;id-container&quot;&gt;&#13;&#10;        &lt;label class=&quot;id-label&quot;&gt;CALLER ID&lt;/label&gt;&#13;&#10;        &lt;input type=&quot;text&quot; id=&quot;caller-id-input-caller&quot; maxlength=&quot;6&quot; placeholder=&quot;CODE&quot;&gt;&#13;&#10;    &lt;/div&gt;&#13;&#10;    &lt;button class=&quot;btn-main btn-caller&quot; onclick=&quot;startGame('caller')&quot;&gt;START GAME&lt;/button&gt;&#13;&#10;    &lt;button class=&quot;btn-main&quot; style=&quot;background-color: #4CAF50;&quot; onclick=&quot;getAndroidInterface()?.openModSmorfia()&quot;&gt;EDIT SMORFIA&lt;/button&gt;&#13;&#10;    &lt;button class=&quot;btn-main&quot; style=&quot;background-color: #FFEB3B; color: black;&quot; onclick=&quot;restoreSmorfia()&quot;&gt;RESTORE SMORFIA&lt;/button&gt;&#13;&#10;    &lt;button class=&quot;btn-main btn-secondary&quot; onclick=&quot;triggerExit()&quot;&gt;BACK&lt;/button&gt;&#13;&#10;&lt;/div&gt;&#13;&#10;&#13;&#10;&lt;!-- 3. PLAYER SETUP --&gt;&#13;&#10;&lt;div id=&quot;screen-player-setup&quot; class=&quot;screen&quot;&gt;&#13;&#10;    &lt;h2&gt;CHOOSE YOUR CARDS&lt;/h2&gt;&#13;&#10;    &lt;div class=&quot;id-container&quot;&gt;&#13;&#10;        &lt;label class=&quot;id-label&quot;&gt;CALLER ID&lt;/label&gt;&#13;&#10;        &lt;input type=&quot;text&quot; id=&quot;caller-id-input&quot; maxlength=&quot;6&quot; placeholder=&quot;CODE&quot; onblur=&quot;onPlayerIdEntered()&quot;&gt;&#13;&#10;    &lt;/div&gt;&#13;&#10;&#13;&#10;    &lt;div id=&quot;card-grid-container&quot; class=&quot;cards-grid-container&quot;&gt;&#13;&#10;        &lt;!-- Generato via JS: 72 cartelle --&gt;&#13;&#10;    &lt;/div&gt;&#13;&#10;&#13;&#10;    &lt;p id=&quot;cards-count-info&quot; style=&quot;font-size: 0.9rem; margin-top: 10px; color: #ffc107; font-weight: bold;&quot;&gt;Selected: 0/6&lt;/p&gt;&#13;&#10;&#13;&#10;    &lt;div style=&quot;width: 100%; display: flex; justify-content: center; gap: 10px;&quot;&gt;&#13;&#10;        &lt;button class=&quot;btn-main btn-player&quot; onclick=&quot;startGame('player')&quot; style=&quot;width: 45%;&quot;&gt;START&lt;/button&gt;&#13;&#10;        &lt;button class=&quot;btn-main btn-secondary&quot; onclick=&quot;triggerExit()&quot; style=&quot;width: 45%;&quot;&gt;BACK&lt;/button&gt;&#13;&#10;    &lt;/div&gt;&#13;&#10;&lt;/div&gt;&#13;&#10;&#13;&#10;&lt;!-- 4. GAME SCREEN --&gt;&#13;&#10;&lt;div id=&quot;screen-game&quot; class=&quot;screen&quot; style=&quot;padding: 0; justify-content: flex-start;&quot;&gt;&#13;&#10;    &lt;div class=&quot;app-header&quot; id=&quot;header-title&quot;&gt;VOICE TOMBOLA&lt;/div&gt;&#13;&#10;&#13;&#10;    &lt;div class=&quot;number-display&quot;&gt;&#13;&#10;        &lt;div id=&quot;numero&quot;&gt;0&lt;/div&gt;&#13;&#10;        &lt;img id=&quot;smorfia-mini&quot; src=&quot;&quot; alt=&quot;&quot;&gt;&#13;&#10;        &lt;div id=&quot;frase-area&quot;&gt;&#13;&#10;            &lt;div id=&quot;frase&quot;&gt;READY?&lt;/div&gt;&#13;&#10;        &lt;/div&gt;&#13;&#10;        &lt;!-- STOP button for caller here, will be moved or hidden for player --&gt;&#13;&#10;        &lt;button id=&quot;main-stop-btn&quot; class=&quot;btn-stop&quot; onclick=&quot;triggerExit()&quot;&gt;STOP&lt;/button&gt;&#13;&#10;    &lt;/div&gt;&#13;&#10;&#13;&#10;    &lt;div class=&quot;tabellone-container&quot;&gt;&#13;&#10;        &lt;div id=&quot;live-controls&quot; style=&quot;padding: 10px; width: 100%; display: none;&quot;&gt;&#13;&#10;            &lt;button class=&quot;btn-game&quot; style=&quot;background:#d32f2f; width:45%;&quot; onclick=&quot;getAndroidInterface()?.checkAndStartListening()&quot;&gt; LISTEN NOW&lt;/button&gt;&#13;&#10;            &lt;button class=&quot;btn-game&quot; style=&quot;background:#1976d2; width:45%;&quot; onclick=&quot;getAndroidInterface()?.startLiveAutomatica()&quot;&gt; LIVE AUTO&lt;/button&gt;&#13;&#10;        &lt;/div&gt;&#13;&#10;&#13;&#10;        &lt;table class=&quot;tab&quot; id=&quot;tabellone&quot;&gt;&lt;/table&gt;&#13;&#10;&#13;&#10;        &lt;div id=&quot;player-view&quot;&gt;&#13;&#10;            &lt;div class=&quot;player-header&quot;&gt;&#13;&#10;                &lt;h4&gt;PLAYER CARDS&lt;/h4&gt;&#13;&#10;                &lt;button class=&quot;btn-stop&quot; onclick=&quot;triggerExit()&quot;&gt;STOP&lt;/button&gt;&#13;&#10;            &lt;/div&gt;&#13;&#10;            &lt;div id=&quot;cartelle-container&quot;&gt;&lt;/div&gt;&#13;&#10;        &lt;/div&gt;&#13;&#10;    &lt;/div&gt;&#13;&#10;&#13;&#10;    &lt;div class=&quot;toolbar&quot; id=&quot;game-toolbar&quot;&gt;&#13;&#10;        &lt;div class=&quot;toolbar-row&quot; id=&quot;row-extraction&quot;&gt;&#13;&#10;            &lt;button class=&quot;btn-game&quot; id=&quot;btn-estrai&quot; onclick=&quot;estrai()&quot;&gt; VOICE&lt;/button&gt;&#13;&#10;            &lt;select id=&quot;select-interval&quot; onchange=&quot;if(timerAuto) { stopAuto(); startAuto(); }&quot; style=&quot;padding: 3px; border-radius: 5px; font-size: 0.8rem;&quot;&gt;&#13;&#10;                &lt;option value=&quot;5000&quot;&gt;5s&lt;/option&gt;&#13;&#10;                &lt;option value=&quot;7000&quot; selected&gt;7s&lt;/option&gt;&#13;&#10;                &lt;option value=&quot;10000&quot;&gt;10s&lt;/option&gt;&#13;&#10;                &lt;option value=&quot;15000&quot;&gt;15s&lt;/option&gt;&#13;&#10;            &lt;/select&gt;&#13;&#10;            &lt;button class=&quot;btn-game&quot; id=&quot;btn-auto&quot; style=&quot;background:#fbc02d; color:#000;&quot; onclick=&quot;toggleAuto()&quot;&gt;AUTO: OFF&lt;/button&gt;&#13;&#10;        &lt;/div&gt;&#13;&#10;        &lt;div class=&quot;toolbar-row&quot; id=&quot;row-languages&quot;&gt;&#13;&#10;            &lt;button id=&quot;lang-it&quot; class=&quot;btn-game btn-lang&quot; onclick=&quot;setLanguage('it')&quot;&gt;ITA&lt;/button&gt;&#13;&#10;            &lt;button id=&quot;lang-en&quot; class=&quot;btn-game btn-lang&quot; onclick=&quot;setLanguage('en')&quot;&gt;ENG&lt;/button&gt;&#13;&#10;            &lt;button id=&quot;lang-nap&quot; class=&quot;btn-game btn-lang&quot; onclick=&quot;setLanguage('nap')&quot;&gt;NAP&lt;/button&gt;&#13;&#10;        &lt;/div&gt;&#13;&#10;    &lt;/div&gt;&#13;&#10;&lt;/div&gt;&#13;&#10;&#13;&#10;&lt;!-- 5. EDIT SCREEN --&gt;&#13;&#10;&lt;div id=&quot;screen-edit&quot; class=&quot;screen&quot;&gt;&#13;&#10;    &lt;h2&gt;EDIT SMORFIA&lt;/h2&gt;&#13;&#10;    &lt;p&gt;In fase di sviluppo...&lt;/p&gt;&#13;&#10;    &lt;button class=&quot;btn-main btn-secondary&quot; onclick=&quot;showScreen('screen-caller-menu')&quot;&gt;BACK&lt;/button&gt;&#13;&#10;&lt;/div&gt;&#13;&#10;&#13;&#10;&lt;!-- LARGE SMORFIA OVERLAY --&gt;&#13;&#10;&lt;div id=&quot;large-smorfia-overlay&quot;&gt;&#13;&#10;    &lt;img id=&quot;large-smorfia-img&quot; src=&quot;&quot; alt=&quot;Smorfia&quot;&gt;&#13;&#10;    &lt;div id=&quot;large-smorfia-num&quot;&gt;&lt;/div&gt;&#13;&#10;&lt;/div&gt;&#13;&#10;&#13;&#10;&lt;script src=&quot;cartelle.js&quot;&gt;&lt;/script&gt;&#13;&#10;&lt;script src=&quot;smorfia_it.js&quot;&gt;&lt;/script&gt;&#13;&#10;&lt;script src=&quot;smorfia_en.js&quot;&gt;&lt;/script&gt;&#13;&#10;&lt;script src=&quot;smorfia_nap.js&quot;&gt;&lt;/script&gt;&#13;&#10;&#13;&#10;&lt;script&gt;&#13;&#10;    let estrazione = [];&#13;&#10;    let estrazioneVoice = []; // Traccia numeri estratti via voce&#13;&#10;    let lingua = 'it';&#13;&#10;    let timerAuto = null;&#13;&#10;    let userRole = 'caller';&#13;&#10;    let chosenCardIds = [];&#13;&#10;    let smorfiaType = 1;&#13;&#10;    let isListening = false;&#13;&#10;&#13;&#10;    function getAndroidInterface() { return window.Android || window.android || null; }&#13;&#10;&#13;&#10;    function triggerExit() {&#13;&#10;        const android = getAndroidInterface();&#13;&#10;        if (userRole === 'caller') {&#13;&#10;            if (window.callerIp) {&#13;&#10;                const req = JSON.stringify({ action: &quot;resetGame&quot; });&#13;&#10;                android?.sendGameRequest(window.callerIp, req);&#13;&#10;            }&#13;&#10;            android?.releaseLocalCaller?.();&#13;&#10;        } else if (userRole === 'player' &amp;&amp; window.callerIp) {&#13;&#10;            chosenCardIds.forEach(cardId =&gt; {&#13;&#10;                const req = JSON.stringify({ action: &quot;releaseCard&quot;, cardId: cardId });&#13;&#10;                android?.sendGameRequest(window.callerIp, req);&#13;&#10;            });&#13;&#10;        }&#13;&#10;&#13;&#10;        if (android &amp;&amp; typeof android.showAdAndReload === 'function') {&#13;&#10;            android.showAdAndReload();&#13;&#10;        } else {&#13;&#10;            location.reload();&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function showAlert(msg) {&#13;&#10;        alert(msg);&#13;&#10;    }&#13;&#10;&#13;&#10;    let cardPollInterval = null;&#13;&#10;&#13;&#10;    function showScreen(screenId) {&#13;&#10;        if (screenId === 'screen-game') { updateNapButtonLabel(); }&#13;&#10;        if (screenId === 'screen-player-setup') {&#13;&#10;            chosenCardIds = []; // Resetta selezioni all'ingresso&#13;&#10;            occupiedCards = [];&#13;&#10;            renderCardGrid();&#13;&#10;            onPlayerIdEntered();&#13;&#10;&#13;&#10;            // Polling velocissimo in tempo reale ogni 0.4 secondi per sincronizzazione immediata&#13;&#10;            if (cardPollInterval) clearInterval(cardPollInterval);&#13;&#10;            cardPollInterval = setInterval(fetchOccupiedCards, 400);&#13;&#10;        } else {&#13;&#10;            if (cardPollInterval) {&#13;&#10;                clearInterval(cardPollInterval);&#13;&#10;                cardPollInterval = null;&#13;&#10;            }&#13;&#10;        }&#13;&#10;        document.querySelectorAll('.screen').forEach(s =&gt; s.classList.remove('active-screen'));&#13;&#10;        document.getElementById(screenId).classList.add('active-screen');&#13;&#10;    }&#13;&#10;&#13;&#10;    function restoreSmorfia() {&#13;&#10;        if (confirm(&quot;Restore original smorfia?&quot;)) {&#13;&#10;            getAndroidInterface()?.restoreSmorfiaFromBackup();&#13;&#10;            setTimeout(updateNapButtonLabel, 500);&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function updateNapButtonLabel() {&#13;&#10;        const android = getAndroidInterface();&#13;&#10;        if (android &amp;&amp; typeof android.isSmorfiaCustomized === 'function') {&#13;&#10;            const isCustom = android.isSmorfiaCustomized();&#13;&#10;            document.getElementById('lang-nap').innerText = isCustom ? 'OWN' : 'NAP';&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    // --- LOGICA GRIGLIA CARTELLE CON CICLI FOR PER PLAYER E CARTELLE ---&#13;&#10;    let occupiedCards = [];&#13;&#10;    function getClientId() {&#13;&#10;        let id = localStorage.getItem('tombola_client_id');&#13;&#10;        if (!id) {&#13;&#10;            id = 'player_' + Math.random().toString(36).substring(2, 9);&#13;&#10;            localStorage.setItem('tombola_client_id', id);&#13;&#10;        }&#13;&#10;        return id;&#13;&#10;    }&#13;&#10;    window.clientId = getClientId();&#13;&#10;    window.playerNum = window.playerNum || 1;&#13;&#10;    window.totalPlayers = window.totalPlayers || 1;&#13;&#10;&#13;&#10;    function renderCardGrid() {&#13;&#10;        const container = document.getElementById('card-grid-container');&#13;&#10;        if (!container) return;&#13;&#10;&#13;&#10;        let html = &quot;&quot;;&#13;&#10;        let myNum = window.playerNum;&#13;&#10;&#13;&#10;        // I due cicli FOR richiesti:&#13;&#10;        // 1. For dei player (da 1 a max 6)&#13;&#10;        // 2. For interno delle cartelle (da 1 a 72, considerando che le prime 36 sono per i tradizionali, quindi 37-72)&#13;&#10;        for (let p = 1; p &lt;= 6; p++) {&#13;&#10;            if (p !== myNum) continue;&#13;&#10;&#13;&#10;            for (let c = 1; c &lt;= 72; c++) {&#13;&#10;                if (c &lt; 37) continue; // Le prime 36 sono per i giocatori con cartelle tradizionali&#13;&#10;&#13;&#10;                const isSelected = chosenCardIds.includes(c);&#13;&#10;                const isOccupiedByOther = occupiedCards.includes(c);&#13;&#10;&#13;&#10;                // Appena la cartella è cliccata o scelta da altri, deve scomparire dalla griglia&#13;&#10;                if (isSelected || isOccupiedByOther) {&#13;&#10;                    continue;&#13;&#10;                }&#13;&#10;&#13;&#10;                html += `&#13;&#10;                    &lt;div id=&quot;card-flag-${c}&quot;&#13;&#10;                         class=&quot;card-flag&quot;&#13;&#10;                         onclick=&quot;toggleCardSelection(${c})&quot;&gt;&#13;&#10;                        ${c}&#13;&#10;                    &lt;/div&gt;`;&#13;&#10;            }&#13;&#10;        }&#13;&#10;        container.innerHTML = html;&#13;&#10;        document.getElementById('cards-count-info').innerText = `Player #${myNum} - Selected: ${chosenCardIds.length}/6`;&#13;&#10;    }&#13;&#10;&#13;&#10;    function toggleCardSelection(id) {&#13;&#10;        // Se la cartella è già in gioco (blu per tutti), non la può scegliere e mostra il messaggio&#13;&#10;        if (occupiedCards.includes(id) || chosenCardIds.includes(id)) {&#13;&#10;            showAlert(&quot;Card already in play!&quot;);&#13;&#10;            return;&#13;&#10;        }&#13;&#10;&#13;&#10;        // Seleziona la cartella (massimo 6)&#13;&#10;        if (chosenCardIds.length &gt;= 6) {&#13;&#10;            showAlert(&quot;You can select maximum 6 cards!&quot;);&#13;&#10;            return;&#13;&#10;        }&#13;&#10;&#13;&#10;        chosenCardIds.push(id);&#13;&#10;        renderCardGrid();&#13;&#10;&#13;&#10;        // Registra subito la cartella sul server in modo che diventi blu per tutti&#13;&#10;        claimCardOnServer(id);&#13;&#10;    }&#13;&#10;&#13;&#10;    function onPlayerIdEntered() {&#13;&#10;        const callerIdInput = document.getElementById('caller-id-input');&#13;&#10;        const callerId = callerIdInput.value.toUpperCase().trim();&#13;&#10;        if (callerId &amp;&amp; callerId.length &gt;= 3) {&#13;&#10;            const android = getAndroidInterface();&#13;&#10;            if (android &amp;&amp; typeof android.checkLocalCaller === 'function') {&#13;&#10;                window.pendingRole = 'grid_update';&#13;&#10;                window.pendingId = callerId;&#13;&#10;                android.checkLocalCaller(callerId);&#13;&#10;            }&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function fetchOccupiedCards() {&#13;&#10;        if (!window.callerIp) {&#13;&#10;            onPlayerIdEntered();&#13;&#10;            return;&#13;&#10;        }&#13;&#10;        const android = getAndroidInterface();&#13;&#10;        const req = JSON.stringify({ action: &quot;getOccupied&quot;, clientId: window.clientId });&#13;&#10;        android?.sendGameRequest(window.callerIp, req);&#13;&#10;    }&#13;&#10;&#13;&#10;    function claimCardOnServer(id) {&#13;&#10;        if (!window.callerIp) {&#13;&#10;            onPlayerIdEntered();&#13;&#10;            return;&#13;&#10;        }&#13;&#10;        const android = getAndroidInterface();&#13;&#10;        const req = JSON.stringify({ action: &quot;claimCard&quot;, cardId: id, clientId: window.clientId });&#13;&#10;        android?.sendGameRequest(window.callerIp, req);&#13;&#10;    }&#13;&#10;&#13;&#10;    function releaseCardOnServer(id) {&#13;&#10;        const android = getAndroidInterface();&#13;&#10;        const req = JSON.stringify({ action: &quot;releaseCard&quot;, cardId: id, clientId: window.clientId });&#13;&#10;        android?.sendGameRequest(window.callerIp, req);&#13;&#10;    }&#13;&#10;&#13;&#10;    window.onLocalCallerChecked = function(isActive, hostIp) {&#13;&#10;        clearTimeout(window.checkTimeout);&#13;&#10;        const role = window.pendingRole;&#13;&#10;        const callerId = window.pendingId;&#13;&#10;&#13;&#10;        if (role === 'caller') {&#13;&#10;            const btn = document.querySelector('#screen-caller-menu .btn-caller');&#13;&#10;            if (btn) {&#13;&#10;                btn.innerText = &quot;START GAME&quot;;&#13;&#10;                btn.disabled = false;&#13;&#10;            }&#13;&#10;&#13;&#10;            if (isActive) {&#13;&#10;                alert(&quot;WARNING: A presenter is already active for this code on the WiFi/Hotspot network!&quot;);&#13;&#10;            } else {&#13;&#10;                getAndroidInterface()?.claimLocalCaller(callerId);&#13;&#10;                userRole = role;&#13;&#10;                showScreen('screen-game');&#13;&#10;                initGame();&#13;&#10;            }&#13;&#10;        } else if (role === 'player') {&#13;&#10;            const btn = document.querySelector('#screen-player-setup .btn-player');&#13;&#10;            if (btn) {&#13;&#10;                btn.innerText = &quot;START&quot;;&#13;&#10;                btn.disabled = false;&#13;&#10;            }&#13;&#10;&#13;&#10;            if (!isActive) {&#13;&#10;                showAlert(&quot;Presenter not found on the local network for code &quot; + callerId);&#13;&#10;            } else {&#13;&#10;                window.callerIp = hostIp;&#13;&#10;&#13;&#10;                if (chosenCardIds.length === 0) {&#13;&#10;                    showAlert(&quot;Please choose your cards!&quot;);&#13;&#10;                    return;&#13;&#10;                }&#13;&#10;&#13;&#10;                userRole = role;&#13;&#10;                showScreen('screen-game');&#13;&#10;                initGame();&#13;&#10;                // Assicuriamoci che le cartelle selezionate siano registrate sul server&#13;&#10;                if (chosenCardIds.length &gt; 0) {&#13;&#10;                    chosenCardIds.forEach(id =&gt; claimCardOnServer(id));&#13;&#10;                }&#13;&#10;            }&#13;&#10;        } else if (role === 'grid_update') {&#13;&#10;            if (isActive) {&#13;&#10;                window.callerIp = hostIp;&#13;&#10;                fetchOccupiedCards();&#13;&#10;                // Registra subito sul server eventuali cartelle già selezionate prima della connessione&#13;&#10;                if (chosenCardIds.length &gt; 0) {&#13;&#10;                    chosenCardIds.forEach(id =&gt; claimCardOnServer(id));&#13;&#10;                }&#13;&#10;            }&#13;&#10;        }&#13;&#10;&#13;&#10;        window.pendingRole = null;&#13;&#10;        window.pendingId = null;&#13;&#10;    };&#13;&#10;&#13;&#10;    function syncPlayerCards() {&#13;&#10;        // Obsoleto, gestito ora durante la selezione o in onLocalCallerChecked&#13;&#10;    }&#13;&#10;&#13;&#10;    window.onGameResponse = function(responseJson) {&#13;&#10;        if (!responseJson) return;&#13;&#10;        try {&#13;&#10;            const res = JSON.parse(responseJson);&#13;&#10;            if (res.cards) occupiedCards = res.cards;&#13;&#10;            if (res.playerNum !== undefined) window.playerNum = res.playerNum;&#13;&#10;            if (res.currentChoosingPlayer !== undefined) window.currentChoosingPlayer = res.currentChoosingPlayer;&#13;&#10;            if (res.totalPlayers !== undefined) window.totalPlayers = res.totalPlayers;&#13;&#10;            renderCardGrid();&#13;&#10;&#13;&#10;            if (res.status === &quot;error&quot;) {&#13;&#10;                if (res.message &amp;&amp; res.message.includes(&quot;Maximum 6 online players allowed&quot;)) {&#13;&#10;                    showAlert(res.message);&#13;&#10;                    triggerExit();&#13;&#10;                } else if (res.message === &quot;Card already taken&quot;) {&#13;&#10;                    if (res.cardId) {&#13;&#10;                        chosenCardIds = chosenCardIds.filter(id =&gt; id !== res.cardId);&#13;&#10;                    }&#13;&#10;                    showAlert(&quot;Card already in play!&quot;);&#13;&#10;                    fetchOccupiedCards();&#13;&#10;                } else if (!res.message.includes(&quot;Please wait for your turn&quot;)) {&#13;&#10;                    showAlert(&quot;Server Error: &quot; + res.message);&#13;&#10;                }&#13;&#10;            }&#13;&#10;        } catch(e) {}&#13;&#10;    };&#13;&#10;&#13;&#10;    function initGame() {&#13;&#10;        estrazione = [];&#13;&#10;        document.getElementById('numero').innerText = &quot;0&quot;;&#13;&#10;        document.getElementById('frase').innerText = &quot;READY?&quot;;&#13;&#10;        document.getElementById('smorfia-mini').style.display = 'none';&#13;&#10;        buildTabellone();&#13;&#10;        setLanguage('it');&#13;&#10;&#13;&#10;        const mainStop = document.getElementById('main-stop-btn');&#13;&#10;        const gameToolbar = document.getElementById('game-toolbar');&#13;&#10;&#13;&#10;        if (userRole === 'caller') {&#13;&#10;            document.getElementById('header-title').innerText = &quot;FAMILY CALLER&quot;;&#13;&#10;            document.getElementById('live-controls').style.display = 'block';&#13;&#10;            document.getElementById('live-controls').querySelector('button:nth-child(2)').style.display = 'inline-block'; // Mostra LIVE AUTO&#13;&#10;            gameToolbar.style.display = 'block';&#13;&#10;            document.getElementById('row-extraction').style.display = 'flex';&#13;&#10;            document.getElementById('player-view').style.display = 'none';&#13;&#10;            document.getElementById('tabellone').style.display = 'table';&#13;&#10;            mainStop.style.display = 'block';&#13;&#10;        } else {&#13;&#10;            document.getElementById('header-title').innerText = &quot;PLAYER MODE&quot;;&#13;&#10;            document.getElementById('live-controls').style.display = 'none'; // Nessun tasto microfono per il Player&#13;&#10;            gameToolbar.style.display = 'block';&#13;&#10;            document.getElementById('row-extraction').style.display = 'none';&#13;&#10;            document.getElementById('player-view').style.display = 'flex';&#13;&#10;            document.getElementById('tabellone').style.display = 'none';&#13;&#10;            mainStop.style.display = 'none';&#13;&#10;            createPlayerCards();&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function buildTabellone() {&#13;&#10;        let html = &quot;&quot;;&#13;&#10;        for (let r = 0; r &lt; 9; r++) {&#13;&#10;            html += &quot;&lt;tr&gt;&quot;;&#13;&#10;            for (let c = 1; c &lt;= 10; c++) {&#13;&#10;                let n = (r * 10) + c;&#13;&#10;                html += `&lt;td id=&quot;cell-${n}&quot; onclick=&quot;gestisciClickCella(${n})&quot;&gt;${n}&lt;/td&gt;`;&#13;&#10;            }&#13;&#10;            html += &quot;&lt;/tr&gt;&quot;;&#13;&#10;        }&#13;&#10;        document.getElementById('tabellone').innerHTML = html;&#13;&#10;    }&#13;&#10;&#13;&#10;    function createPlayerCards() {&#13;&#10;        const container = document.getElementById('cartelle-container');&#13;&#10;        if (!container) return;&#13;&#10;        &#13;&#10;        let cardsHtml = &quot;&quot;;&#13;&#10;        // Se non ci sono cartelle scelte, mostra un messaggio o un contenitore vuoto&#13;&#10;        if (chosenCardIds.length === 0) {&#13;&#10;            container.innerHTML = &quot;&lt;div style='padding:20px; color:white;'&gt;No cards selected!&lt;/div&gt;&quot;;&#13;&#10;            return;&#13;&#10;        }&#13;&#10;&#13;&#10;        // Always prepare for 6 slots&#13;&#10;        for (let i = 0; i &lt; 6; i++) {&#13;&#10;            const id = chosenCardIds[i];&#13;&#10;            if (id) {&#13;&#10;                const data = CARTELLE[id];&#13;&#10;                if (!data) {&#13;&#10;                    console.error(&quot;Card data not found for ID: &quot; + id);&#13;&#10;                    continue;&#13;&#10;                }&#13;&#10;                let grid = &quot;&quot;;&#13;&#10;                for (let r = 0; r &lt; 3; r++) {&#13;&#10;                    for (let c = 0; c &lt; 9; c++) {&#13;&#10;                        let val = data[r][c];&#13;&#10;                        grid += `&lt;div class=&quot;cell&quot; ${val ? `onclick=&quot;marcaturaGiocatore(${val}, this)&quot;` : ''}&gt;${val || ''}&lt;/div&gt;`;&#13;&#10;                    }&#13;&#10;                }&#13;&#10;                cardsHtml += `&lt;div class=&quot;player-card&quot;&gt;&lt;div class=&quot;card-side-num&quot;&gt;${id}&lt;/div&gt;&lt;div class=&quot;card-grid&quot;&gt;${grid}&lt;/div&gt;&lt;/div&gt;`;&#13;&#10;            } else {&#13;&#10;                cardsHtml += `&lt;div class=&quot;player-card&quot; style=&quot;border-bottom:none; background:transparent;&quot;&gt;&lt;/div&gt;`;&#13;&#10;            }&#13;&#10;        }&#13;&#10;        container.innerHTML = cardsHtml;&#13;&#10;    }&#13;&#10;&#13;&#10;    function setLanguage(l) {&#13;&#10;        lingua = l;&#13;&#10;        smorfiaType = l === 'it' ? 1 : (l === 'en' ? 2 : 3);&#13;&#10;        document.querySelectorAll('.btn-lang').forEach(btn =&gt; btn.classList.remove('active'));&#13;&#10;        document.getElementById('lang-' + l)?.classList.add('active');&#13;&#10;    }&#13;&#10;&#13;&#10;    function parla(frase, numero) {&#13;&#10;        const android = getAndroidInterface();&#13;&#10;        let textToSpeak = (lingua === 'en') ? &quot;Number &quot; + numero + &quot;. &quot; + frase : numero + &quot;. &quot; + frase;&#13;&#10;&#13;&#10;        if (android) {&#13;&#10;            android.stopAudio();&#13;&#10;            if (smorfiaType === 3 &amp;&amp; numero &gt;= 1 &amp;&amp; numero &lt;= 90) {&#13;&#10;                android.playAudio(`audio/${String(numero).padStart(2, '0')}.mp3`);&#13;&#10;            } else {&#13;&#10;                android.speak(textToSpeak, lingua === 'en' ? 'en-US' : 'it-IT');&#13;&#10;            }&#13;&#10;        } else {&#13;&#10;            // FALLBACK PER iOS / BROWSER GENERICO&#13;&#10;            const msg = new SpeechSynthesisUtterance(textToSpeak);&#13;&#10;            msg.lang = lingua === 'en' ? 'en-US' : 'it-IT';&#13;&#10;            window.speechSynthesis.speak(msg);&#13;&#10;&#13;&#10;            if (smorfiaType === 3 &amp;&amp; numero &gt;= 1 &amp;&amp; numero &lt;= 90) {&#13;&#10;                const audio = new Audio(`audio/${String(numero).padStart(2, '0')}.mp3`);&#13;&#10;                audio.play().catch(e =&gt; console.log(&quot;Audio play blocked&quot;));&#13;&#10;            }&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    window.onSpeechResult = function(text) {&#13;&#10;        if (!text) return;&#13;&#10;        const cleaned = String(text).trim().toLowerCase();&#13;&#10;        const n = parolaToNumero(cleaned);&#13;&#10;        if (!isNaN(n) &amp;&amp; n &gt;= 1 &amp;&amp; n &lt;= 90 &amp;&amp; !estrazione.includes(n)) {&#13;&#10;            estrazione.push(n);&#13;&#10;            estrazioneVoice.push(n); // Segna come estratto via voce&#13;&#10;            aggiornaUI(n);&#13;&#10;        }&#13;&#10;    };&#13;&#10;&#13;&#10;    function estrai() {&#13;&#10;        const btn = document.getElementById('btn-estrai');&#13;&#10;        if (userRole === 'caller') {&#13;&#10;            if (timerAuto) {&#13;&#10;                stopAuto(); // Se era in AUTO, fermalo prima di passare a VOICE&#13;&#10;            }&#13;&#10;&#13;&#10;            isListening = !isListening;&#13;&#10;            if (isListening) {&#13;&#10;                btn.innerText = &quot; VOICE ON&quot;;&#13;&#10;                btn.classList.add('btn-voice-on');&#13;&#10;                getAndroidInterface()?.checkAndStartListening();&#13;&#10;            } else {&#13;&#10;                btn.innerText = &quot; VOICE&quot;;&#13;&#10;                btn.classList.remove('btn-voice-on');&#13;&#10;            }&#13;&#10;        } else {&#13;&#10;            estraiRandom();&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function estraiRandom() {&#13;&#10;        if (estrazione.length &gt;= 90) { stopAuto(); return; }&#13;&#10;        let n;&#13;&#10;        do { n = Math.floor(Math.random() * 90) + 1; } while (estrazione.includes(n));&#13;&#10;        estrazione.push(n);&#13;&#10;        aggiornaUI(n);&#13;&#10;    }&#13;&#10;&#13;&#10;    function aggiornaUI(n) {&#13;&#10;        mostraIconaGrande(n);&#13;&#10;        let nm = getAndroidInterface()?.getCustomTitle(n);&#13;&#10;        if (!nm) {&#13;&#10;            if (lingua === 'en') nm = SMORFIA_EN[String(n).padStart(2, '0')];&#13;&#10;            else if (lingua === 'nap') nm = SMORFIA_NAP[String(n).padStart(2, '0')];&#13;&#10;            else nm = SMORFIA_IT[String(n).padStart(2, '0')];&#13;&#10;        }&#13;&#10;&#13;&#10;        const mini = document.getElementById('smorfia-mini');&#13;&#10;        if (mini) {&#13;&#10;            mini.src = &quot;./smorfia/&quot; + String(n).padStart(2, '0') + &quot;.png&quot;;&#13;&#10;            mini.style.display = 'block';&#13;&#10;        }&#13;&#10;&#13;&#10;        document.getElementById('numero').innerText = n;&#13;&#10;        document.getElementById('frase').innerText = nm || &quot;&quot;;&#13;&#10;        document.querySelectorAll('.tab td').forEach(t =&gt; t.classList.remove('ultimo'));&#13;&#10;        document.getElementById('cell-' + n)?.classList.add('estratto', 'ultimo');&#13;&#10;&#13;&#10;        // SOLO IL CALLER PARLA&#13;&#10;        if (userRole === 'caller') {&#13;&#10;            parla(nm, n);&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function marcaturaGiocatore(n, el) {&#13;&#10;        if (!el) return;&#13;&#10;        const wasMarked = el.classList.contains('marked');&#13;&#10;        el.classList.toggle('marked');&#13;&#10;&#13;&#10;        // Se stiamo segnando il numero (non togliendo il segno), mostriamo l'icona e il banner&#13;&#10;        if (!wasMarked) {&#13;&#10;            aggiornaUI(n);&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function mostraIconaGrande(n) {&#13;&#10;        var o = document.getElementById('large-smorfia-overlay');&#13;&#10;        var i = document.getElementById('large-smorfia-img');&#13;&#10;        var m = document.getElementById('large-smorfia-num');&#13;&#10;        if (o &amp;&amp; i &amp;&amp; m) {&#13;&#10;            i.src = &quot;./smorfia/&quot; + String(n).padStart(2, '0') + &quot;.png&quot;;&#13;&#10;            m.innerText = n;&#13;&#10;            o.style.display = 'flex';&#13;&#10;            setTimeout(() =&gt; o.style.display = 'none', 3000);&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function parolaToNumero(text) {&#13;&#10;        if (!text) return NaN;&#13;&#10;        const s = text.toLowerCase().trim().replace(/[.,?']/g, '');&#13;&#10;        const mapping = {&#13;&#10;            'uno': 1, 'due': 2, 'tre': 3, 'tré': 3, 'quattro': 4, 'cinque': 5, 'sei': 6, 'sette': 7, 'otto': 8, 'nove': 9, 'dieci': 10,&#13;&#10;            'undici': 11, 'dodici': 12, 'tredici': 13, 'quattordici': 14, 'quindici': 15, 'sedici': 16, 'diciassette': 17, 'diciotto': 18, 'diciannove': 19, 'venti': 20,&#13;&#10;            'ventuno': 21, 'ventidue': 22, 'ventitré': 23, 'ventitre': 23, 'ventiquattro': 24, 'venticinque': 25, 'ventisei': 26, 'ventisette': 27, 'ventotto': 28, 'ventinove': 29, 'trenta': 30,&#13;&#10;            'trentuno': 31, 'trentadue': 32, 'trentatré': 33, 'trentatre': 33, 'trentaquattro': 34, 'trentacinque': 35, 'trentasei': 36, 'trentasette': 37, 'trentotto': 38, 'trentanove': 39, 'quaranta': 40,&#13;&#10;            'quarantuno': 41, 'quarantadue': 42, 'quarantatré': 43, 'quarantatre': 43, 'quarantaquattro': 44, 'quarantacinque': 45, 'quarantasei': 46, 'quarantasette': 47, 'quarantotto': 48, 'quarantanove': 49, 'cinquanta': 50,&#13;&#10;            'cinquantuno': 51, 'cinquantadue': 52, 'cinquantatré': 53, 'cinquantatre': 53, 'cinquantaquattro': 54, 'cinquantacinque': 55, 'cinquantasei': 56, 'cinquantasette': 57, 'cinquantotto': 58, 'cinquantanove': 59, 'sessanta': 60,&#13;&#10;            'sessantuno': 61, 'sessantadue': 62, 'sessantatré': 63, 'sessantatre': 63, 'sessantaquattro': 64, 'sessantacinque': 65, 'sessantasei': 66, 'sessantasette': 67, 'sessantotto': 68, 'sessantanove': 69, 'settanta': 70,&#13;&#10;            'settantuno': 71, 'settantadue': 72, 'settantatré': 73, 'settantatre': 73, 'settantaquattro': 74, 'settantacinque': 75, 'settantasei': 76, 'settantasette': 77, 'settantotto': 78, 'settantanove': 79, 'ottanta': 80,&#13;&#10;            'ottantuno': 81, 'ottantadue': 82, 'ottantatré': 83, 'ottantatre': 83, 'ottantaquattro': 84, 'ottantacinque': 85, 'ottantasei': 86, 'ottantasette': 87, 'ottantotto': 88, 'ottantanove': 89, 'novanta': 90&#13;&#10;        };&#13;&#10;        if (!isNaN(s)) return parseInt(s);&#13;&#10;        const sortedKeys = Object.keys(mapping).sort((a, b) =&gt; b.length - a.length);&#13;&#10;        for (let key of sortedKeys) { if (s.includes(key)) return mapping[key]; }&#13;&#10;        return NaN;&#13;&#10;    }&#13;&#10;&#13;&#10;    function gestisciClickCella(n) {&#13;&#10;        // Annullamento possibile solo per numeri estratti via voce, con VOICE ON e AUTO OFF&#13;&#10;        if (userRole === 'caller' &amp;&amp; estrazione.includes(n) &amp;&amp; estrazioneVoice.includes(n) &amp;&amp; isListening &amp;&amp; !timerAuto) {&#13;&#10;            annullaNumero(n);&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function annullaNumero(n) {&#13;&#10;        const msgConfirm = (lingua === 'en') ? `Cancel number ${n}?` : `Annullare il numero ${n}?`;&#13;&#10;        if (confirm(msgConfirm)) {&#13;&#10;            estrazione = estrazione.filter(num =&gt; num !== n);&#13;&#10;            estrazioneVoice = estrazioneVoice.filter(num =&gt; num !== n);&#13;&#10;&#13;&#10;            const cell = document.getElementById('cell-' + n);&#13;&#10;            if (cell) {&#13;&#10;                cell.classList.remove('estratto', 'ultimo');&#13;&#10;            }&#13;&#10;&#13;&#10;            if (parseInt(document.getElementById('numero').innerText) === n) {&#13;&#10;                document.getElementById('numero').innerText = &quot;0&quot;;&#13;&#10;                document.getElementById('frase').innerText = (lingua === 'en') ? &quot;CANCELLED&quot; : &quot;ANNULLATO&quot;;&#13;&#10;                document.getElementById('smorfia-mini').style.display = 'none';&#13;&#10;            }&#13;&#10;&#13;&#10;            const msgVocale = (lingua === 'en') ? `Number ${n} cancelled` : `Numero ${n} annullato`;&#13;&#10;            parla(msgVocale, &quot;&quot;);&#13;&#10;        }&#13;&#10;    }&#13;&#10;&#13;&#10;    function toggleAuto() { if (timerAuto) stopAuto(); else startAuto(); }&#13;&#10;    function startAuto() {&#13;&#10;        if (isListening) {&#13;&#10;            estrai(); // Se il microfono è acceso, spegnilo prima di passare a AUTO&#13;&#10;        }&#13;&#10;        const interval = parseInt(document.getElementById('select-interval').value) || 7000;&#13;&#10;        estraiRandom();&#13;&#10;        timerAuto = setInterval(estraiRandom, interval);&#13;&#10;        document.getElementById('btn-auto').innerText = &quot;AUTO: ON&quot;;&#13;&#10;        document.getElementById('btn-auto').style.background = &quot;#d32f2f&quot;;&#13;&#10;        document.getElementById('btn-auto').style.color = &quot;#fff&quot;;&#13;&#10;    }&#13;&#10;    function stopAuto() { clearInterval(timerAuto); timerAuto = null; document.getElementById('btn-auto').innerText = &quot;AUTO: OFF&quot;; document.getElementById('btn-auto').style.background = &quot;#fbc02d&quot;; document.getElementById('btn-auto').style.color = &quot;#000&quot;; }&#13;&#10;&#13;&#10;    document.addEventListener('DOMContentLoaded', () =&gt; {&#13;&#10;        const callerIdInputPlayer = document.getElementById('caller-id-input');&#13;&#10;        const callerIdInputCaller = document.getElementById('caller-id-input-caller');&#13;&#10;        const savedId = localStorage.getItem('voice_tombola_caller_id');&#13;&#10;&#13;&#10;        const syncInputs = (val) =&gt; {&#13;&#10;            if (callerIdInputPlayer) callerIdInputPlayer.value = val;&#13;&#10;            if (callerIdInputCaller) callerIdInputCaller.value = val;&#13;&#10;            localStorage.setItem('voice_tombola_caller_id', val);&#13;&#10;        };&#13;&#10;&#13;&#10;        if (savedId) syncInputs(savedId);&#13;&#10;&#13;&#10;        [callerIdInputPlayer, callerIdInputCaller].forEach(input =&gt; {&#13;&#10;            if (input) {&#13;&#10;                input.addEventListener('input', (e) =&gt; {&#13;&#10;                    let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');&#13;&#10;                    if (val.length &gt; 6) val = val.substring(0, 6);&#13;&#10;                    syncInputs(val);&#13;&#10;                    if (input === callerIdInputPlayer &amp;&amp; val.length &gt;= 3) {&#13;&#10;                        onPlayerIdEntered();&#13;&#10;                    }&#13;&#10;                });&#13;&#10;            }&#13;&#10;        });&#13;&#10;    });&#13;&#10;&lt;/script&gt;&#13;&#10;&lt;/body&gt;&#13;&#10;&lt;/html&gt;" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="dammi prima la versione docs index da utilizzare con il link del sito compatibile con android studio. Dopo che il sito github funziona  aggiorno la release di play store" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ma il link del sito era  https://antonio194509.github.io/VoiceTombola/" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="lascio voicetombola e prendo il tuo index" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ok" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="non l'ho copiato prima" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="allora committo con il mio?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="quale è il piano pagato?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="piano AI github" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="perchè il mio è a consumo se pago 10 dollari al mese" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ho usato il 72% da quando?" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="in docs un index github che non mi numera i players PROGRESSIVAMENTE e consente loro di scegliere le stesse cartrelle? correggI questo malfunzionAMENTO" />
+      </PersistedInputEntry>
+    </inputEntries>
+  </component>
+  <component name="sourceFolderManager">
+    <sourceFolders>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/java" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/shaders" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/debug/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/main/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/main/shaders" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/main/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/main/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/shaders" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/test/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/java" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/shaders" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/testDebug/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/shaders" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTest/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/java" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/kotlin" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/shaders" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/assets" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/baselineProfiles" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/res" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/src/androidTestDebug/resources" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="VoiceTombola.app.unitTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debugUnitTest/out" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_SOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debugAndroidTest/out" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="VoiceTombola.app.main" />
+        <option name="type" value="RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/res/resValues/debug" />
+      </SourceFolderModelState>
+      <SourceFolderModelState>
+        <option name="generated" value="true" />
+        <option name="moduleName" value="VoiceTombola.app.androidTest" />
+        <option name="type" value="TEST_RESOURCE" />
+        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/res/resValues/androidTest/debug" />
+      </SourceFolderModelState>
+    </sourceFolders>
+  </component>
+</project>
