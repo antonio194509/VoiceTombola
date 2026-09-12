@@ -101,8 +101,8 @@ class GameServer(private val port: Int = 8889) {
                 }
                 "claimCard" -> {
                     val cardId = json.getInt("cardId")
-                    if (cardId < 37 || cardId > 72) {
-                        return JSONObject().put("status", "error").put("message", "Cards 1-36 are reserved for traditional players").toString()
+                    if (cardId < 1 || cardId > 72) {
+                        return JSONObject().put("status", "error").put("message", "Invalid card ID").toString()
                     }
 
                     val currentOwner = cardOwners[cardId]
