@@ -50,12 +50,14 @@ class FamilyActivity : AppCompatActivity() {
 
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
+        webView.settings.cacheMode = android.webkit.WebSettings.LOAD_NO_CACHE
+        webView.clearCache(true)
         // Necessario per abilitare confirm(), alert(), etc.
         webView.webChromeClient = WebChromeClient()
 
         bridge = FamilyBridge(this, webView)
         webView.addJavascriptInterface(bridge, "Android")
-        webView.loadUrl("https://antonio194509.github.io/VoiceTombola/docs/")
+        webView.loadUrl("https://antonio194509.github.io/VoiceTombola/docs/?t=" + System.currentTimeMillis())
 
         onBackPressedDispatcher.addCallback(this) {
             if (this@FamilyActivity::webView.isInitialized && this@FamilyActivity.webView.canGoBack()) {
