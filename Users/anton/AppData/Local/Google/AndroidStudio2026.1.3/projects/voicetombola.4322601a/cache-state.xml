@@ -1,9 +1,9 @@
 <project version="4">
   <component name="GradleLocalSettings">
-    <option name="myGradleUserHome" value="$USER_HOME$/gradle_home_alt" />
+    <option name="myGradleUserHome" value="$USER_HOME$/.gradle" />
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\anton\gradle_home_alt\wrapper\dists\gradle-9.7.1-bin\1w1c7tv4s851m17nbqdsro2tv\gradle-9.7.1" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\anton\.gradle\wrapper\dists\gradle-9.7.1-bin\1w1c7tv4s851m17nbqdsro2tv\gradle-9.7.1" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -41,19 +41,14 @@
       </map>
     </option>
   </component>
-  <component name="KotlinCompilationErrorFileTimeStamps"><![CDATA[{
-  "timestamps": {
-    "7281645ed1c4a9d114a442ad2a538118-FUNCTION_DECLARATION_WITH_NO_NAME": 1789122367504,
-    "7281645ed1c4a9d114a442ad2a538118-INACCESSIBLE_OUTER_CLASS_RECEIVER": 1789124503845,
-    "7281645ed1c4a9d114a442ad2a538118-NO_THIS": 1789124667996,
-    "7281645ed1c4a9d114a442ad2a538118-OVERLOAD_RESOLUTION_AMBIGUITY": 1789123948862,
-    "7281645ed1c4a9d114a442ad2a538118-SUPER_NOT_AVAILABLE": 1789124667996,
-    "7281645ed1c4a9d114a442ad2a538118-CONFLICTING_OVERLOADS": 1789123948862,
-    "7281645ed1c4a9d114a442ad2a538118-UNRESOLVED_REFERENCE": 1789122367504,
-    "7281645ed1c4a9d114a442ad2a538118-WRONG_MODIFIER_TARGET": 1789122367504
+  <component name="KotlinCompilationErrorFileTimeStamps">{
+  &quot;timestamps&quot;: {
+    &quot;0b029f216a2bb0a8461423fd2de27776-MISSING_DEPENDENCY_SUPERCLASS&quot;: 1789626267143,
+    &quot;0b029f216a2bb0a8461423fd2de27776-MISSING_DEPENDENCY_CLASS&quot;: 1789626267143
   }
-}]]></component>
+}</component>
   <component name="KotlinGradleFUSSettings">
+    <option name="gradleUserDirs" value="C:\Users\anton\gradle" />
     <option name="gradleUserDirs" value="C:\Users\anton\gradle_home_alt" />
     <option name="gradleUserDirs" value="C:\Users\anton\.gradle" />
   </component>
@@ -72,56 +67,32 @@
   </component>
   <component name="ProcessedFilesStorage">
     <timestamps>
-      <entry key="10976b930117fe357f9bb9dd8c94a7f9" value="1789125212207" />
-      <entry key="2138c96c1669a7dcd3f07d07a1cbb7df" value="1789050468014" />
-      <entry key="62c5dca4d3ebbf2d5c2d71894f00a545" value="1789117515142" />
-      <entry key="7281645ed1c4a9d114a442ad2a538118" value="1789122086455" />
-      <entry key="7816fb258d9791a3d91680f7652b4d60" value="1789051244363" />
-      <entry key="82500c38964506224db94fc913953150" value="1789050462170" />
-      <entry key="a37ed50a13fdcba75f8530ccf9f05b3d" value="1789050938222" />
-      <entry key="c1beae9c7f423f8375ecb131f77a5474" value="1789050713970" />
+      <entry key="10976b930117fe357f9bb9dd8c94a7f9" value="1789985941336" />
     </timestamps>
   </component>
   <component name="Project">
-    <option name="lastProjectScan" value="1788102729" />
+    <option name="lastProjectScan" value="1789340361" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
         <expanded-state>
           <State>
-            <id>Best practicesGradle</id>
+            <id>JVM languages</id>
           </State>
           <State>
-            <id>Gradle</id>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Numeric issuesJava</id>
           </State>
         </expanded-state>
-        <selected-state>
-          <State>
-            <id>LatestMinorVersion</id>
-          </State>
-        </selected-state>
       </profile-state>
     </entry>
   </component>
   <component name="RestoreUpdateTree">{}</component>
   <component name="github-copilot-input-history">
     <inputEntries>
-      <PersistedInputEntry>
-        <option name="query" value="ma lo script usato da github non è quello usto da android studio perchè html è docs ee come faccio a vedere che ha tutte le funzioni di index android?" />
-      </PersistedInputEntry>
-      <PersistedInputEntry>
-        <option name="query" value="ho bisogno di almeno un caller con il tabellone e 2 player . faccio aprire il link e procedo." />
-      </PersistedInputEntry>
-      <PersistedInputEntry>
-        <option name="query" value="allora copio index di asset su index di doxs?" />
-      </PersistedInputEntry>
-      <PersistedInputEntry>
-        <option name="query" value="prima provo così perchè l'ufficiale è play store il link lo dò agli amici che non hanno android" />
-      </PersistedInputEntry>
-      <PersistedInputEntry>
-        <option name="query" value="non sono allineati" />
-      </PersistedInputEntry>
       <PersistedInputEntry>
         <option name="query" value="dal file" />
       </PersistedInputEntry>
@@ -229,6 +200,24 @@
       </PersistedInputEntry>
       <PersistedInputEntry>
         <option name="query" value="in docs un index github che non mi numera i players PROGRESSIVAMENTE e consente loro di scegliere le stesse cartrelle? correggI questo malfunzionAMENTO" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="/review Ignore the Git diff and review only the selected lines in `gradle-wrapper.properties`. Timeout waiting to lock file hash cache (C:\VoiceTombola\.gradle\8.14.5\fileHashes). It is currently in use by another Gradle instance" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ok" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="Timeout waiting to lock file hash cache (C:\VoiceTombola\.gradle\8.14.5\fileHashes). It is currently in use by another Gradle instance" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <option name="query" value="ok" />
+      </PersistedInputEntry>
+      <PersistedInputEntry>
+        <contextItems>
+          <option value="{&quot;type&quot;:&quot;file&quot;,&quot;item&quot;:{&quot;virtualFile&quot;:&quot;file://C:/VoiceTombola/app/build.gradle.kts&quot;,&quot;isTokenReferenced&quot;:false}}" />
+        </contextItems>
+        <option name="query" value="/review Ignore the Git diff and review the entire contents of `build.gradle.kts`." />
       </PersistedInputEntry>
     </inputEntries>
   </component>
@@ -436,12 +425,6 @@
         <option name="moduleName" value="VoiceTombola.app.androidTest" />
         <option name="type" value="TEST_SOURCE" />
         <option name="url" value="file://$PROJECT_DIR$/app/build/generated/ap_generated_sources/debugAndroidTest/out" />
-      </SourceFolderModelState>
-      <SourceFolderModelState>
-        <option name="generated" value="true" />
-        <option name="moduleName" value="VoiceTombola.app.main" />
-        <option name="type" value="RESOURCE" />
-        <option name="url" value="file://$PROJECT_DIR$/app/build/generated/res/resValues/debug" />
       </SourceFolderModelState>
       <SourceFolderModelState>
         <option name="generated" value="true" />
